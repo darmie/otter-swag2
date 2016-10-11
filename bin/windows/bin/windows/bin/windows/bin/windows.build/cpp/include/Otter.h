@@ -70,6 +70,7 @@ class HXCPP_CLASS_ATTRIBUTES  Otter_obj : public ::Sprite_obj{
 		virtual Void move( );
 
 		virtual Void show( ::cpp::Pointer< SDL_Surface > screen);
+		Dynamic show_dyn();
 
 		virtual Void setInvincible( bool on);
 		Dynamic setInvincible_dyn();

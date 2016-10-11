@@ -8,7 +8,6 @@
 #ifndef INCLUDED_Sprite
 #include <Sprite.h>
 #endif
-#include <linc_sdl.h>
 HX_DECLARE_CLASS0(Coin)
 HX_DECLARE_CLASS0(ISprite)
 HX_DECLARE_CLASS0(Sprite)
@@ -48,8 +47,6 @@ class HXCPP_CLASS_ATTRIBUTES  Coin_obj : public ::Sprite_obj{
 		virtual int collision( );
 
 		virtual Void move( );
-
-		virtual Void show( ::cpp::Pointer< SDL_Surface > screen);
 
 };
 

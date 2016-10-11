@@ -82,9 +82,14 @@ class MenuScreen extends Sprite
 	
 	public function handle_event(event:Event):Bool{ //watches for spacebar press to start game
 		// if the space bar is currently pressed
-	    if(event.type == SDL_KEYDOWN){
+
+	    if (event.type == SDL_KEYDOWN){
+			
+				trace("Menu Screen event name:: " + SDL.getKeyName(event.key.keysym.sym));
 	        switch(SDL.getKeyName(event.key.keysym.sym)){
-	            case "Keypad Space": return true;
+	            
+				case "Space": return true;
+				
 	        }
 	    }
 		return false;

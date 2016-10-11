@@ -10,6 +10,9 @@
 #ifndef INCLUDED_Sprite
 #include <Sprite.h>
 #endif
+#ifndef INCLUDED_haxe_Log
+#include <haxe/Log.h>
+#endif
 
 Void MenuScreen_obj::__construct(::String filename,int r,int g,int b)
 {
@@ -261,28 +264,45 @@ bool MenuScreen_obj::handle_event( ::cpp::Struct<SDL_Event> event){
 	HX_STACK_FRAME("MenuScreen","handle_event",0xcddfd8c6,"MenuScreen.handle_event","MenuScreen.hx",83,0x06b9b113)
 	HX_STACK_THIS(this)
 	HX_STACK_ARG(event,"event")
-	HX_STACK_LINE(85)
+	HX_STACK_LINE(86)
 	bool tmp = (event->type == (int)768);		HX_STACK_VAR(tmp,"tmp");
-	HX_STACK_LINE(85)
+	HX_STACK_LINE(86)
 	if ((tmp)){
-		HX_STACK_LINE(86)
+		HX_STACK_LINE(88)
 		SDL_Keysym tmp1 = event->key.keysym;		HX_STACK_VAR(tmp1,"tmp1");
-		HX_STACK_LINE(86)
+		HX_STACK_LINE(88)
 		int tmp2 = tmp1.sym;		HX_STACK_VAR(tmp2,"tmp2");
-		HX_STACK_LINE(86)
+		HX_STACK_LINE(88)
 		 const ::cpp::Char *  tmp3 = SDL_GetKeyName(tmp2);		HX_STACK_VAR(tmp3,"tmp3");
-		HX_STACK_LINE(86)
-		::String _g = ((::String)(tmp3));		HX_STACK_VAR(_g,"_g");
-		HX_STACK_LINE(86)
-		::String tmp4 = _g;		HX_STACK_VAR(tmp4,"tmp4");
-		HX_STACK_LINE(86)
-		::String _switch_1 = (tmp4);
-		if (  ( _switch_1==HX_HCSTRING("Keypad Space","\xba","\x30","\x25","\x12"))){
-			HX_STACK_LINE(87)
-			return true;
+		HX_STACK_LINE(88)
+		::String tmp4 = ((::String)(tmp3));		HX_STACK_VAR(tmp4,"tmp4");
+		HX_STACK_LINE(88)
+		::String tmp5 = (HX_HCSTRING("Menu Screen event name:: ","\x5c","\xae","\x76","\xd2") + tmp4);		HX_STACK_VAR(tmp5,"tmp5");
+		HX_STACK_LINE(88)
+		Dynamic tmp6 = hx::SourceInfo(HX_HCSTRING("MenuScreen.hx","\x13","\xb1","\xb9","\x06"),88,HX_HCSTRING("MenuScreen","\x8b","\x7a","\x92","\x20"),HX_HCSTRING("handle_event","\x03","\xc1","\x43","\x8b"));		HX_STACK_VAR(tmp6,"tmp6");
+		HX_STACK_LINE(88)
+		::haxe::Log_obj::trace(tmp5,tmp6);
+		HX_STACK_LINE(89)
+		{
+			HX_STACK_LINE(89)
+			SDL_Keysym tmp7 = event->key.keysym;		HX_STACK_VAR(tmp7,"tmp7");
+			HX_STACK_LINE(89)
+			int tmp8 = tmp7.sym;		HX_STACK_VAR(tmp8,"tmp8");
+			HX_STACK_LINE(89)
+			 const ::cpp::Char *  tmp9 = SDL_GetKeyName(tmp8);		HX_STACK_VAR(tmp9,"tmp9");
+			HX_STACK_LINE(89)
+			::String _g = ((::String)(tmp9));		HX_STACK_VAR(_g,"_g");
+			HX_STACK_LINE(89)
+			::String tmp10 = _g;		HX_STACK_VAR(tmp10,"tmp10");
+			HX_STACK_LINE(89)
+			::String _switch_1 = (tmp10);
+			if (  ( _switch_1==HX_HCSTRING("Space","\xa6","\xfc","\x93","\x14"))){
+				HX_STACK_LINE(91)
+				return true;
+			}
 		}
 	}
-	HX_STACK_LINE(90)
+	HX_STACK_LINE(95)
 	return false;
 }
 
@@ -290,16 +310,16 @@ bool MenuScreen_obj::handle_event( ::cpp::Struct<SDL_Event> event){
 HX_DEFINE_DYNAMIC_FUNC1(MenuScreen_obj,handle_event,return )
 
 int MenuScreen_obj::collision( ){
-	HX_STACK_FRAME("MenuScreen","collision",0xab8f68cf,"MenuScreen.collision","MenuScreen.hx",96,0x06b9b113)
+	HX_STACK_FRAME("MenuScreen","collision",0xab8f68cf,"MenuScreen.collision","MenuScreen.hx",101,0x06b9b113)
 	HX_STACK_THIS(this)
-	HX_STACK_LINE(96)
+	HX_STACK_LINE(101)
 	return (int)0;
 }
 
 
 Void MenuScreen_obj::move( ){
 {
-		HX_STACK_FRAME("MenuScreen","move",0x709dffd4,"MenuScreen.move","MenuScreen.hx",100,0x06b9b113)
+		HX_STACK_FRAME("MenuScreen","move",0x709dffd4,"MenuScreen.move","MenuScreen.hx",105,0x06b9b113)
 		HX_STACK_THIS(this)
 	}
 return null();
@@ -308,49 +328,51 @@ return null();
 
 Void MenuScreen_obj::show( ::cpp::Pointer< SDL_Surface > screen){
 {
-		HX_STACK_FRAME("MenuScreen","show",0x748ff1c0,"MenuScreen.show","MenuScreen.hx",105,0x06b9b113)
+		HX_STACK_FRAME("MenuScreen","show",0x748ff1c0,"MenuScreen.show","MenuScreen.hx",110,0x06b9b113)
 		HX_STACK_THIS(this)
 		HX_STACK_ARG(screen,"screen")
-		HX_STACK_LINE(108)
+		HX_STACK_LINE(113)
 		bool tmp = this->hasPlayed;		HX_STACK_VAR(tmp,"tmp");
-		HX_STACK_LINE(108)
+		HX_STACK_LINE(113)
 		bool tmp1 = !(tmp);		HX_STACK_VAR(tmp1,"tmp1");
-		HX_STACK_LINE(108)
+		HX_STACK_LINE(113)
 		if ((tmp1)){
-			HX_STACK_LINE(109)
+			HX_STACK_LINE(114)
 			this->frame = (int)0;
 		}
 		else{
-			HX_STACK_LINE(112)
+			HX_STACK_LINE(117)
 			this->frame = (int)1;
 		}
-		HX_STACK_LINE(114)
+		HX_STACK_LINE(119)
 		::cpp::Pointer< SDL_Surface > tmp2 = this->sprite;		HX_STACK_VAR(tmp2,"tmp2");
-		HX_STACK_LINE(114)
+		HX_STACK_LINE(119)
 		::cpp::Pointer< SDL_Surface > tmp3 = screen;		HX_STACK_VAR(tmp3,"tmp3");
-		HX_STACK_LINE(114)
+		HX_STACK_LINE(119)
 		Dynamic tmp4;		HX_STACK_VAR(tmp4,"tmp4");
-		HX_STACK_LINE(114)
+		HX_STACK_LINE(119)
 		{
-			HX_STACK_LINE(114)
+			HX_STACK_LINE(119)
 			Array< ::Dynamic > tmp5 = this->states;		HX_STACK_VAR(tmp5,"tmp5");
-			HX_STACK_LINE(114)
+			HX_STACK_LINE(119)
 			cpp::ArrayBase tmp6 = tmp5->__unsafe_get((int)0).StaticCast< cpp::ArrayBase >();		HX_STACK_VAR(tmp6,"tmp6");
-			HX_STACK_LINE(114)
+			HX_STACK_LINE(119)
 			cpp::ArrayBase this1 = ((cpp::ArrayBase)(((cpp::ArrayBase)(tmp6))));		HX_STACK_VAR(this1,"this1");
-			HX_STACK_LINE(114)
+			HX_STACK_LINE(119)
 			int tmp7 = this->frame;		HX_STACK_VAR(tmp7,"tmp7");
-			HX_STACK_LINE(114)
+			HX_STACK_LINE(119)
 			Dynamic tmp8 = ((cpp::ArrayBase)(this1))->__Field(HX_HCSTRING("__unsafe_get","\xdd","\xcf","\x9b","\x60"), hx::paccDynamic )(tmp7);		HX_STACK_VAR(tmp8,"tmp8");
-			HX_STACK_LINE(114)
+			HX_STACK_LINE(119)
 			tmp4 = tmp8;
 		}
-		HX_STACK_LINE(114)
+		HX_STACK_LINE(119)
 		this->apply_surface(null(),null(),tmp2,tmp3,tmp4);
 	}
 return null();
 }
 
+
+HX_DEFINE_DYNAMIC_FUNC1(MenuScreen_obj,show,(void))
 
 
 MenuScreen_obj::MenuScreen_obj()

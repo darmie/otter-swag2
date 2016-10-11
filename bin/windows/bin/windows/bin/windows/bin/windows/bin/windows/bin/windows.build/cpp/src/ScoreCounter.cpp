@@ -11,6 +11,9 @@
 #ifndef INCLUDED_Sprite
 #include <Sprite.h>
 #endif
+#ifndef INCLUDED_Std
+#include <Std.h>
+#endif
 
 Void ScoreCounter_obj::__construct(::String filename,int r,int g,int b)
 {
@@ -877,18 +880,14 @@ Void ScoreCounter_obj::show( ::cpp::Pointer< SDL_Surface > screen){
 		HX_STACK_FRAME("ScoreCounter","show",0x977a3601,"ScoreCounter.show","ScoreCounter.hx",148,0x94deb314)
 		HX_STACK_THIS(this)
 		HX_STACK_ARG(screen,"screen")
-		HX_STACK_LINE(149)
-		::cpp::Pointer< SDL_Surface > tmp = screen;		HX_STACK_VAR(tmp,"tmp");
-		HX_STACK_LINE(149)
-		this->super::show(tmp);
 		HX_STACK_LINE(151)
-		int tmp1 = this->SCREEN_WIDTH;		HX_STACK_VAR(tmp1,"tmp1");
+		int tmp = this->SCREEN_WIDTH;		HX_STACK_VAR(tmp,"tmp");
 		HX_STACK_LINE(151)
-		int tmp2 = (int)168;		HX_STACK_VAR(tmp2,"tmp2");
+		int tmp1 = (int)168;		HX_STACK_VAR(tmp1,"tmp1");
 		HX_STACK_LINE(151)
-		int tmp3 = (tmp1 - tmp2);		HX_STACK_VAR(tmp3,"tmp3");
+		int tmp2 = (tmp - tmp1);		HX_STACK_VAR(tmp2,"tmp2");
 		HX_STACK_LINE(151)
-		int xPos = tmp3;		HX_STACK_VAR(xPos,"xPos");
+		int xPos = tmp2;		HX_STACK_VAR(xPos,"xPos");
 		HX_STACK_LINE(152)
 		this->isStarted = false;
 		HX_STACK_LINE(153)
@@ -898,145 +897,139 @@ Void ScoreCounter_obj::show( ::cpp::Pointer< SDL_Surface > screen){
 		HX_STACK_LINE(155)
 		while((true)){
 			HX_STACK_LINE(155)
-			bool tmp4 = (i > (int)0);		HX_STACK_VAR(tmp4,"tmp4");
+			bool tmp3 = (i > (int)0);		HX_STACK_VAR(tmp3,"tmp3");
 			HX_STACK_LINE(155)
-			bool tmp5 = !(tmp4);		HX_STACK_VAR(tmp5,"tmp5");
+			bool tmp4 = !(tmp3);		HX_STACK_VAR(tmp4,"tmp4");
 			HX_STACK_LINE(155)
-			if ((tmp5)){
+			if ((tmp4)){
 				HX_STACK_LINE(155)
 				break;
 			}
 			HX_STACK_LINE(156)
-			int tmp6 = this->score;		HX_STACK_VAR(tmp6,"tmp6");
+			int tmp5 = this->score;		HX_STACK_VAR(tmp5,"tmp5");
 			HX_STACK_LINE(156)
-			int tmp7 = (i - (int)1);		HX_STACK_VAR(tmp7,"tmp7");
+			int tmp6 = (i - (int)1);		HX_STACK_VAR(tmp6,"tmp6");
 			HX_STACK_LINE(156)
-			Float tmp8 = ::Math_obj::pow((int)10,tmp7);		HX_STACK_VAR(tmp8,"tmp8");
+			Float tmp7 = ::Math_obj::pow((int)10,tmp6);		HX_STACK_VAR(tmp7,"tmp7");
 			HX_STACK_LINE(156)
-			Float tmp9 = (Float(tmp6) / Float(tmp8));		HX_STACK_VAR(tmp9,"tmp9");
+			Float tmp8 = (Float(tmp5) / Float(tmp7));		HX_STACK_VAR(tmp8,"tmp8");
 			HX_STACK_LINE(156)
-			int tmp10;		HX_STACK_VAR(tmp10,"tmp10");
+			int tmp9 = ::Std_obj::_int(tmp8);		HX_STACK_VAR(tmp9,"tmp9");
 			HX_STACK_LINE(156)
-			tmp10 = hx::TCast< ::Int >::cast(tmp9);
-			HX_STACK_LINE(156)
-			this->frame = tmp10;
+			this->frame = tmp9;
 			HX_STACK_LINE(157)
-			int tmp11 = this->frame;		HX_STACK_VAR(tmp11,"tmp11");
+			int tmp10 = this->frame;		HX_STACK_VAR(tmp10,"tmp10");
 			HX_STACK_LINE(157)
-			int tmp12 = hx::Mod(tmp11,(int)10);		HX_STACK_VAR(tmp12,"tmp12");
+			int tmp11 = hx::Mod(tmp10,(int)10);		HX_STACK_VAR(tmp11,"tmp11");
 			HX_STACK_LINE(157)
-			this->frame = tmp12;
+			this->frame = tmp11;
 			HX_STACK_LINE(158)
-			bool tmp13 = this->isStarted;		HX_STACK_VAR(tmp13,"tmp13");
+			bool tmp12 = this->isStarted;		HX_STACK_VAR(tmp12,"tmp12");
 			HX_STACK_LINE(158)
-			bool tmp14 = !(tmp13);		HX_STACK_VAR(tmp14,"tmp14");
+			bool tmp13 = !(tmp12);		HX_STACK_VAR(tmp13,"tmp13");
 			HX_STACK_LINE(158)
-			bool tmp15;		HX_STACK_VAR(tmp15,"tmp15");
+			bool tmp14;		HX_STACK_VAR(tmp14,"tmp14");
 			HX_STACK_LINE(158)
-			if ((tmp14)){
+			if ((tmp13)){
 				HX_STACK_LINE(158)
-				int tmp16 = this->frame;		HX_STACK_VAR(tmp16,"tmp16");
+				int tmp15 = this->frame;		HX_STACK_VAR(tmp15,"tmp15");
 				HX_STACK_LINE(158)
-				int tmp17 = tmp16;		HX_STACK_VAR(tmp17,"tmp17");
+				int tmp16 = tmp15;		HX_STACK_VAR(tmp16,"tmp16");
 				HX_STACK_LINE(158)
-				tmp15 = (tmp17 != (int)0);
+				tmp14 = (tmp16 != (int)0);
 			}
 			else{
 				HX_STACK_LINE(158)
-				tmp15 = true;
+				tmp14 = true;
 			}
 			HX_STACK_LINE(158)
-			if ((tmp15)){
+			if ((tmp14)){
 				HX_STACK_LINE(159)
-				bool tmp16 = this->title;		HX_STACK_VAR(tmp16,"tmp16");
+				bool tmp15 = this->title;		HX_STACK_VAR(tmp15,"tmp15");
 				HX_STACK_LINE(159)
-				if ((tmp16)){
+				if ((tmp15)){
 					HX_STACK_LINE(160)
-					int tmp17 = xPos;		HX_STACK_VAR(tmp17,"tmp17");
+					int tmp16 = xPos;		HX_STACK_VAR(tmp16,"tmp16");
 					HX_STACK_LINE(160)
-					::cpp::Pointer< SDL_Surface > tmp18 = this->sprite;		HX_STACK_VAR(tmp18,"tmp18");
+					::cpp::Pointer< SDL_Surface > tmp17 = this->sprite;		HX_STACK_VAR(tmp17,"tmp17");
 					HX_STACK_LINE(160)
-					::cpp::Pointer< SDL_Surface > tmp19 = screen;		HX_STACK_VAR(tmp19,"tmp19");
+					::cpp::Pointer< SDL_Surface > tmp18 = screen;		HX_STACK_VAR(tmp18,"tmp18");
 					HX_STACK_LINE(160)
-					Dynamic tmp20;		HX_STACK_VAR(tmp20,"tmp20");
+					Dynamic tmp19;		HX_STACK_VAR(tmp19,"tmp19");
 					HX_STACK_LINE(160)
 					{
 						HX_STACK_LINE(160)
-						Array< ::Dynamic > tmp21 = this->states;		HX_STACK_VAR(tmp21,"tmp21");
+						Array< ::Dynamic > tmp20 = this->states;		HX_STACK_VAR(tmp20,"tmp20");
 						HX_STACK_LINE(160)
-						cpp::ArrayBase tmp22 = tmp21->__unsafe_get((int)0).StaticCast< cpp::ArrayBase >();		HX_STACK_VAR(tmp22,"tmp22");
+						cpp::ArrayBase tmp21 = tmp20->__unsafe_get((int)0).StaticCast< cpp::ArrayBase >();		HX_STACK_VAR(tmp21,"tmp21");
 						HX_STACK_LINE(160)
-						cpp::ArrayBase this1 = ((cpp::ArrayBase)(((cpp::ArrayBase)(tmp22))));		HX_STACK_VAR(this1,"this1");
+						cpp::ArrayBase this1 = ((cpp::ArrayBase)(((cpp::ArrayBase)(tmp21))));		HX_STACK_VAR(this1,"this1");
 						HX_STACK_LINE(160)
-						int tmp23 = this->frame;		HX_STACK_VAR(tmp23,"tmp23");
+						int tmp22 = this->frame;		HX_STACK_VAR(tmp22,"tmp22");
 						HX_STACK_LINE(160)
-						Dynamic tmp24 = ((cpp::ArrayBase)(this1))->__Field(HX_HCSTRING("__unsafe_get","\xdd","\xcf","\x9b","\x60"), hx::paccDynamic )(tmp23);		HX_STACK_VAR(tmp24,"tmp24");
+						Dynamic tmp23 = ((cpp::ArrayBase)(this1))->__Field(HX_HCSTRING("__unsafe_get","\xdd","\xcf","\x9b","\x60"), hx::paccDynamic )(tmp22);		HX_STACK_VAR(tmp23,"tmp23");
 						HX_STACK_LINE(160)
-						tmp20 = tmp24;
+						tmp19 = tmp23;
 					}
 					HX_STACK_LINE(160)
-					this->apply_surface(tmp17,(int)0,tmp18,tmp19,tmp20);
+					this->apply_surface(tmp16,(int)0,tmp17,tmp18,tmp19);
 				}
 				else{
 					HX_STACK_LINE(162)
 					(digits)++;
 					HX_STACK_LINE(164)
-					int tmp17 = (digits + (int)1);		HX_STACK_VAR(tmp17,"tmp17");
+					int tmp16 = (digits + (int)1);		HX_STACK_VAR(tmp16,"tmp16");
 					HX_STACK_LINE(164)
-					int tmp18 = (tmp17 * (int)28);		HX_STACK_VAR(tmp18,"tmp18");
+					int tmp17 = (tmp16 * (int)28);		HX_STACK_VAR(tmp17,"tmp17");
 					HX_STACK_LINE(164)
-					int tmp19 = ((int)480 - tmp18);		HX_STACK_VAR(tmp19,"tmp19");
+					int tmp18 = ((int)480 - tmp17);		HX_STACK_VAR(tmp18,"tmp18");
 					HX_STACK_LINE(164)
-					Float tmp20 = (Float(tmp19) / Float((int)2));		HX_STACK_VAR(tmp20,"tmp20");
+					Float tmp19 = (Float(tmp18) / Float((int)2));		HX_STACK_VAR(tmp19,"tmp19");
 					HX_STACK_LINE(164)
-					Float tmp21 = (tmp20 - (int)10);		HX_STACK_VAR(tmp21,"tmp21");
+					Float tmp20 = (tmp19 - (int)10);		HX_STACK_VAR(tmp20,"tmp20");
 					HX_STACK_LINE(164)
-					int tmp22;		HX_STACK_VAR(tmp22,"tmp22");
+					int tmp21 = ::Std_obj::_int(tmp20);		HX_STACK_VAR(tmp21,"tmp21");
 					HX_STACK_LINE(164)
-					tmp22 = hx::TCast< ::Int >::cast(tmp21);
-					HX_STACK_LINE(164)
-					hx::SubEq(xPos,tmp22);
+					hx::SubEq(xPos,tmp21);
 					HX_STACK_LINE(165)
-					int tmp23 = xPos;		HX_STACK_VAR(tmp23,"tmp23");
+					int tmp22 = xPos;		HX_STACK_VAR(tmp22,"tmp22");
 					HX_STACK_LINE(165)
-					::cpp::Pointer< SDL_Surface > tmp24 = this->sprite;		HX_STACK_VAR(tmp24,"tmp24");
+					::cpp::Pointer< SDL_Surface > tmp23 = this->sprite;		HX_STACK_VAR(tmp23,"tmp23");
 					HX_STACK_LINE(165)
-					::cpp::Pointer< SDL_Surface > tmp25 = screen;		HX_STACK_VAR(tmp25,"tmp25");
+					::cpp::Pointer< SDL_Surface > tmp24 = screen;		HX_STACK_VAR(tmp24,"tmp24");
 					HX_STACK_LINE(165)
-					Dynamic tmp26;		HX_STACK_VAR(tmp26,"tmp26");
+					Dynamic tmp25;		HX_STACK_VAR(tmp25,"tmp25");
 					HX_STACK_LINE(165)
 					{
 						HX_STACK_LINE(165)
-						Array< ::Dynamic > tmp27 = this->states;		HX_STACK_VAR(tmp27,"tmp27");
+						Array< ::Dynamic > tmp26 = this->states;		HX_STACK_VAR(tmp26,"tmp26");
 						HX_STACK_LINE(165)
-						cpp::ArrayBase tmp28 = tmp27->__unsafe_get((int)0).StaticCast< cpp::ArrayBase >();		HX_STACK_VAR(tmp28,"tmp28");
+						cpp::ArrayBase tmp27 = tmp26->__unsafe_get((int)0).StaticCast< cpp::ArrayBase >();		HX_STACK_VAR(tmp27,"tmp27");
 						HX_STACK_LINE(165)
-						cpp::ArrayBase this1 = ((cpp::ArrayBase)(((cpp::ArrayBase)(tmp28))));		HX_STACK_VAR(this1,"this1");
+						cpp::ArrayBase this1 = ((cpp::ArrayBase)(((cpp::ArrayBase)(tmp27))));		HX_STACK_VAR(this1,"this1");
 						HX_STACK_LINE(165)
-						int tmp29 = this->frame;		HX_STACK_VAR(tmp29,"tmp29");
+						int tmp28 = this->frame;		HX_STACK_VAR(tmp28,"tmp28");
 						HX_STACK_LINE(165)
-						Dynamic tmp30 = ((cpp::ArrayBase)(this1))->__Field(HX_HCSTRING("__unsafe_get","\xdd","\xcf","\x9b","\x60"), hx::paccDynamic )(tmp29);		HX_STACK_VAR(tmp30,"tmp30");
+						Dynamic tmp29 = ((cpp::ArrayBase)(this1))->__Field(HX_HCSTRING("__unsafe_get","\xdd","\xcf","\x9b","\x60"), hx::paccDynamic )(tmp28);		HX_STACK_VAR(tmp29,"tmp29");
 						HX_STACK_LINE(165)
-						tmp26 = tmp30;
+						tmp25 = tmp29;
 					}
 					HX_STACK_LINE(165)
-					this->apply_surface(tmp23,(int)135,tmp24,tmp25,tmp26);
+					this->apply_surface(tmp22,(int)135,tmp23,tmp24,tmp25);
 					HX_STACK_LINE(166)
-					int tmp27 = (digits + (int)1);		HX_STACK_VAR(tmp27,"tmp27");
+					int tmp26 = (digits + (int)1);		HX_STACK_VAR(tmp26,"tmp26");
 					HX_STACK_LINE(166)
-					int tmp28 = (tmp27 * (int)28);		HX_STACK_VAR(tmp28,"tmp28");
+					int tmp27 = (tmp26 * (int)28);		HX_STACK_VAR(tmp27,"tmp27");
 					HX_STACK_LINE(166)
-					int tmp29 = ((int)480 - tmp28);		HX_STACK_VAR(tmp29,"tmp29");
+					int tmp28 = ((int)480 - tmp27);		HX_STACK_VAR(tmp28,"tmp28");
 					HX_STACK_LINE(166)
-					Float tmp30 = (Float(tmp29) / Float((int)2));		HX_STACK_VAR(tmp30,"tmp30");
+					Float tmp29 = (Float(tmp28) / Float((int)2));		HX_STACK_VAR(tmp29,"tmp29");
 					HX_STACK_LINE(166)
-					Float tmp31 = (tmp30 - (int)10);		HX_STACK_VAR(tmp31,"tmp31");
+					Float tmp30 = (tmp29 - (int)10);		HX_STACK_VAR(tmp30,"tmp30");
 					HX_STACK_LINE(166)
-					int tmp32;		HX_STACK_VAR(tmp32,"tmp32");
+					int tmp31 = ::Std_obj::_int(tmp30);		HX_STACK_VAR(tmp31,"tmp31");
 					HX_STACK_LINE(166)
-					tmp32 = hx::TCast< ::Int >::cast(tmp31);
-					HX_STACK_LINE(166)
-					hx::AddEq(xPos,tmp32);
+					hx::AddEq(xPos,tmp31);
 				}
 				HX_STACK_LINE(169)
 				this->isStarted = true;

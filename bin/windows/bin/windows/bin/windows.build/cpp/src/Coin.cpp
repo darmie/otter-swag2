@@ -975,95 +975,6 @@ return null();
 }
 
 
-Void Coin_obj::show( ::cpp::Pointer< SDL_Surface > screen){
-{
-		HX_STACK_FRAME("Coin","show",0xd45ee0da,"Coin.show","Coin.hx",141,0x01a6c5ad)
-		HX_STACK_THIS(this)
-		HX_STACK_ARG(screen,"screen")
-		HX_STACK_LINE(143)
-		int tmp = this->status;		HX_STACK_VAR(tmp,"tmp");
-		HX_STACK_LINE(143)
-		int tmp1 = this->SCORE;		HX_STACK_VAR(tmp1,"tmp1");
-		HX_STACK_LINE(143)
-		bool tmp2 = (tmp == tmp1);		HX_STACK_VAR(tmp2,"tmp2");
-		HX_STACK_LINE(143)
-		if ((tmp2)){
-			HX_STACK_LINE(144)
-			this->frame = (int)0;
-			HX_STACK_LINE(145)
-			::cpp::Pointer< SDL_Surface > tmp3 = this->sprite;		HX_STACK_VAR(tmp3,"tmp3");
-			HX_STACK_LINE(145)
-			::cpp::Pointer< SDL_Surface > tmp4 = screen;		HX_STACK_VAR(tmp4,"tmp4");
-			HX_STACK_LINE(145)
-			Dynamic tmp5;		HX_STACK_VAR(tmp5,"tmp5");
-			HX_STACK_LINE(145)
-			{
-				HX_STACK_LINE(145)
-				Array< ::Dynamic > tmp6 = this->states;		HX_STACK_VAR(tmp6,"tmp6");
-				HX_STACK_LINE(145)
-				cpp::ArrayBase tmp7 = tmp6->__unsafe_get((int)1).StaticCast< cpp::ArrayBase >();		HX_STACK_VAR(tmp7,"tmp7");
-				HX_STACK_LINE(145)
-				cpp::ArrayBase this1 = ((cpp::ArrayBase)(((cpp::ArrayBase)(tmp7))));		HX_STACK_VAR(this1,"this1");
-				HX_STACK_LINE(145)
-				int tmp8 = this->frame;		HX_STACK_VAR(tmp8,"tmp8");
-				HX_STACK_LINE(145)
-				Dynamic tmp9 = ((cpp::ArrayBase)(this1))->__Field(HX_HCSTRING("__unsafe_get","\xdd","\xcf","\x9b","\x60"), hx::paccDynamic )(tmp8);		HX_STACK_VAR(tmp9,"tmp9");
-				HX_STACK_LINE(145)
-				tmp5 = tmp9;
-			}
-			HX_STACK_LINE(145)
-			this->apply_surface(null(),null(),tmp3,tmp4,tmp5);
-		}
-		HX_STACK_LINE(147)
-		int tmp3 = this->status;		HX_STACK_VAR(tmp3,"tmp3");
-		HX_STACK_LINE(147)
-		int tmp4 = this->SPIN;		HX_STACK_VAR(tmp4,"tmp4");
-		HX_STACK_LINE(147)
-		bool tmp5 = (tmp3 == tmp4);		HX_STACK_VAR(tmp5,"tmp5");
-		HX_STACK_LINE(147)
-		if ((tmp5)){
-			HX_STACK_LINE(148)
-			int tmp6 = this->frame;		HX_STACK_VAR(tmp6,"tmp6");
-			HX_STACK_LINE(148)
-			bool tmp7 = (tmp6 < (int)9);		HX_STACK_VAR(tmp7,"tmp7");
-			HX_STACK_LINE(148)
-			if ((tmp7)){
-				HX_STACK_LINE(149)
-				(this->frame)++;
-			}
-			else{
-				HX_STACK_LINE(151)
-				this->frame = (int)0;
-			}
-			HX_STACK_LINE(153)
-			::cpp::Pointer< SDL_Surface > tmp8 = this->sprite;		HX_STACK_VAR(tmp8,"tmp8");
-			HX_STACK_LINE(153)
-			::cpp::Pointer< SDL_Surface > tmp9 = screen;		HX_STACK_VAR(tmp9,"tmp9");
-			HX_STACK_LINE(153)
-			Dynamic tmp10;		HX_STACK_VAR(tmp10,"tmp10");
-			HX_STACK_LINE(153)
-			{
-				HX_STACK_LINE(153)
-				Array< ::Dynamic > tmp11 = this->states;		HX_STACK_VAR(tmp11,"tmp11");
-				HX_STACK_LINE(153)
-				cpp::ArrayBase tmp12 = tmp11->__unsafe_get((int)0).StaticCast< cpp::ArrayBase >();		HX_STACK_VAR(tmp12,"tmp12");
-				HX_STACK_LINE(153)
-				cpp::ArrayBase this1 = ((cpp::ArrayBase)(((cpp::ArrayBase)(tmp12))));		HX_STACK_VAR(this1,"this1");
-				HX_STACK_LINE(153)
-				int tmp13 = this->frame;		HX_STACK_VAR(tmp13,"tmp13");
-				HX_STACK_LINE(153)
-				Dynamic tmp14 = ((cpp::ArrayBase)(this1))->__Field(HX_HCSTRING("__unsafe_get","\xdd","\xcf","\x9b","\x60"), hx::paccDynamic )(tmp13);		HX_STACK_VAR(tmp14,"tmp14");
-				HX_STACK_LINE(153)
-				tmp10 = tmp14;
-			}
-			HX_STACK_LINE(153)
-			this->apply_surface(null(),null(),tmp8,tmp9,tmp10);
-		}
-	}
-return null();
-}
-
-
 
 Coin_obj::Coin_obj()
 {
@@ -1075,7 +986,6 @@ Dynamic Coin_obj::__Field(const ::String &inName,hx::PropertyAccess inCallProp)
 	case 4:
 		if (HX_FIELD_EQ(inName,"SPIN") ) { return SPIN; }
 		if (HX_FIELD_EQ(inName,"move") ) { return move_dyn(); }
-		if (HX_FIELD_EQ(inName,"show") ) { return show_dyn(); }
 		break;
 	case 5:
 		if (HX_FIELD_EQ(inName,"SCORE") ) { return SCORE; }
@@ -1127,7 +1037,6 @@ static ::String sMemberFields[] = {
 	HX_HCSTRING("set_clips","\x06","\xd0","\x58","\x6f"),
 	HX_HCSTRING("collision","\x72","\xa8","\x3a","\xdb"),
 	HX_HCSTRING("move","\x11","\xe3","\x60","\x48"),
-	HX_HCSTRING("show","\xfd","\xd4","\x52","\x4c"),
 	::String(null()) };
 
 static void sMarkStatics(HX_MARK_PARAMS) {

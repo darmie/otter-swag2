@@ -153,7 +153,7 @@ class ScoreCounter extends Sprite
 		var digits:Int = 0;
 		var i:Int = 6;
 		  while(i>0){
-			frame = cast(score / (Math.pow(10,i-1)), Int);
+			frame = Std.int(score / (Math.pow(10,i-1)));
 			frame = frame % 10;
 			if (isStarted || frame!=0){
 				if (title){
@@ -161,9 +161,9 @@ class ScoreCounter extends Sprite
 				}else{
 					digits++;
 					//xPos -= 165;
-					xPos -= cast(((480-((digits+1)*28))/2)-10, Int);
+					xPos -= Std.int(((480-((digits+1)*28))/2)-10);
 					apply_surface(xPos,135,sprite, screen, states[0][frame]);	
-					xPos += cast(((480-((digits+1)*28))/2)-10, Int);
+					xPos += Std.int(((480-((digits+1)*28))/2)-10);
 					//xPos += 165;
 				}
 			  isStarted = true;

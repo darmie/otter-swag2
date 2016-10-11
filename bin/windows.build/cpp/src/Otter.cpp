@@ -10,6 +10,9 @@
 #ifndef INCLUDED_Sprite
 #include <Sprite.h>
 #endif
+#ifndef INCLUDED_Std
+#include <Std.h>
+#endif
 
 Void Otter_obj::__construct(::String filename,int r,int g,int b)
 {
@@ -1306,7 +1309,7 @@ Void Otter_obj::handle_events( ::cpp::Struct<SDL_Event> event){
 			::String tmp4 = _g;		HX_STACK_VAR(tmp4,"tmp4");
 			HX_STACK_LINE(238)
 			::String _switch_1 = (tmp4);
-			if (  ( _switch_1==HX_HCSTRING("Keypad Space","\xba","\x30","\x25","\x12"))){
+			if (  ( _switch_1==HX_HCSTRING("Space","\xa6","\xfc","\x93","\x14"))){
 				HX_STACK_LINE(239)
 				int tmp5 = (int)-1;		HX_STACK_VAR(tmp5,"tmp5");
 				HX_STACK_LINE(239)
@@ -1316,39 +1319,35 @@ Void Otter_obj::handle_events( ::cpp::Struct<SDL_Event> event){
 				HX_STACK_LINE(239)
 				Float tmp8 = (tmp5 * tmp7);		HX_STACK_VAR(tmp8,"tmp8");
 				HX_STACK_LINE(239)
-				int tmp9;		HX_STACK_VAR(tmp9,"tmp9");
-				HX_STACK_LINE(239)
-				tmp9 = hx::TCast< ::Int >::cast(tmp8);
+				int tmp9 = ::Std_obj::_int(tmp8);		HX_STACK_VAR(tmp9,"tmp9");
 				HX_STACK_LINE(239)
 				this->velocityY = tmp9;
 			}
 		}
-		HX_STACK_LINE(243)
+		HX_STACK_LINE(244)
 		bool tmp1 = (event->type == (int)769);		HX_STACK_VAR(tmp1,"tmp1");
-		HX_STACK_LINE(243)
+		HX_STACK_LINE(244)
 		if ((tmp1)){
-			HX_STACK_LINE(245)
+			HX_STACK_LINE(246)
 			SDL_Keysym tmp2 = event->key.keysym;		HX_STACK_VAR(tmp2,"tmp2");
-			HX_STACK_LINE(245)
+			HX_STACK_LINE(246)
 			int tmp3 = tmp2.sym;		HX_STACK_VAR(tmp3,"tmp3");
-			HX_STACK_LINE(245)
+			HX_STACK_LINE(246)
 			 const ::cpp::Char *  tmp4 = SDL_GetKeyName(tmp3);		HX_STACK_VAR(tmp4,"tmp4");
-			HX_STACK_LINE(245)
+			HX_STACK_LINE(246)
 			::String _g = ((::String)(tmp4));		HX_STACK_VAR(_g,"_g");
-			HX_STACK_LINE(245)
+			HX_STACK_LINE(246)
 			::String tmp5 = _g;		HX_STACK_VAR(tmp5,"tmp5");
-			HX_STACK_LINE(245)
+			HX_STACK_LINE(246)
 			::String _switch_2 = (tmp5);
-			if (  ( _switch_2==HX_HCSTRING("Keypad Space","\xba","\x30","\x25","\x12"))){
-				HX_STACK_LINE(246)
+			if (  ( _switch_2==HX_HCSTRING("Space","\xa6","\xfc","\x93","\x14"))){
+				HX_STACK_LINE(247)
 				int tmp6 = this->width;		HX_STACK_VAR(tmp6,"tmp6");
-				HX_STACK_LINE(246)
+				HX_STACK_LINE(247)
 				Float tmp7 = (Float(tmp6) / Float((int)2));		HX_STACK_VAR(tmp7,"tmp7");
-				HX_STACK_LINE(246)
-				int tmp8;		HX_STACK_VAR(tmp8,"tmp8");
-				HX_STACK_LINE(246)
-				tmp8 = hx::TCast< ::Int >::cast(tmp7);
-				HX_STACK_LINE(246)
+				HX_STACK_LINE(247)
+				int tmp8 = ::Std_obj::_int(tmp7);		HX_STACK_VAR(tmp8,"tmp8");
+				HX_STACK_LINE(247)
 				this->velocityY = tmp8;
 			}
 		}
@@ -1361,115 +1360,115 @@ HX_DEFINE_DYNAMIC_FUNC1(Otter_obj,handle_events,(void))
 
 Void Otter_obj::move( ){
 {
-		HX_STACK_FRAME("Otter","move",0x98b0d703,"Otter.move","Otter.hx",254,0x52a70e82)
+		HX_STACK_FRAME("Otter","move",0x98b0d703,"Otter.move","Otter.hx",256,0x52a70e82)
 		HX_STACK_THIS(this)
-		HX_STACK_LINE(256)
+		HX_STACK_LINE(258)
 		bool tmp = this->isStarting;		HX_STACK_VAR(tmp,"tmp");
-		HX_STACK_LINE(256)
+		HX_STACK_LINE(258)
 		if ((tmp)){
-			HX_STACK_LINE(258)
+			HX_STACK_LINE(260)
 			int tmp1 = this->width;		HX_STACK_VAR(tmp1,"tmp1");
-			HX_STACK_LINE(258)
+			HX_STACK_LINE(260)
 			Float tmp2 = (Float(tmp1) / Float((int)2));		HX_STACK_VAR(tmp2,"tmp2");
-			HX_STACK_LINE(258)
+			HX_STACK_LINE(260)
 			int tmp3;		HX_STACK_VAR(tmp3,"tmp3");
-			HX_STACK_LINE(258)
+			HX_STACK_LINE(260)
 			tmp3 = hx::TCast< ::Int >::cast(tmp2);
-			HX_STACK_LINE(258)
+			HX_STACK_LINE(260)
 			hx::AddEq(this->offSetY,tmp3);
-			HX_STACK_LINE(259)
+			HX_STACK_LINE(261)
 			bool tmp4 = this->isStarting;		HX_STACK_VAR(tmp4,"tmp4");
-			HX_STACK_LINE(259)
+			HX_STACK_LINE(261)
 			bool tmp5;		HX_STACK_VAR(tmp5,"tmp5");
-			HX_STACK_LINE(259)
+			HX_STACK_LINE(261)
 			if ((tmp4)){
-				HX_STACK_LINE(259)
+				HX_STACK_LINE(261)
 				int tmp6 = this->offSetY;		HX_STACK_VAR(tmp6,"tmp6");
-				HX_STACK_LINE(259)
+				HX_STACK_LINE(261)
 				int tmp7 = tmp6;		HX_STACK_VAR(tmp7,"tmp7");
-				HX_STACK_LINE(259)
+				HX_STACK_LINE(261)
 				tmp5 = (tmp7 > (int)20);
 			}
 			else{
-				HX_STACK_LINE(259)
+				HX_STACK_LINE(261)
 				tmp5 = false;
 			}
-			HX_STACK_LINE(259)
+			HX_STACK_LINE(261)
 			if ((tmp5)){
-				HX_STACK_LINE(259)
+				HX_STACK_LINE(261)
 				this->isStarting = false;
 			}
 		}
 		else{
-			HX_STACK_LINE(262)
+			HX_STACK_LINE(264)
 			int tmp1 = this->velocityY;		HX_STACK_VAR(tmp1,"tmp1");
-			HX_STACK_LINE(262)
+			HX_STACK_LINE(264)
 			hx::AddEq(this->offSetY,tmp1);
-			HX_STACK_LINE(265)
+			HX_STACK_LINE(267)
 			int tmp2 = this->offSetY;		HX_STACK_VAR(tmp2,"tmp2");
-			HX_STACK_LINE(265)
+			HX_STACK_LINE(267)
 			bool tmp3 = (tmp2 < (int)20);		HX_STACK_VAR(tmp3,"tmp3");
-			HX_STACK_LINE(265)
+			HX_STACK_LINE(267)
 			bool tmp4 = !(tmp3);		HX_STACK_VAR(tmp4,"tmp4");
-			HX_STACK_LINE(265)
+			HX_STACK_LINE(267)
 			bool tmp5 = tmp4;		HX_STACK_VAR(tmp5,"tmp5");
-			HX_STACK_LINE(265)
+			HX_STACK_LINE(267)
 			bool tmp6;		HX_STACK_VAR(tmp6,"tmp6");
-			HX_STACK_LINE(265)
+			HX_STACK_LINE(267)
 			if ((tmp5)){
-				HX_STACK_LINE(265)
+				HX_STACK_LINE(267)
 				int tmp7 = this->offSetY;		HX_STACK_VAR(tmp7,"tmp7");
-				HX_STACK_LINE(265)
+				HX_STACK_LINE(267)
 				int tmp8 = tmp7;		HX_STACK_VAR(tmp8,"tmp8");
-				HX_STACK_LINE(265)
+				HX_STACK_LINE(267)
 				int tmp9 = tmp8;		HX_STACK_VAR(tmp9,"tmp9");
-				HX_STACK_LINE(265)
+				HX_STACK_LINE(267)
 				int tmp10 = this->height;		HX_STACK_VAR(tmp10,"tmp10");
-				HX_STACK_LINE(265)
+				HX_STACK_LINE(267)
 				int tmp11 = tmp10;		HX_STACK_VAR(tmp11,"tmp11");
-				HX_STACK_LINE(265)
+				HX_STACK_LINE(267)
 				int tmp12 = tmp11;		HX_STACK_VAR(tmp12,"tmp12");
-				HX_STACK_LINE(265)
+				HX_STACK_LINE(267)
 				int tmp13 = (tmp9 + tmp12);		HX_STACK_VAR(tmp13,"tmp13");
-				HX_STACK_LINE(265)
+				HX_STACK_LINE(267)
 				int tmp14 = tmp13;		HX_STACK_VAR(tmp14,"tmp14");
-				HX_STACK_LINE(265)
+				HX_STACK_LINE(267)
 				int tmp15 = tmp14;		HX_STACK_VAR(tmp15,"tmp15");
-				HX_STACK_LINE(265)
+				HX_STACK_LINE(267)
 				int tmp16 = this->SCREEN_HEIGHT;		HX_STACK_VAR(tmp16,"tmp16");
-				HX_STACK_LINE(265)
+				HX_STACK_LINE(267)
 				int tmp17 = tmp16;		HX_STACK_VAR(tmp17,"tmp17");
-				HX_STACK_LINE(265)
+				HX_STACK_LINE(267)
 				int tmp18 = tmp17;		HX_STACK_VAR(tmp18,"tmp18");
-				HX_STACK_LINE(265)
+				HX_STACK_LINE(267)
 				tmp6 = (tmp15 > tmp18);
 			}
 			else{
-				HX_STACK_LINE(265)
+				HX_STACK_LINE(267)
 				tmp6 = true;
 			}
-			HX_STACK_LINE(265)
+			HX_STACK_LINE(267)
 			bool tmp7;		HX_STACK_VAR(tmp7,"tmp7");
-			HX_STACK_LINE(265)
+			HX_STACK_LINE(267)
 			if ((tmp6)){
-				HX_STACK_LINE(265)
+				HX_STACK_LINE(267)
 				bool tmp8 = this->isStarting;		HX_STACK_VAR(tmp8,"tmp8");
-				HX_STACK_LINE(265)
+				HX_STACK_LINE(267)
 				bool tmp9 = tmp8;		HX_STACK_VAR(tmp9,"tmp9");
-				HX_STACK_LINE(265)
+				HX_STACK_LINE(267)
 				bool tmp10 = tmp9;		HX_STACK_VAR(tmp10,"tmp10");
-				HX_STACK_LINE(265)
+				HX_STACK_LINE(267)
 				tmp7 = !(tmp10);
 			}
 			else{
-				HX_STACK_LINE(265)
+				HX_STACK_LINE(267)
 				tmp7 = false;
 			}
-			HX_STACK_LINE(265)
+			HX_STACK_LINE(267)
 			if ((tmp7)){
-				HX_STACK_LINE(266)
+				HX_STACK_LINE(268)
 				int tmp8 = this->velocityY;		HX_STACK_VAR(tmp8,"tmp8");
-				HX_STACK_LINE(266)
+				HX_STACK_LINE(268)
 				hx::SubEq(this->offSetY,tmp8);
 			}
 		}
@@ -1480,212 +1479,212 @@ return null();
 
 Void Otter_obj::show( ::cpp::Pointer< SDL_Surface > screen){
 {
-		HX_STACK_FRAME("Otter","show",0x9ca2c8ef,"Otter.show","Otter.hx",274,0x52a70e82)
+		HX_STACK_FRAME("Otter","show",0x9ca2c8ef,"Otter.show","Otter.hx",276,0x52a70e82)
 		HX_STACK_THIS(this)
 		HX_STACK_ARG(screen,"screen")
-		HX_STACK_LINE(276)
+		HX_STACK_LINE(278)
 		bool tmp = this->isVisible;		HX_STACK_VAR(tmp,"tmp");
-		HX_STACK_LINE(276)
+		HX_STACK_LINE(278)
 		if ((tmp)){
-			HX_STACK_LINE(278)
+			HX_STACK_LINE(280)
 			int tmp1 = this->status;		HX_STACK_VAR(tmp1,"tmp1");
-			HX_STACK_LINE(278)
+			HX_STACK_LINE(280)
 			int tmp2 = this->ROLL;		HX_STACK_VAR(tmp2,"tmp2");
-			HX_STACK_LINE(278)
+			HX_STACK_LINE(280)
 			bool tmp3 = (tmp1 != tmp2);		HX_STACK_VAR(tmp3,"tmp3");
-			HX_STACK_LINE(278)
+			HX_STACK_LINE(280)
 			if ((tmp3)){
-				HX_STACK_LINE(280)
+				HX_STACK_LINE(282)
 				int tmp4 = this->velocityY;		HX_STACK_VAR(tmp4,"tmp4");
-				HX_STACK_LINE(280)
+				HX_STACK_LINE(282)
 				bool tmp5 = (tmp4 > (int)0);		HX_STACK_VAR(tmp5,"tmp5");
-				HX_STACK_LINE(280)
+				HX_STACK_LINE(282)
 				if ((tmp5)){
-					HX_STACK_LINE(282)
+					HX_STACK_LINE(284)
 					int tmp6 = this->offSetY;		HX_STACK_VAR(tmp6,"tmp6");
-					HX_STACK_LINE(282)
+					HX_STACK_LINE(284)
 					bool tmp7 = (tmp6 > (int)280);		HX_STACK_VAR(tmp7,"tmp7");
-					HX_STACK_LINE(282)
+					HX_STACK_LINE(284)
 					if ((tmp7)){
-						HX_STACK_LINE(283)
+						HX_STACK_LINE(285)
 						int tmp8 = this->SPRITE_WALK;		HX_STACK_VAR(tmp8,"tmp8");
-						HX_STACK_LINE(283)
+						HX_STACK_LINE(285)
 						this->status = tmp8;
 					}
 					else{
-						HX_STACK_LINE(286)
+						HX_STACK_LINE(288)
 						int tmp8 = this->SPRITE_DOWN;		HX_STACK_VAR(tmp8,"tmp8");
-						HX_STACK_LINE(286)
+						HX_STACK_LINE(288)
 						this->status = tmp8;
 					}
-					HX_STACK_LINE(289)
+					HX_STACK_LINE(291)
 					(this->frame)++;
 				}
 				else{
-					HX_STACK_LINE(292)
+					HX_STACK_LINE(294)
 					int tmp6 = this->velocityY;		HX_STACK_VAR(tmp6,"tmp6");
-					HX_STACK_LINE(292)
+					HX_STACK_LINE(294)
 					bool tmp7 = (tmp6 < (int)0);		HX_STACK_VAR(tmp7,"tmp7");
-					HX_STACK_LINE(292)
+					HX_STACK_LINE(294)
 					if ((tmp7)){
-						HX_STACK_LINE(293)
+						HX_STACK_LINE(295)
 						int tmp8 = this->SPRITE_UP;		HX_STACK_VAR(tmp8,"tmp8");
-						HX_STACK_LINE(293)
+						HX_STACK_LINE(295)
 						this->status = tmp8;
-						HX_STACK_LINE(294)
+						HX_STACK_LINE(296)
 						(this->frame)++;
 					}
 					else{
-						HX_STACK_LINE(297)
+						HX_STACK_LINE(299)
 						this->frame = (int)0;
 					}
 				}
-				HX_STACK_LINE(301)
+				HX_STACK_LINE(303)
 				int tmp6 = this->frame;		HX_STACK_VAR(tmp6,"tmp6");
-				HX_STACK_LINE(301)
+				HX_STACK_LINE(303)
 				bool tmp7 = (tmp6 > (int)1);		HX_STACK_VAR(tmp7,"tmp7");
-				HX_STACK_LINE(301)
+				HX_STACK_LINE(303)
 				if ((tmp7)){
-					HX_STACK_LINE(302)
+					HX_STACK_LINE(304)
 					this->frame = (int)0;
 				}
-				HX_STACK_LINE(306)
+				HX_STACK_LINE(308)
 				int tmp8 = this->status;		HX_STACK_VAR(tmp8,"tmp8");
-				HX_STACK_LINE(306)
+				HX_STACK_LINE(308)
 				int tmp9 = this->SPRITE_UP;		HX_STACK_VAR(tmp9,"tmp9");
-				HX_STACK_LINE(306)
+				HX_STACK_LINE(308)
 				bool tmp10 = (tmp8 == tmp9);		HX_STACK_VAR(tmp10,"tmp10");
-				HX_STACK_LINE(306)
+				HX_STACK_LINE(308)
 				if ((tmp10)){
-					HX_STACK_LINE(307)
+					HX_STACK_LINE(309)
 					::cpp::Pointer< SDL_Surface > tmp11 = this->sprite;		HX_STACK_VAR(tmp11,"tmp11");
-					HX_STACK_LINE(307)
+					HX_STACK_LINE(309)
 					::cpp::Pointer< SDL_Surface > tmp12 = screen;		HX_STACK_VAR(tmp12,"tmp12");
-					HX_STACK_LINE(307)
+					HX_STACK_LINE(309)
 					Dynamic tmp13;		HX_STACK_VAR(tmp13,"tmp13");
-					HX_STACK_LINE(307)
+					HX_STACK_LINE(309)
 					{
-						HX_STACK_LINE(307)
+						HX_STACK_LINE(309)
 						Array< ::Dynamic > tmp14 = this->states;		HX_STACK_VAR(tmp14,"tmp14");
-						HX_STACK_LINE(307)
+						HX_STACK_LINE(309)
 						cpp::ArrayBase tmp15 = tmp14->__unsafe_get((int)0).StaticCast< cpp::ArrayBase >();		HX_STACK_VAR(tmp15,"tmp15");
-						HX_STACK_LINE(307)
+						HX_STACK_LINE(309)
 						cpp::ArrayBase this1 = ((cpp::ArrayBase)(((cpp::ArrayBase)(tmp15))));		HX_STACK_VAR(this1,"this1");
-						HX_STACK_LINE(307)
+						HX_STACK_LINE(309)
 						int tmp16 = this->frame;		HX_STACK_VAR(tmp16,"tmp16");
-						HX_STACK_LINE(307)
+						HX_STACK_LINE(309)
 						Dynamic tmp17 = ((cpp::ArrayBase)(this1))->__Field(HX_HCSTRING("__unsafe_get","\xdd","\xcf","\x9b","\x60"), hx::paccDynamic )(tmp16);		HX_STACK_VAR(tmp17,"tmp17");
-						HX_STACK_LINE(307)
+						HX_STACK_LINE(309)
 						tmp13 = tmp17;
 					}
-					HX_STACK_LINE(307)
+					HX_STACK_LINE(309)
 					this->apply_surface(null(),null(),tmp11,tmp12,tmp13);
 				}
 				else{
-					HX_STACK_LINE(309)
+					HX_STACK_LINE(311)
 					int tmp11 = this->status;		HX_STACK_VAR(tmp11,"tmp11");
-					HX_STACK_LINE(309)
+					HX_STACK_LINE(311)
 					int tmp12 = this->SPRITE_DOWN;		HX_STACK_VAR(tmp12,"tmp12");
-					HX_STACK_LINE(309)
+					HX_STACK_LINE(311)
 					bool tmp13 = (tmp11 == tmp12);		HX_STACK_VAR(tmp13,"tmp13");
-					HX_STACK_LINE(309)
+					HX_STACK_LINE(311)
 					if ((tmp13)){
-						HX_STACK_LINE(310)
+						HX_STACK_LINE(312)
 						::cpp::Pointer< SDL_Surface > tmp14 = this->sprite;		HX_STACK_VAR(tmp14,"tmp14");
-						HX_STACK_LINE(310)
+						HX_STACK_LINE(312)
 						::cpp::Pointer< SDL_Surface > tmp15 = screen;		HX_STACK_VAR(tmp15,"tmp15");
-						HX_STACK_LINE(310)
+						HX_STACK_LINE(312)
 						Dynamic tmp16;		HX_STACK_VAR(tmp16,"tmp16");
-						HX_STACK_LINE(310)
+						HX_STACK_LINE(312)
 						{
-							HX_STACK_LINE(310)
+							HX_STACK_LINE(312)
 							Array< ::Dynamic > tmp17 = this->states;		HX_STACK_VAR(tmp17,"tmp17");
-							HX_STACK_LINE(310)
+							HX_STACK_LINE(312)
 							cpp::ArrayBase tmp18 = tmp17->__unsafe_get((int)1).StaticCast< cpp::ArrayBase >();		HX_STACK_VAR(tmp18,"tmp18");
-							HX_STACK_LINE(310)
+							HX_STACK_LINE(312)
 							cpp::ArrayBase this1 = ((cpp::ArrayBase)(((cpp::ArrayBase)(tmp18))));		HX_STACK_VAR(this1,"this1");
-							HX_STACK_LINE(310)
+							HX_STACK_LINE(312)
 							int tmp19 = this->frame;		HX_STACK_VAR(tmp19,"tmp19");
-							HX_STACK_LINE(310)
+							HX_STACK_LINE(312)
 							Dynamic tmp20 = ((cpp::ArrayBase)(this1))->__Field(HX_HCSTRING("__unsafe_get","\xdd","\xcf","\x9b","\x60"), hx::paccDynamic )(tmp19);		HX_STACK_VAR(tmp20,"tmp20");
-							HX_STACK_LINE(310)
+							HX_STACK_LINE(312)
 							tmp16 = tmp20;
 						}
-						HX_STACK_LINE(310)
+						HX_STACK_LINE(312)
 						this->apply_surface(null(),null(),tmp14,tmp15,tmp16);
 					}
 					else{
-						HX_STACK_LINE(312)
+						HX_STACK_LINE(314)
 						int tmp14 = this->status;		HX_STACK_VAR(tmp14,"tmp14");
-						HX_STACK_LINE(312)
+						HX_STACK_LINE(314)
 						int tmp15 = this->SPRITE_WALK;		HX_STACK_VAR(tmp15,"tmp15");
-						HX_STACK_LINE(312)
+						HX_STACK_LINE(314)
 						bool tmp16 = (tmp14 == tmp15);		HX_STACK_VAR(tmp16,"tmp16");
-						HX_STACK_LINE(312)
+						HX_STACK_LINE(314)
 						if ((tmp16)){
-							HX_STACK_LINE(313)
+							HX_STACK_LINE(315)
 							::cpp::Pointer< SDL_Surface > tmp17 = this->sprite;		HX_STACK_VAR(tmp17,"tmp17");
-							HX_STACK_LINE(313)
+							HX_STACK_LINE(315)
 							::cpp::Pointer< SDL_Surface > tmp18 = screen;		HX_STACK_VAR(tmp18,"tmp18");
-							HX_STACK_LINE(313)
+							HX_STACK_LINE(315)
 							Dynamic tmp19;		HX_STACK_VAR(tmp19,"tmp19");
-							HX_STACK_LINE(313)
+							HX_STACK_LINE(315)
 							{
-								HX_STACK_LINE(313)
+								HX_STACK_LINE(315)
 								Array< ::Dynamic > tmp20 = this->states;		HX_STACK_VAR(tmp20,"tmp20");
-								HX_STACK_LINE(313)
+								HX_STACK_LINE(315)
 								cpp::ArrayBase tmp21 = tmp20->__unsafe_get((int)2).StaticCast< cpp::ArrayBase >();		HX_STACK_VAR(tmp21,"tmp21");
-								HX_STACK_LINE(313)
+								HX_STACK_LINE(315)
 								cpp::ArrayBase this1 = ((cpp::ArrayBase)(((cpp::ArrayBase)(tmp21))));		HX_STACK_VAR(this1,"this1");
-								HX_STACK_LINE(313)
+								HX_STACK_LINE(315)
 								int tmp22 = this->frame;		HX_STACK_VAR(tmp22,"tmp22");
-								HX_STACK_LINE(313)
+								HX_STACK_LINE(315)
 								Dynamic tmp23 = ((cpp::ArrayBase)(this1))->__Field(HX_HCSTRING("__unsafe_get","\xdd","\xcf","\x9b","\x60"), hx::paccDynamic )(tmp22);		HX_STACK_VAR(tmp23,"tmp23");
-								HX_STACK_LINE(313)
+								HX_STACK_LINE(315)
 								tmp19 = tmp23;
 							}
-							HX_STACK_LINE(313)
+							HX_STACK_LINE(315)
 							this->apply_surface(null(),null(),tmp17,tmp18,tmp19);
 						}
 					}
 				}
 			}
 			else{
-				HX_STACK_LINE(317)
+				HX_STACK_LINE(319)
 				int tmp4 = this->frame;		HX_STACK_VAR(tmp4,"tmp4");
-				HX_STACK_LINE(317)
+				HX_STACK_LINE(319)
 				bool tmp5 = (tmp4 < (int)3);		HX_STACK_VAR(tmp5,"tmp5");
-				HX_STACK_LINE(317)
+				HX_STACK_LINE(319)
 				if ((tmp5)){
-					HX_STACK_LINE(318)
+					HX_STACK_LINE(320)
 					(this->frame)++;
 				}
 				else{
-					HX_STACK_LINE(320)
+					HX_STACK_LINE(322)
 					this->frame = (int)0;
 				}
-				HX_STACK_LINE(323)
+				HX_STACK_LINE(325)
 				::cpp::Pointer< SDL_Surface > tmp6 = this->sprite;		HX_STACK_VAR(tmp6,"tmp6");
-				HX_STACK_LINE(323)
+				HX_STACK_LINE(325)
 				::cpp::Pointer< SDL_Surface > tmp7 = screen;		HX_STACK_VAR(tmp7,"tmp7");
-				HX_STACK_LINE(323)
+				HX_STACK_LINE(325)
 				Dynamic tmp8;		HX_STACK_VAR(tmp8,"tmp8");
-				HX_STACK_LINE(323)
+				HX_STACK_LINE(325)
 				{
-					HX_STACK_LINE(323)
+					HX_STACK_LINE(325)
 					Array< ::Dynamic > tmp9 = this->states;		HX_STACK_VAR(tmp9,"tmp9");
-					HX_STACK_LINE(323)
+					HX_STACK_LINE(325)
 					cpp::ArrayBase tmp10 = tmp9->__unsafe_get((int)3).StaticCast< cpp::ArrayBase >();		HX_STACK_VAR(tmp10,"tmp10");
-					HX_STACK_LINE(323)
+					HX_STACK_LINE(325)
 					cpp::ArrayBase this1 = ((cpp::ArrayBase)(((cpp::ArrayBase)(tmp10))));		HX_STACK_VAR(this1,"this1");
-					HX_STACK_LINE(323)
+					HX_STACK_LINE(325)
 					int tmp11 = this->frame;		HX_STACK_VAR(tmp11,"tmp11");
-					HX_STACK_LINE(323)
+					HX_STACK_LINE(325)
 					Dynamic tmp12 = ((cpp::ArrayBase)(this1))->__Field(HX_HCSTRING("__unsafe_get","\xdd","\xcf","\x9b","\x60"), hx::paccDynamic )(tmp11);		HX_STACK_VAR(tmp12,"tmp12");
-					HX_STACK_LINE(323)
+					HX_STACK_LINE(325)
 					tmp8 = tmp12;
 				}
-				HX_STACK_LINE(323)
+				HX_STACK_LINE(325)
 				this->apply_surface(null(),null(),tmp6,tmp7,tmp8);
 			}
 		}
@@ -1696,22 +1695,22 @@ return null();
 
 Void Otter_obj::setInvincible( bool on){
 {
-		HX_STACK_FRAME("Otter","setInvincible",0xf4eb15af,"Otter.setInvincible","Otter.hx",329,0x52a70e82)
+		HX_STACK_FRAME("Otter","setInvincible",0xf4eb15af,"Otter.setInvincible","Otter.hx",331,0x52a70e82)
 		HX_STACK_THIS(this)
 		HX_STACK_ARG(on,"on")
-		HX_STACK_LINE(330)
+		HX_STACK_LINE(332)
 		bool tmp = on;		HX_STACK_VAR(tmp,"tmp");
-		HX_STACK_LINE(330)
+		HX_STACK_LINE(332)
 		if ((tmp)){
-			HX_STACK_LINE(331)
+			HX_STACK_LINE(333)
 			int tmp1 = this->ROLL;		HX_STACK_VAR(tmp1,"tmp1");
-			HX_STACK_LINE(331)
+			HX_STACK_LINE(333)
 			this->status = tmp1;
 		}
 		else{
-			HX_STACK_LINE(333)
+			HX_STACK_LINE(335)
 			int tmp1 = this->SPRITE_DOWN;		HX_STACK_VAR(tmp1,"tmp1");
-			HX_STACK_LINE(333)
+			HX_STACK_LINE(335)
 			this->status = tmp1;
 		}
 	}
@@ -1722,11 +1721,11 @@ return null();
 HX_DEFINE_DYNAMIC_FUNC1(Otter_obj,setInvincible,(void))
 
 int Otter_obj::getStatus( ){
-	HX_STACK_FRAME("Otter","getStatus",0x2eaeef36,"Otter.getStatus","Otter.hx",338,0x52a70e82)
+	HX_STACK_FRAME("Otter","getStatus",0x2eaeef36,"Otter.getStatus","Otter.hx",340,0x52a70e82)
 	HX_STACK_THIS(this)
-	HX_STACK_LINE(339)
+	HX_STACK_LINE(341)
 	int tmp = this->status;		HX_STACK_VAR(tmp,"tmp");
-	HX_STACK_LINE(339)
+	HX_STACK_LINE(341)
 	return tmp;
 }
 

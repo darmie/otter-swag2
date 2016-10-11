@@ -11,6 +11,9 @@
 #ifndef INCLUDED_Sprite
 #include <Sprite.h>
 #endif
+#ifndef INCLUDED_Std
+#include <Std.h>
+#endif
 
 Void ScoreCounter_obj::__construct(::String filename,int r,int g,int b)
 {
@@ -915,9 +918,7 @@ Void ScoreCounter_obj::show( ::cpp::Pointer< SDL_Surface > screen){
 			HX_STACK_LINE(156)
 			Float tmp9 = (Float(tmp6) / Float(tmp8));		HX_STACK_VAR(tmp9,"tmp9");
 			HX_STACK_LINE(156)
-			int tmp10;		HX_STACK_VAR(tmp10,"tmp10");
-			HX_STACK_LINE(156)
-			tmp10 = hx::TCast< ::Int >::cast(tmp9);
+			int tmp10 = ::Std_obj::_int(tmp9);		HX_STACK_VAR(tmp10,"tmp10");
 			HX_STACK_LINE(156)
 			this->frame = tmp10;
 			HX_STACK_LINE(157)
@@ -991,9 +992,7 @@ Void ScoreCounter_obj::show( ::cpp::Pointer< SDL_Surface > screen){
 					HX_STACK_LINE(164)
 					Float tmp21 = (tmp20 - (int)10);		HX_STACK_VAR(tmp21,"tmp21");
 					HX_STACK_LINE(164)
-					int tmp22;		HX_STACK_VAR(tmp22,"tmp22");
-					HX_STACK_LINE(164)
-					tmp22 = hx::TCast< ::Int >::cast(tmp21);
+					int tmp22 = ::Std_obj::_int(tmp21);		HX_STACK_VAR(tmp22,"tmp22");
 					HX_STACK_LINE(164)
 					hx::SubEq(xPos,tmp22);
 					HX_STACK_LINE(165)
@@ -1032,9 +1031,7 @@ Void ScoreCounter_obj::show( ::cpp::Pointer< SDL_Surface > screen){
 					HX_STACK_LINE(166)
 					Float tmp31 = (tmp30 - (int)10);		HX_STACK_VAR(tmp31,"tmp31");
 					HX_STACK_LINE(166)
-					int tmp32;		HX_STACK_VAR(tmp32,"tmp32");
-					HX_STACK_LINE(166)
-					tmp32 = hx::TCast< ::Int >::cast(tmp31);
+					int tmp32 = ::Std_obj::_int(tmp31);		HX_STACK_VAR(tmp32,"tmp32");
 					HX_STACK_LINE(166)
 					hx::AddEq(xPos,tmp32);
 				}

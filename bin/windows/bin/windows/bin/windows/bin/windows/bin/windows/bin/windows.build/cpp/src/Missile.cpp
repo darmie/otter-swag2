@@ -10,8 +10,11 @@
 #ifndef INCLUDED_Sprite
 #include <Sprite.h>
 #endif
+#ifndef INCLUDED_Std
+#include <Std.h>
+#endif
 
-Void Missile_obj::__construct(::String filename,int r,int g,int b,int randY)
+Void Missile_obj::__construct(::String filename,int r,int g,int b,Float randY)
 {
 HX_STACK_FRAME("Missile","new",0x9899c178,"Missile.new","Missile.hx",15,0x28dd14f8)
 HX_STACK_THIS(this)
@@ -30,11 +33,15 @@ HX_STACK_ARG(randY,"randY")
 	HX_STACK_LINE(20)
 	this->hasCollided = false;
 	HX_STACK_LINE(23)
-	this->offSetY = randY;
+	Float tmp = randY;		HX_STACK_VAR(tmp,"tmp");
+	HX_STACK_LINE(23)
+	int tmp1 = ::Std_obj::_int(tmp);		HX_STACK_VAR(tmp1,"tmp1");
+	HX_STACK_LINE(23)
+	this->offSetY = tmp1;
 	HX_STACK_LINE(24)
-	int tmp = this->SCREEN_WIDTH;		HX_STACK_VAR(tmp,"tmp");
+	int tmp2 = this->SCREEN_WIDTH;		HX_STACK_VAR(tmp2,"tmp2");
 	HX_STACK_LINE(24)
-	this->offSetX = tmp;
+	this->offSetX = tmp2;
 	HX_STACK_LINE(25)
 	this->velocityX = (int)20;
 	HX_STACK_LINE(26)
@@ -42,21 +49,21 @@ HX_STACK_ARG(randY,"randY")
 	HX_STACK_LINE(29)
 	this->frame = (int)0;
 	HX_STACK_LINE(30)
-	int tmp1 = this->SHOOT;		HX_STACK_VAR(tmp1,"tmp1");
+	int tmp3 = this->SHOOT;		HX_STACK_VAR(tmp3,"tmp3");
 	HX_STACK_LINE(30)
-	this->status = tmp1;
+	this->status = tmp3;
 	HX_STACK_LINE(33)
-	::String tmp2 = filename;		HX_STACK_VAR(tmp2,"tmp2");
+	::String tmp4 = filename;		HX_STACK_VAR(tmp4,"tmp4");
 	HX_STACK_LINE(33)
-	int tmp3 = r;		HX_STACK_VAR(tmp3,"tmp3");
+	int tmp5 = r;		HX_STACK_VAR(tmp5,"tmp5");
 	HX_STACK_LINE(33)
-	int tmp4 = g;		HX_STACK_VAR(tmp4,"tmp4");
+	int tmp6 = g;		HX_STACK_VAR(tmp6,"tmp6");
 	HX_STACK_LINE(33)
-	int tmp5 = b;		HX_STACK_VAR(tmp5,"tmp5");
+	int tmp7 = b;		HX_STACK_VAR(tmp7,"tmp7");
 	HX_STACK_LINE(33)
-	::cpp::Pointer< SDL_Surface > tmp6 = this->load_image(tmp2,tmp3,tmp4,tmp5);		HX_STACK_VAR(tmp6,"tmp6");
+	::cpp::Pointer< SDL_Surface > tmp8 = this->load_image(tmp4,tmp5,tmp6,tmp7);		HX_STACK_VAR(tmp8,"tmp8");
 	HX_STACK_LINE(33)
-	this->sprite = tmp6;
+	this->sprite = tmp8;
 	HX_STACK_LINE(36)
 	this->set_clips();
 }
@@ -67,7 +74,7 @@ HX_STACK_ARG(randY,"randY")
 //Missile_obj::~Missile_obj() { }
 
 Dynamic Missile_obj::__CreateEmpty() { return  new Missile_obj; }
-hx::ObjectPtr< Missile_obj > Missile_obj::__new(::String filename,int r,int g,int b,int randY)
+hx::ObjectPtr< Missile_obj > Missile_obj::__new(::String filename,int r,int g,int b,Float randY)
 {  hx::ObjectPtr< Missile_obj > _result_ = new Missile_obj();
 	_result_->__construct(filename,r,g,b,randY);
 	return _result_;}

@@ -11,7 +11,7 @@ class Missile extends Sprite
 	private var SHOOT:Int;
 	private var EXPLODE:Int;
 	
-	public function new(filename:String, r:Int, g:Int, b:Int, randY:Int) 
+	public function new(filename:String, r:Int, g:Int, b:Int, randY:Float) 
 	{
 		super(2);
 		SHOOT = 0;
@@ -20,7 +20,7 @@ class Missile extends Sprite
 		hasCollided = false;
 
 		//Initialize movement variables
-		offSetY = randY;
+		offSetY = Std.int(randY);
 		offSetX = SCREEN_WIDTH;
 		velocityX = 20;
 		velocityY = 0;

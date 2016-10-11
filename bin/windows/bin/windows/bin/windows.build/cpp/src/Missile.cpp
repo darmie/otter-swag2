@@ -10,8 +10,11 @@
 #ifndef INCLUDED_Sprite
 #include <Sprite.h>
 #endif
+#ifndef INCLUDED_Std
+#include <Std.h>
+#endif
 
-Void Missile_obj::__construct(::String filename,int r,int g,int b,int randY)
+Void Missile_obj::__construct(::String filename,int r,int g,int b,Float randY)
 {
 HX_STACK_FRAME("Missile","new",0x9899c178,"Missile.new","Missile.hx",15,0x28dd14f8)
 HX_STACK_THIS(this)
@@ -30,11 +33,15 @@ HX_STACK_ARG(randY,"randY")
 	HX_STACK_LINE(20)
 	this->hasCollided = false;
 	HX_STACK_LINE(23)
-	this->offSetY = randY;
+	Float tmp = randY;		HX_STACK_VAR(tmp,"tmp");
+	HX_STACK_LINE(23)
+	int tmp1 = ::Std_obj::_int(tmp);		HX_STACK_VAR(tmp1,"tmp1");
+	HX_STACK_LINE(23)
+	this->offSetY = tmp1;
 	HX_STACK_LINE(24)
-	int tmp = this->SCREEN_WIDTH;		HX_STACK_VAR(tmp,"tmp");
+	int tmp2 = this->SCREEN_WIDTH;		HX_STACK_VAR(tmp2,"tmp2");
 	HX_STACK_LINE(24)
-	this->offSetX = tmp;
+	this->offSetX = tmp2;
 	HX_STACK_LINE(25)
 	this->velocityX = (int)20;
 	HX_STACK_LINE(26)
@@ -42,21 +49,21 @@ HX_STACK_ARG(randY,"randY")
 	HX_STACK_LINE(29)
 	this->frame = (int)0;
 	HX_STACK_LINE(30)
-	int tmp1 = this->SHOOT;		HX_STACK_VAR(tmp1,"tmp1");
+	int tmp3 = this->SHOOT;		HX_STACK_VAR(tmp3,"tmp3");
 	HX_STACK_LINE(30)
-	this->status = tmp1;
+	this->status = tmp3;
 	HX_STACK_LINE(33)
-	::String tmp2 = filename;		HX_STACK_VAR(tmp2,"tmp2");
+	::String tmp4 = filename;		HX_STACK_VAR(tmp4,"tmp4");
 	HX_STACK_LINE(33)
-	int tmp3 = r;		HX_STACK_VAR(tmp3,"tmp3");
+	int tmp5 = r;		HX_STACK_VAR(tmp5,"tmp5");
 	HX_STACK_LINE(33)
-	int tmp4 = g;		HX_STACK_VAR(tmp4,"tmp4");
+	int tmp6 = g;		HX_STACK_VAR(tmp6,"tmp6");
 	HX_STACK_LINE(33)
-	int tmp5 = b;		HX_STACK_VAR(tmp5,"tmp5");
+	int tmp7 = b;		HX_STACK_VAR(tmp7,"tmp7");
 	HX_STACK_LINE(33)
-	::cpp::Pointer< SDL_Surface > tmp6 = this->load_image(tmp2,tmp3,tmp4,tmp5);		HX_STACK_VAR(tmp6,"tmp6");
+	::cpp::Pointer< SDL_Surface > tmp8 = this->load_image(tmp4,tmp5,tmp6,tmp7);		HX_STACK_VAR(tmp8,"tmp8");
 	HX_STACK_LINE(33)
-	this->sprite = tmp6;
+	this->sprite = tmp8;
 	HX_STACK_LINE(36)
 	this->set_clips();
 }
@@ -67,7 +74,7 @@ HX_STACK_ARG(randY,"randY")
 //Missile_obj::~Missile_obj() { }
 
 Dynamic Missile_obj::__CreateEmpty() { return  new Missile_obj; }
-hx::ObjectPtr< Missile_obj > Missile_obj::__new(::String filename,int r,int g,int b,int randY)
+hx::ObjectPtr< Missile_obj > Missile_obj::__new(::String filename,int r,int g,int b,Float randY)
 {  hx::ObjectPtr< Missile_obj > _result_ = new Missile_obj();
 	_result_->__construct(filename,r,g,b,randY);
 	return _result_;}
@@ -1155,106 +1162,6 @@ return null();
 }
 
 
-Void Missile_obj::show( ::cpp::Pointer< SDL_Surface > screen){
-{
-		HX_STACK_FRAME("Missile","show",0xf13fd8e5,"Missile.show","Missile.hx",150,0x28dd14f8)
-		HX_STACK_THIS(this)
-		HX_STACK_ARG(screen,"screen")
-		HX_STACK_LINE(152)
-		int tmp = this->status;		HX_STACK_VAR(tmp,"tmp");
-		HX_STACK_LINE(152)
-		int tmp1 = this->SHOOT;		HX_STACK_VAR(tmp1,"tmp1");
-		HX_STACK_LINE(152)
-		bool tmp2 = (tmp == tmp1);		HX_STACK_VAR(tmp2,"tmp2");
-		HX_STACK_LINE(152)
-		if ((tmp2)){
-			HX_STACK_LINE(153)
-			int tmp3 = this->frame;		HX_STACK_VAR(tmp3,"tmp3");
-			HX_STACK_LINE(153)
-			bool tmp4 = (tmp3 < (int)1);		HX_STACK_VAR(tmp4,"tmp4");
-			HX_STACK_LINE(153)
-			if ((tmp4)){
-				HX_STACK_LINE(154)
-				(this->frame)++;
-			}
-			else{
-				HX_STACK_LINE(156)
-				this->frame = (int)0;
-			}
-			HX_STACK_LINE(158)
-			::cpp::Pointer< SDL_Surface > tmp5 = this->sprite;		HX_STACK_VAR(tmp5,"tmp5");
-			HX_STACK_LINE(158)
-			::cpp::Pointer< SDL_Surface > tmp6 = screen;		HX_STACK_VAR(tmp6,"tmp6");
-			HX_STACK_LINE(158)
-			Dynamic tmp7;		HX_STACK_VAR(tmp7,"tmp7");
-			HX_STACK_LINE(158)
-			{
-				HX_STACK_LINE(158)
-				Array< ::Dynamic > tmp8 = this->states;		HX_STACK_VAR(tmp8,"tmp8");
-				HX_STACK_LINE(158)
-				cpp::ArrayBase tmp9 = tmp8->__unsafe_get((int)0).StaticCast< cpp::ArrayBase >();		HX_STACK_VAR(tmp9,"tmp9");
-				HX_STACK_LINE(158)
-				cpp::ArrayBase this1 = ((cpp::ArrayBase)(((cpp::ArrayBase)(tmp9))));		HX_STACK_VAR(this1,"this1");
-				HX_STACK_LINE(158)
-				int tmp10 = this->frame;		HX_STACK_VAR(tmp10,"tmp10");
-				HX_STACK_LINE(158)
-				Dynamic tmp11 = ((cpp::ArrayBase)(this1))->__Field(HX_HCSTRING("__unsafe_get","\xdd","\xcf","\x9b","\x60"), hx::paccDynamic )(tmp10);		HX_STACK_VAR(tmp11,"tmp11");
-				HX_STACK_LINE(158)
-				tmp7 = tmp11;
-			}
-			HX_STACK_LINE(158)
-			this->apply_surface(null(),null(),tmp5,tmp6,tmp7);
-		}
-		HX_STACK_LINE(160)
-		int tmp3 = this->status;		HX_STACK_VAR(tmp3,"tmp3");
-		HX_STACK_LINE(160)
-		int tmp4 = this->EXPLODE;		HX_STACK_VAR(tmp4,"tmp4");
-		HX_STACK_LINE(160)
-		bool tmp5 = (tmp3 == tmp4);		HX_STACK_VAR(tmp5,"tmp5");
-		HX_STACK_LINE(160)
-		if ((tmp5)){
-			HX_STACK_LINE(161)
-			int tmp6 = this->frame;		HX_STACK_VAR(tmp6,"tmp6");
-			HX_STACK_LINE(161)
-			bool tmp7 = (tmp6 < (int)12);		HX_STACK_VAR(tmp7,"tmp7");
-			HX_STACK_LINE(161)
-			if ((tmp7)){
-				HX_STACK_LINE(162)
-				(this->frame)++;
-			}
-			else{
-				HX_STACK_LINE(164)
-				this->frame = (int)12;
-			}
-			HX_STACK_LINE(166)
-			::cpp::Pointer< SDL_Surface > tmp8 = this->sprite;		HX_STACK_VAR(tmp8,"tmp8");
-			HX_STACK_LINE(166)
-			::cpp::Pointer< SDL_Surface > tmp9 = screen;		HX_STACK_VAR(tmp9,"tmp9");
-			HX_STACK_LINE(166)
-			Dynamic tmp10;		HX_STACK_VAR(tmp10,"tmp10");
-			HX_STACK_LINE(166)
-			{
-				HX_STACK_LINE(166)
-				Array< ::Dynamic > tmp11 = this->states;		HX_STACK_VAR(tmp11,"tmp11");
-				HX_STACK_LINE(166)
-				cpp::ArrayBase tmp12 = tmp11->__unsafe_get((int)1).StaticCast< cpp::ArrayBase >();		HX_STACK_VAR(tmp12,"tmp12");
-				HX_STACK_LINE(166)
-				cpp::ArrayBase this1 = ((cpp::ArrayBase)(((cpp::ArrayBase)(tmp12))));		HX_STACK_VAR(this1,"this1");
-				HX_STACK_LINE(166)
-				int tmp13 = this->frame;		HX_STACK_VAR(tmp13,"tmp13");
-				HX_STACK_LINE(166)
-				Dynamic tmp14 = ((cpp::ArrayBase)(this1))->__Field(HX_HCSTRING("__unsafe_get","\xdd","\xcf","\x9b","\x60"), hx::paccDynamic )(tmp13);		HX_STACK_VAR(tmp14,"tmp14");
-				HX_STACK_LINE(166)
-				tmp10 = tmp14;
-			}
-			HX_STACK_LINE(166)
-			this->apply_surface(null(),null(),tmp8,tmp9,tmp10);
-		}
-	}
-return null();
-}
-
-
 
 Missile_obj::Missile_obj()
 {
@@ -1265,7 +1172,6 @@ Dynamic Missile_obj::__Field(const ::String &inName,hx::PropertyAccess inCallPro
 	switch(inName.length) {
 	case 4:
 		if (HX_FIELD_EQ(inName,"move") ) { return move_dyn(); }
-		if (HX_FIELD_EQ(inName,"show") ) { return show_dyn(); }
 		break;
 	case 5:
 		if (HX_FIELD_EQ(inName,"SHOOT") ) { return SHOOT; }
@@ -1320,7 +1226,6 @@ static ::String sMemberFields[] = {
 	HX_HCSTRING("set_clips","\x06","\xd0","\x58","\x6f"),
 	HX_HCSTRING("collision","\x72","\xa8","\x3a","\xdb"),
 	HX_HCSTRING("move","\x11","\xe3","\x60","\x48"),
-	HX_HCSTRING("show","\xfd","\xd4","\x52","\x4c"),
 	::String(null()) };
 
 static void sMarkStatics(HX_MARK_PARAMS) {

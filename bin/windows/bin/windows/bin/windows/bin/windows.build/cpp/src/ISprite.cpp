@@ -1,6 +1,5 @@
 #include <hxcpp.h>
 
-#include "linc_sdl.h"
 #ifndef INCLUDED_ISprite
 #include <ISprite.h>
 #endif
@@ -33,18 +32,6 @@ return null();
 
 
 HX_DEFINE_DYNAMIC_FUNC0(ISprite_obj,move,(void))
-
-Void ISprite_obj::show( ::cpp::Pointer< SDL_Surface > screen){
-{
-		HX_STACK_FRAME("ISprite","show",0x0fffd03d,"ISprite.show","ISprite.hx",14,0xccfc0650)
-		HX_STACK_THIS(this)
-		HX_STACK_ARG(screen,"screen")
-	}
-return null();
-}
-
-
-HX_DEFINE_DYNAMIC_FUNC1(ISprite_obj,show,(void))
 
 int ISprite_obj::collision( ){
 	HX_STACK_FRAME("ISprite","collision",0x7276e532,"ISprite.collision","ISprite.hx",16,0xccfc0650)
@@ -86,7 +73,6 @@ Dynamic ISprite_obj::__Field(const ::String &inName,hx::PropertyAccess inCallPro
 	switch(inName.length) {
 	case 4:
 		if (HX_FIELD_EQ(inName,"move") ) { return move_dyn(); }
-		if (HX_FIELD_EQ(inName,"show") ) { return show_dyn(); }
 		break;
 	case 9:
 		if (HX_FIELD_EQ(inName,"collision") ) { return collision_dyn(); }
@@ -105,7 +91,6 @@ static hx::StaticInfo *sStaticStorageInfo = 0;
 
 static ::String sMemberFields[] = {
 	HX_HCSTRING("move","\x11","\xe3","\x60","\x48"),
-	HX_HCSTRING("show","\xfd","\xd4","\x52","\x4c"),
 	HX_HCSTRING("collision","\x72","\xa8","\x3a","\xdb"),
 	HX_HCSTRING("getOffSetX","\x8f","\xbb","\x9f","\x11"),
 	HX_HCSTRING("getOffSetY","\x90","\xbb","\x9f","\x11"),

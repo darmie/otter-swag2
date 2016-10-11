@@ -35,6 +35,9 @@
 #ifndef INCLUDED_Sprite
 #include <Sprite.h>
 #endif
+#ifndef INCLUDED_Std
+#include <Std.h>
+#endif
 #ifndef INCLUDED_Timer
 #include <Timer.h>
 #endif
@@ -126,1091 +129,769 @@ Void Main_obj::main( ){
 		HX_STACK_LINE(50)
 		bool start = false;		HX_STACK_VAR(start,"start");
 		HX_STACK_LINE(51)
-		bool isExploding = false;		HX_STACK_VAR(isExploding,"isExploding");
+		bool _started = false;		HX_STACK_VAR(_started,"_started");
 		HX_STACK_LINE(52)
+		bool isExploding = false;		HX_STACK_VAR(isExploding,"isExploding");
+		HX_STACK_LINE(53)
 		int explodeCount = (int)0;		HX_STACK_VAR(explodeCount,"explodeCount");
-		HX_STACK_LINE(54)
+		HX_STACK_LINE(55)
 		score = (int)0;
-		HX_STACK_LINE(56)
+		HX_STACK_LINE(57)
 		::ScoreCounter tmp8 = ::ScoreCounter_obj::__new(HX_HCSTRING("numbers.bmp","\x61","\x83","\x22","\x4a"),(int)255,(int)255,(int)255);		HX_STACK_VAR(tmp8,"tmp8");
-		HX_STACK_LINE(56)
+		HX_STACK_LINE(57)
 		scoreCount = tmp8;
-		HX_STACK_LINE(57)
+		HX_STACK_LINE(58)
 		::Otter tmp9 = ::Otter_obj::__new(HX_HCSTRING("otter.bmp","\xb3","\x2c","\xae","\x5d"),(int)255,(int)255,(int)255);		HX_STACK_VAR(tmp9,"tmp9");
-		HX_STACK_LINE(57)
+		HX_STACK_LINE(58)
 		otter = tmp9;
-		HX_STACK_LINE(59)
+		HX_STACK_LINE(60)
 		::cpp::Pointer< SDL_Surface > tmp10 = ::GameManager_obj::screen;		HX_STACK_VAR(tmp10,"tmp10");
-		HX_STACK_LINE(59)
+		HX_STACK_LINE(60)
 		::Background tmp11 = ::Background_obj::__new(HX_HCSTRING("background.bmp","\xc5","\xaf","\xf3","\x07"),tmp10);		HX_STACK_VAR(tmp11,"tmp11");
-		HX_STACK_LINE(59)
+		HX_STACK_LINE(60)
 		background = tmp11;
-		HX_STACK_LINE(61)
+		HX_STACK_LINE(62)
 		::MenuScreen tmp12 = ::MenuScreen_obj::__new(HX_HCSTRING("menuScreens.bmp","\x7f","\xa8","\x09","\xa1"),(int)255,(int)0,(int)255);		HX_STACK_VAR(tmp12,"tmp12");
-		HX_STACK_LINE(61)
+		HX_STACK_LINE(62)
 		menu = tmp12;
-		HX_STACK_LINE(67)
+		HX_STACK_LINE(68)
 		while((true)){
-			HX_STACK_LINE(67)
+			HX_STACK_LINE(68)
 			bool tmp13 = (quit == false);		HX_STACK_VAR(tmp13,"tmp13");
-			HX_STACK_LINE(67)
+			HX_STACK_LINE(68)
 			bool tmp14 = !(tmp13);		HX_STACK_VAR(tmp14,"tmp14");
-			HX_STACK_LINE(67)
+			HX_STACK_LINE(68)
 			if ((tmp14)){
-				HX_STACK_LINE(67)
+				HX_STACK_LINE(68)
 				break;
 			}
-			HX_STACK_LINE(69)
+			HX_STACK_LINE(70)
 			while((true)){
-				HX_STACK_LINE(69)
+				HX_STACK_LINE(70)
 				bool tmp15 = (start == false);		HX_STACK_VAR(tmp15,"tmp15");
-				HX_STACK_LINE(69)
+				HX_STACK_LINE(70)
 				bool tmp16 = !(tmp15);		HX_STACK_VAR(tmp16,"tmp16");
-				HX_STACK_LINE(69)
+				HX_STACK_LINE(70)
 				if ((tmp16)){
-					HX_STACK_LINE(69)
+					HX_STACK_LINE(70)
 					break;
 				}
-				HX_STACK_LINE(70)
-				scoreCount->setTitle(false);
 				HX_STACK_LINE(71)
-				isExploding = false;
+				scoreCount->setTitle(false);
 				HX_STACK_LINE(72)
+				isExploding = false;
+				HX_STACK_LINE(73)
 				explodeCount = (int)0;
-				HX_STACK_LINE(74)
-				::Timer tmp17 = ::Timer_obj::__new();		HX_STACK_VAR(tmp17,"tmp17");
-				HX_STACK_LINE(74)
-				::Timer mps = tmp17;		HX_STACK_VAR(mps,"mps");
 				HX_STACK_LINE(75)
-				mps->start();
+				::Timer tmp17 = ::Timer_obj::__new();		HX_STACK_VAR(tmp17,"tmp17");
+				HX_STACK_LINE(75)
+				::Timer mps = tmp17;		HX_STACK_VAR(mps,"mps");
 				HX_STACK_LINE(76)
+				mps->start();
+				HX_STACK_LINE(78)
 				while((true)){
-					HX_STACK_LINE(76)
+					HX_STACK_LINE(78)
 					bool tmp18;		HX_STACK_VAR(tmp18,"tmp18");
-					HX_STACK_LINE(76)
+					HX_STACK_LINE(78)
 					{
-						HX_STACK_LINE(76)
+						HX_STACK_LINE(78)
 						SDL_PumpEvents();
-						HX_STACK_LINE(76)
+						HX_STACK_LINE(78)
 						tmp18 = SDL_HasEvents((int)0,(int)65535);
 					}
-					HX_STACK_LINE(76)
+					HX_STACK_LINE(78)
 					bool tmp19 = !(tmp18);		HX_STACK_VAR(tmp19,"tmp19");
-					HX_STACK_LINE(76)
+					HX_STACK_LINE(78)
 					if ((tmp19)){
-						HX_STACK_LINE(76)
+						HX_STACK_LINE(78)
 						break;
 					}
-					HX_STACK_LINE(78)
+					HX_STACK_LINE(80)
 					::cpp::Struct<SDL_Event> tmp20 = linc::sdl::pollEvent();		HX_STACK_VAR(tmp20,"tmp20");
-					HX_STACK_LINE(78)
+					HX_STACK_LINE(80)
 					::cpp::Struct<SDL_Event> event = tmp20;		HX_STACK_VAR(event,"event");
-					HX_STACK_LINE(79)
+					HX_STACK_LINE(82)
 					::cpp::Struct<SDL_Event> tmp21 = event;		HX_STACK_VAR(tmp21,"tmp21");
-					HX_STACK_LINE(79)
+					HX_STACK_LINE(82)
 					bool tmp22 = menu->handle_event(tmp21);		HX_STACK_VAR(tmp22,"tmp22");
-					HX_STACK_LINE(79)
-					start = tmp22;
-				}
-				HX_STACK_LINE(82)
-				bool tmp18;		HX_STACK_VAR(tmp18,"tmp18");
-				HX_STACK_LINE(82)
-				{
 					HX_STACK_LINE(82)
-					SDL_PumpEvents();
+					bool tmp23 = (tmp22 == true);		HX_STACK_VAR(tmp23,"tmp23");
 					HX_STACK_LINE(82)
-					tmp18 = SDL_HasEvents((int)0,(int)65535);
+					if ((tmp23)){
+						HX_STACK_LINE(83)
+						::cpp::Struct<SDL_Event> tmp24 = event;		HX_STACK_VAR(tmp24,"tmp24");
+						HX_STACK_LINE(83)
+						bool tmp25 = menu->handle_event(tmp24);		HX_STACK_VAR(tmp25,"tmp25");
+						HX_STACK_LINE(83)
+						start = tmp25;
+					}
 				}
-				HX_STACK_LINE(82)
-				bool tmp19 = (tmp18 == false);		HX_STACK_VAR(tmp19,"tmp19");
-				HX_STACK_LINE(82)
-				if ((tmp19)){
-					HX_STACK_LINE(83)
-					SDL_Delay((int)0);
-				}
-				HX_STACK_LINE(87)
+				HX_STACK_LINE(91)
+				::cpp::Pointer< SDL_Surface > tmp18 = ::GameManager_obj::screen;		HX_STACK_VAR(tmp18,"tmp18");
+				HX_STACK_LINE(91)
+				background->scroll((int)10,tmp18);
+				HX_STACK_LINE(92)
+				::cpp::Pointer< SDL_Surface > tmp19 = ::GameManager_obj::screen;		HX_STACK_VAR(tmp19,"tmp19");
+				HX_STACK_LINE(92)
+				menu->show(tmp19);
+				HX_STACK_LINE(93)
 				::cpp::Pointer< SDL_Surface > tmp20 = ::GameManager_obj::screen;		HX_STACK_VAR(tmp20,"tmp20");
-				HX_STACK_LINE(87)
-				background->scroll((int)10,tmp20);
-				HX_STACK_LINE(88)
-				::cpp::Pointer< SDL_Surface > tmp21 = ::GameManager_obj::screen;		HX_STACK_VAR(tmp21,"tmp21");
-				HX_STACK_LINE(88)
-				menu->show(tmp21);
-				HX_STACK_LINE(89)
-				::cpp::Pointer< SDL_Surface > tmp22 = ::GameManager_obj::screen;		HX_STACK_VAR(tmp22,"tmp22");
-				HX_STACK_LINE(89)
-				scoreCount->show(tmp22);
-				HX_STACK_LINE(91)
+				HX_STACK_LINE(93)
+				scoreCount->show(tmp20);
+				HX_STACK_LINE(95)
+				Dynamic tmp21 = ::Main_obj::state;		HX_STACK_VAR(tmp21,"tmp21");
+				HX_STACK_LINE(95)
+				::cpp::Pointer< SDL_Window > tmp22 = tmp21->__Field(HX_HCSTRING("window","\xf0","\x93","\x8c","\x52"), hx::paccDynamic );		HX_STACK_VAR(tmp22,"tmp22");
+				HX_STACK_LINE(95)
+				SDL_UpdateWindowSurface(tmp22);
+				HX_STACK_LINE(96)
 				Dynamic tmp23 = ::Main_obj::state;		HX_STACK_VAR(tmp23,"tmp23");
-				HX_STACK_LINE(91)
-				::cpp::Pointer< SDL_Window > tmp24 = tmp23->__Field(HX_HCSTRING("window","\xf0","\x93","\x8c","\x52"), hx::paccDynamic );		HX_STACK_VAR(tmp24,"tmp24");
-				HX_STACK_LINE(91)
-				SDL_UpdateWindowSurface(tmp24);
-				HX_STACK_LINE(92)
-				Dynamic tmp25 = ::Main_obj::state;		HX_STACK_VAR(tmp25,"tmp25");
-				HX_STACK_LINE(92)
-				::cpp::Pointer< SDL_Renderer > tmp26 = tmp25->__Field(HX_HCSTRING("renderer","\x43","\xc5","\xdb","\xb2"), hx::paccDynamic );		HX_STACK_VAR(tmp26,"tmp26");
-				HX_STACK_LINE(92)
-				::cpp::Pointer< SDL_Surface > tmp27 = menu->sprite;		HX_STACK_VAR(tmp27,"tmp27");
-				HX_STACK_LINE(92)
-				::cpp::Pointer< SDL_Texture > tmp28 = ::cpp::Pointer< SDL_Texture >(SDL_CreateTextureFromSurface(tmp26,tmp27));		HX_STACK_VAR(tmp28,"tmp28");
-				HX_STACK_LINE(92)
-				::cpp::Pointer< SDL_Texture > texture = tmp28;		HX_STACK_VAR(texture,"texture");
-				HX_STACK_LINE(93)
+				HX_STACK_LINE(96)
+				::cpp::Pointer< SDL_Renderer > tmp24 = tmp23->__Field(HX_HCSTRING("renderer","\x43","\xc5","\xdb","\xb2"), hx::paccDynamic );		HX_STACK_VAR(tmp24,"tmp24");
+				HX_STACK_LINE(96)
+				::cpp::Pointer< SDL_Surface > tmp25 = menu->sprite;		HX_STACK_VAR(tmp25,"tmp25");
+				HX_STACK_LINE(96)
+				::cpp::Pointer< SDL_Texture > tmp26 = ::cpp::Pointer< SDL_Texture >(SDL_CreateTextureFromSurface(tmp24,tmp25));		HX_STACK_VAR(tmp26,"tmp26");
+				HX_STACK_LINE(96)
+				::cpp::Pointer< SDL_Texture > texture = tmp26;		HX_STACK_VAR(texture,"texture");
+				HX_STACK_LINE(99)
+				Dynamic tmp27 = ::Main_obj::state;		HX_STACK_VAR(tmp27,"tmp27");
+				HX_STACK_LINE(99)
+				::cpp::Pointer< SDL_Renderer > tmp28 = tmp27->__Field(HX_HCSTRING("renderer","\x43","\xc5","\xdb","\xb2"), hx::paccDynamic );		HX_STACK_VAR(tmp28,"tmp28");
+				HX_STACK_LINE(99)
 				::cpp::Pointer< SDL_Texture > tmp29 = texture;		HX_STACK_VAR(tmp29,"tmp29");
+				HX_STACK_LINE(99)
+				int tmp30 = menu->getOffSetX();		HX_STACK_VAR(tmp30,"tmp30");
+				HX_STACK_LINE(99)
+				int tmp31 = menu->getOffSetY();		HX_STACK_VAR(tmp31,"tmp31");
+				HX_STACK_LINE(99)
+				int tmp32 = menu->width;		HX_STACK_VAR(tmp32,"tmp32");
+				HX_STACK_LINE(99)
+				int tmp33 = scoreCount->height;		HX_STACK_VAR(tmp33,"tmp33");
 				struct _Function_3_1{
-					inline static Dynamic Block( ){
-						HX_STACK_FRAME("*","closure",0x5bdab937,"*.closure","Main.hx",93,0x087e5c05)
+					inline static Dynamic Block( int &tmp33,int &tmp31,int &tmp32,int &tmp30){
+						HX_STACK_FRAME("*","closure",0x5bdab937,"*.closure","Main.hx",99,0x087e5c05)
 						{
 							hx::Anon __result = hx::Anon_obj::Create();
-							__result->Add(HX_HCSTRING("format","\x37","\x8f","\x8e","\xfd") , (int)0,false);
-							__result->Add(HX_HCSTRING("access","\xa4","\x95","\x06","\x0b") , (int)0,false);
-							__result->Add(HX_HCSTRING("w","\x77","\x00","\x00","\x00") , (int)0,false);
-							__result->Add(HX_HCSTRING("h","\x68","\x00","\x00","\x00") , (int)0,false);
+							__result->Add(HX_HCSTRING("x","\x78","\x00","\x00","\x00") , tmp30,false);
+							__result->Add(HX_HCSTRING("y","\x79","\x00","\x00","\x00") , tmp31,false);
+							__result->Add(HX_HCSTRING("w","\x77","\x00","\x00","\x00") , tmp32,false);
+							__result->Add(HX_HCSTRING("h","\x68","\x00","\x00","\x00") , tmp33,false);
 							return __result;
 						}
 						return null();
 					}
 				};
-				HX_STACK_LINE(93)
-				Dynamic tmp30 = _Function_3_1::Block();		HX_STACK_VAR(tmp30,"tmp30");
-				HX_STACK_LINE(93)
-				Dynamic tmp31 = linc::sdl::queryTexture(tmp29,tmp30);		HX_STACK_VAR(tmp31,"tmp31");
-				HX_STACK_LINE(93)
-				Dynamic query = tmp31;		HX_STACK_VAR(query,"query");
-				HX_STACK_LINE(94)
-				::cpp::Pointer< SDL_Texture > tmp32 = texture;		HX_STACK_VAR(tmp32,"tmp32");
-				HX_STACK_LINE(94)
-				linc::sdl::setTextureBlendMode(tmp32,(int)4);
-				HX_STACK_LINE(95)
-				::cpp::Pointer< SDL_Surface > tmp33 = menu->sprite;		HX_STACK_VAR(tmp33,"tmp33");
-				HX_STACK_LINE(95)
-				SDL_FreeSurface(tmp33);
-				HX_STACK_LINE(96)
-				Dynamic tmp34 = ::Main_obj::state;		HX_STACK_VAR(tmp34,"tmp34");
-				HX_STACK_LINE(96)
-				::cpp::Pointer< SDL_Renderer > tmp35 = tmp34->__Field(HX_HCSTRING("renderer","\x43","\xc5","\xdb","\xb2"), hx::paccDynamic );		HX_STACK_VAR(tmp35,"tmp35");
-				HX_STACK_LINE(96)
-				::cpp::Pointer< SDL_Texture > tmp36 = texture;		HX_STACK_VAR(tmp36,"tmp36");
-				HX_STACK_LINE(96)
-				int tmp37 = menu->getOffSetX();		HX_STACK_VAR(tmp37,"tmp37");
-				HX_STACK_LINE(96)
-				int tmp38 = menu->getOffSetY();		HX_STACK_VAR(tmp38,"tmp38");
-				HX_STACK_LINE(96)
-				int tmp39 = menu->width;		HX_STACK_VAR(tmp39,"tmp39");
-				HX_STACK_LINE(96)
-				int tmp40 = scoreCount->height;		HX_STACK_VAR(tmp40,"tmp40");
+				HX_STACK_LINE(99)
+				Dynamic tmp34 = _Function_3_1::Block(tmp33,tmp31,tmp32,tmp30);		HX_STACK_VAR(tmp34,"tmp34");
+				HX_STACK_LINE(99)
+				linc::sdl::renderCopyEx(tmp28,tmp29,null(),tmp34,(int)90,null(),(int)2);
+				HX_STACK_LINE(101)
+				Dynamic tmp35 = ::Main_obj::state;		HX_STACK_VAR(tmp35,"tmp35");
+				HX_STACK_LINE(101)
+				::cpp::Pointer< SDL_Window > tmp36 = tmp35->__Field(HX_HCSTRING("window","\xf0","\x93","\x8c","\x52"), hx::paccDynamic );		HX_STACK_VAR(tmp36,"tmp36");
+				HX_STACK_LINE(101)
+				SDL_UpdateWindowSurface(tmp36);
+				HX_STACK_LINE(102)
+				Dynamic tmp37 = ::Main_obj::state;		HX_STACK_VAR(tmp37,"tmp37");
+				HX_STACK_LINE(102)
+				::cpp::Pointer< SDL_Renderer > tmp38 = tmp37->__Field(HX_HCSTRING("renderer","\x43","\xc5","\xdb","\xb2"), hx::paccDynamic );		HX_STACK_VAR(tmp38,"tmp38");
+				HX_STACK_LINE(102)
+				::cpp::Pointer< SDL_Surface > tmp39 = scoreCount->sprite;		HX_STACK_VAR(tmp39,"tmp39");
+				HX_STACK_LINE(102)
+				::cpp::Pointer< SDL_Texture > tmp40 = ::cpp::Pointer< SDL_Texture >(SDL_CreateTextureFromSurface(tmp38,tmp39));		HX_STACK_VAR(tmp40,"tmp40");
+				HX_STACK_LINE(102)
+				::cpp::Pointer< SDL_Texture > texture1 = tmp40;		HX_STACK_VAR(texture1,"texture1");
+				HX_STACK_LINE(105)
+				Dynamic tmp41 = ::Main_obj::state;		HX_STACK_VAR(tmp41,"tmp41");
+				HX_STACK_LINE(105)
+				::cpp::Pointer< SDL_Renderer > tmp42 = tmp41->__Field(HX_HCSTRING("renderer","\x43","\xc5","\xdb","\xb2"), hx::paccDynamic );		HX_STACK_VAR(tmp42,"tmp42");
+				HX_STACK_LINE(105)
+				::cpp::Pointer< SDL_Texture > tmp43 = texture1;		HX_STACK_VAR(tmp43,"tmp43");
+				HX_STACK_LINE(105)
+				int tmp44 = scoreCount->getOffSetX();		HX_STACK_VAR(tmp44,"tmp44");
+				HX_STACK_LINE(105)
+				int tmp45 = scoreCount->getOffSetY();		HX_STACK_VAR(tmp45,"tmp45");
+				HX_STACK_LINE(105)
+				int tmp46 = scoreCount->width;		HX_STACK_VAR(tmp46,"tmp46");
+				HX_STACK_LINE(105)
+				int tmp47 = scoreCount->height;		HX_STACK_VAR(tmp47,"tmp47");
 				struct _Function_3_2{
-					inline static Dynamic Block( int &tmp38,int &tmp40,int &tmp37,int &tmp39){
-						HX_STACK_FRAME("*","closure",0x5bdab937,"*.closure","Main.hx",96,0x087e5c05)
+					inline static Dynamic Block( int &tmp46,int &tmp44,int &tmp47,int &tmp45){
+						HX_STACK_FRAME("*","closure",0x5bdab937,"*.closure","Main.hx",105,0x087e5c05)
 						{
 							hx::Anon __result = hx::Anon_obj::Create();
-							__result->Add(HX_HCSTRING("x","\x78","\x00","\x00","\x00") , tmp37,false);
-							__result->Add(HX_HCSTRING("y","\x79","\x00","\x00","\x00") , tmp38,false);
-							__result->Add(HX_HCSTRING("w","\x77","\x00","\x00","\x00") , tmp39,false);
-							__result->Add(HX_HCSTRING("h","\x68","\x00","\x00","\x00") , tmp40,false);
+							__result->Add(HX_HCSTRING("x","\x78","\x00","\x00","\x00") , tmp44,false);
+							__result->Add(HX_HCSTRING("y","\x79","\x00","\x00","\x00") , tmp45,false);
+							__result->Add(HX_HCSTRING("w","\x77","\x00","\x00","\x00") , tmp46,false);
+							__result->Add(HX_HCSTRING("h","\x68","\x00","\x00","\x00") , tmp47,false);
 							return __result;
 						}
 						return null();
 					}
 				};
-				HX_STACK_LINE(96)
-				Dynamic tmp41 = _Function_3_2::Block(tmp38,tmp40,tmp37,tmp39);		HX_STACK_VAR(tmp41,"tmp41");
-				HX_STACK_LINE(96)
-				linc::sdl::renderCopyEx(tmp35,tmp36,null(),tmp41,(int)90,null(),(int)2);
-				HX_STACK_LINE(98)
-				Dynamic tmp42 = ::Main_obj::state;		HX_STACK_VAR(tmp42,"tmp42");
-				HX_STACK_LINE(98)
-				::cpp::Pointer< SDL_Window > tmp43 = tmp42->__Field(HX_HCSTRING("window","\xf0","\x93","\x8c","\x52"), hx::paccDynamic );		HX_STACK_VAR(tmp43,"tmp43");
-				HX_STACK_LINE(98)
-				SDL_UpdateWindowSurface(tmp43);
-				HX_STACK_LINE(99)
-				Dynamic tmp44 = ::Main_obj::state;		HX_STACK_VAR(tmp44,"tmp44");
-				HX_STACK_LINE(99)
-				::cpp::Pointer< SDL_Renderer > tmp45 = tmp44->__Field(HX_HCSTRING("renderer","\x43","\xc5","\xdb","\xb2"), hx::paccDynamic );		HX_STACK_VAR(tmp45,"tmp45");
-				HX_STACK_LINE(99)
-				::cpp::Pointer< SDL_Surface > tmp46 = scoreCount->sprite;		HX_STACK_VAR(tmp46,"tmp46");
-				HX_STACK_LINE(99)
-				::cpp::Pointer< SDL_Texture > tmp47 = ::cpp::Pointer< SDL_Texture >(SDL_CreateTextureFromSurface(tmp45,tmp46));		HX_STACK_VAR(tmp47,"tmp47");
-				HX_STACK_LINE(99)
-				::cpp::Pointer< SDL_Texture > texture1 = tmp47;		HX_STACK_VAR(texture1,"texture1");
-				HX_STACK_LINE(100)
-				::cpp::Pointer< SDL_Texture > tmp48 = texture1;		HX_STACK_VAR(tmp48,"tmp48");
-				struct _Function_3_3{
-					inline static Dynamic Block( ){
-						HX_STACK_FRAME("*","closure",0x5bdab937,"*.closure","Main.hx",100,0x087e5c05)
-						{
-							hx::Anon __result = hx::Anon_obj::Create();
-							__result->Add(HX_HCSTRING("format","\x37","\x8f","\x8e","\xfd") , (int)0,false);
-							__result->Add(HX_HCSTRING("access","\xa4","\x95","\x06","\x0b") , (int)0,false);
-							__result->Add(HX_HCSTRING("w","\x77","\x00","\x00","\x00") , (int)0,false);
-							__result->Add(HX_HCSTRING("h","\x68","\x00","\x00","\x00") , (int)0,false);
-							return __result;
-						}
-						return null();
-					}
-				};
-				HX_STACK_LINE(100)
-				Dynamic tmp49 = _Function_3_3::Block();		HX_STACK_VAR(tmp49,"tmp49");
-				HX_STACK_LINE(100)
-				Dynamic tmp50 = linc::sdl::queryTexture(tmp48,tmp49);		HX_STACK_VAR(tmp50,"tmp50");
-				HX_STACK_LINE(100)
-				Dynamic query1 = tmp50;		HX_STACK_VAR(query1,"query1");
-				HX_STACK_LINE(101)
-				::cpp::Pointer< SDL_Texture > tmp51 = texture1;		HX_STACK_VAR(tmp51,"tmp51");
-				HX_STACK_LINE(101)
-				linc::sdl::setTextureBlendMode(tmp51,(int)4);
-				HX_STACK_LINE(102)
-				::cpp::Pointer< SDL_Surface > tmp52 = scoreCount->sprite;		HX_STACK_VAR(tmp52,"tmp52");
-				HX_STACK_LINE(102)
-				SDL_FreeSurface(tmp52);
-				HX_STACK_LINE(103)
-				Dynamic tmp53 = ::Main_obj::state;		HX_STACK_VAR(tmp53,"tmp53");
-				HX_STACK_LINE(103)
-				::cpp::Pointer< SDL_Renderer > tmp54 = tmp53->__Field(HX_HCSTRING("renderer","\x43","\xc5","\xdb","\xb2"), hx::paccDynamic );		HX_STACK_VAR(tmp54,"tmp54");
-				HX_STACK_LINE(103)
-				::cpp::Pointer< SDL_Texture > tmp55 = texture1;		HX_STACK_VAR(tmp55,"tmp55");
-				HX_STACK_LINE(103)
-				int tmp56 = scoreCount->getOffSetX();		HX_STACK_VAR(tmp56,"tmp56");
-				HX_STACK_LINE(103)
-				int tmp57 = scoreCount->getOffSetY();		HX_STACK_VAR(tmp57,"tmp57");
-				HX_STACK_LINE(103)
-				int tmp58 = scoreCount->width;		HX_STACK_VAR(tmp58,"tmp58");
-				HX_STACK_LINE(103)
-				int tmp59 = scoreCount->height;		HX_STACK_VAR(tmp59,"tmp59");
-				struct _Function_3_4{
-					inline static Dynamic Block( int &tmp56,int &tmp59,int &tmp58,int &tmp57){
-						HX_STACK_FRAME("*","closure",0x5bdab937,"*.closure","Main.hx",103,0x087e5c05)
-						{
-							hx::Anon __result = hx::Anon_obj::Create();
-							__result->Add(HX_HCSTRING("x","\x78","\x00","\x00","\x00") , tmp56,false);
-							__result->Add(HX_HCSTRING("y","\x79","\x00","\x00","\x00") , tmp57,false);
-							__result->Add(HX_HCSTRING("w","\x77","\x00","\x00","\x00") , tmp58,false);
-							__result->Add(HX_HCSTRING("h","\x68","\x00","\x00","\x00") , tmp59,false);
-							return __result;
-						}
-						return null();
-					}
-				};
-				HX_STACK_LINE(103)
-				Dynamic tmp60 = _Function_3_4::Block(tmp56,tmp59,tmp58,tmp57);		HX_STACK_VAR(tmp60,"tmp60");
-				HX_STACK_LINE(103)
-				linc::sdl::renderCopyEx(tmp54,tmp55,null(),tmp60,(int)90,null(),(int)2);
-				HX_STACK_LINE(109)
-				Float tmp61 = mps->get_ticks();		HX_STACK_VAR(tmp61,"tmp61");
-				HX_STACK_LINE(109)
-				int tmp62 = ::GameManager_obj::FRAMES_PER_SECOND;		HX_STACK_VAR(tmp62,"tmp62");
-				HX_STACK_LINE(109)
-				Float tmp63 = (Float((int)1000) / Float(tmp62));		HX_STACK_VAR(tmp63,"tmp63");
-				HX_STACK_LINE(109)
-				bool tmp64 = (tmp61 < tmp63);		HX_STACK_VAR(tmp64,"tmp64");
-				HX_STACK_LINE(109)
-				if ((tmp64)){
-					HX_STACK_LINE(110)
-					int tmp65 = ::GameManager_obj::FRAMES_PER_SECOND;		HX_STACK_VAR(tmp65,"tmp65");
-					HX_STACK_LINE(110)
-					Float tmp66 = (Float((int)1000) / Float(tmp65));		HX_STACK_VAR(tmp66,"tmp66");
-					HX_STACK_LINE(110)
-					Float tmp67 = mps->get_ticks();		HX_STACK_VAR(tmp67,"tmp67");
-					HX_STACK_LINE(110)
-					Float tmp68 = (tmp66 - tmp67);		HX_STACK_VAR(tmp68,"tmp68");
-					HX_STACK_LINE(110)
-					int tmp69;		HX_STACK_VAR(tmp69,"tmp69");
-					HX_STACK_LINE(110)
-					tmp69 = hx::TCast< ::Int >::cast(tmp68);
-					HX_STACK_LINE(110)
-					SDL_Delay(tmp69);
+				HX_STACK_LINE(105)
+				Dynamic tmp48 = _Function_3_2::Block(tmp46,tmp44,tmp47,tmp45);		HX_STACK_VAR(tmp48,"tmp48");
+				HX_STACK_LINE(105)
+				linc::sdl::renderCopyEx(tmp42,tmp43,null(),tmp48,(int)90,null(),(int)2);
+				HX_STACK_LINE(111)
+				Float tmp49 = mps->get_ticks();		HX_STACK_VAR(tmp49,"tmp49");
+				HX_STACK_LINE(111)
+				int tmp50 = ::GameManager_obj::FRAMES_PER_SECOND;		HX_STACK_VAR(tmp50,"tmp50");
+				HX_STACK_LINE(111)
+				Float tmp51 = (Float((int)1000) / Float(tmp50));		HX_STACK_VAR(tmp51,"tmp51");
+				HX_STACK_LINE(111)
+				bool tmp52 = (tmp49 < tmp51);		HX_STACK_VAR(tmp52,"tmp52");
+				HX_STACK_LINE(111)
+				if ((tmp52)){
+					HX_STACK_LINE(112)
+					int tmp53 = ::GameManager_obj::FRAMES_PER_SECOND;		HX_STACK_VAR(tmp53,"tmp53");
+					HX_STACK_LINE(112)
+					Float tmp54 = (Float((int)1000) / Float(tmp53));		HX_STACK_VAR(tmp54,"tmp54");
+					HX_STACK_LINE(112)
+					Float tmp55 = mps->get_ticks();		HX_STACK_VAR(tmp55,"tmp55");
+					HX_STACK_LINE(112)
+					Float tmp56 = (tmp54 - tmp55);		HX_STACK_VAR(tmp56,"tmp56");
+					HX_STACK_LINE(112)
+					int tmp57;		HX_STACK_VAR(tmp57,"tmp57");
+					HX_STACK_LINE(112)
+					tmp57 = hx::TCast< ::Int >::cast(tmp56);
+					HX_STACK_LINE(112)
+					SDL_Delay(tmp57);
 				}
-				HX_STACK_LINE(114)
-				bool tmp65 = (score > (int)0);		HX_STACK_VAR(tmp65,"tmp65");
-				HX_STACK_LINE(114)
-				if ((tmp65)){
-					HX_STACK_LINE(115)
+				HX_STACK_LINE(116)
+				bool tmp53 = (score > (int)0);		HX_STACK_VAR(tmp53,"tmp53");
+				HX_STACK_LINE(116)
+				if ((tmp53)){
+					HX_STACK_LINE(117)
 					score = (int)0;
-					HX_STACK_LINE(116)
+					HX_STACK_LINE(118)
 					otter->setIsVisible(true);
 				}
-				HX_STACK_LINE(118)
+				HX_STACK_LINE(120)
 				otter->setStarting(true);
-				HX_STACK_LINE(119)
+				HX_STACK_LINE(121)
 				otter->setOffSetY((int)-35);
 			}
-			HX_STACK_LINE(123)
-			scoreCount->setTitle(true);
-			HX_STACK_LINE(124)
-			menu->setHasPlayed(true);
-			HX_STACK_LINE(125)
-			fps->start();
 			HX_STACK_LINE(128)
+			scoreCount->setTitle(true);
+			HX_STACK_LINE(129)
+			menu->setHasPlayed(true);
+			HX_STACK_LINE(130)
+			fps->start();
+			HX_STACK_LINE(133)
 			while((true)){
-				HX_STACK_LINE(128)
+				HX_STACK_LINE(133)
 				bool tmp15;		HX_STACK_VAR(tmp15,"tmp15");
-				HX_STACK_LINE(128)
+				HX_STACK_LINE(133)
 				{
-					HX_STACK_LINE(128)
+					HX_STACK_LINE(133)
 					SDL_PumpEvents();
-					HX_STACK_LINE(128)
+					HX_STACK_LINE(133)
 					tmp15 = SDL_HasEvents((int)0,(int)65535);
 				}
-				HX_STACK_LINE(128)
+				HX_STACK_LINE(133)
 				bool tmp16 = !(tmp15);		HX_STACK_VAR(tmp16,"tmp16");
-				HX_STACK_LINE(128)
+				HX_STACK_LINE(133)
 				if ((tmp16)){
-					HX_STACK_LINE(128)
+					HX_STACK_LINE(133)
 					break;
 				}
-				HX_STACK_LINE(130)
+				HX_STACK_LINE(136)
 				::cpp::Struct<SDL_Event> tmp17 = linc::sdl::pollEvent();		HX_STACK_VAR(tmp17,"tmp17");
-				HX_STACK_LINE(130)
+				HX_STACK_LINE(136)
 				::cpp::Struct<SDL_Event> event = tmp17;		HX_STACK_VAR(event,"event");
-				HX_STACK_LINE(132)
+				HX_STACK_LINE(137)
 				::cpp::Struct<SDL_Event> tmp18 = event;		HX_STACK_VAR(tmp18,"tmp18");
-				HX_STACK_LINE(132)
+				HX_STACK_LINE(137)
 				otter->handle_events(tmp18);
-				HX_STACK_LINE(135)
+				HX_STACK_LINE(140)
 				bool tmp19 = (event->type == (int)256);		HX_STACK_VAR(tmp19,"tmp19");
-				HX_STACK_LINE(135)
+				HX_STACK_LINE(140)
 				if ((tmp19)){
-					HX_STACK_LINE(137)
-					quit = true;
 				}
 			}
-			HX_STACK_LINE(142)
-			bool tmp15;		HX_STACK_VAR(tmp15,"tmp15");
-			HX_STACK_LINE(142)
-			{
-				HX_STACK_LINE(142)
-				SDL_PumpEvents();
-				HX_STACK_LINE(142)
-				tmp15 = SDL_HasEvents((int)0,(int)65535);
-			}
-			HX_STACK_LINE(142)
-			bool tmp16 = (tmp15 == false);		HX_STACK_VAR(tmp16,"tmp16");
-			HX_STACK_LINE(142)
-			if ((tmp16)){
-				HX_STACK_LINE(143)
-				SDL_Delay((int)0);
-			}
-			HX_STACK_LINE(147)
-			bool tmp17 = expertMode;		HX_STACK_VAR(tmp17,"tmp17");
-			HX_STACK_LINE(147)
-			if ((tmp17)){
-				HX_STACK_LINE(148)
-				Float tmp18 = obstacleTimer;		HX_STACK_VAR(tmp18,"tmp18");
-				HX_STACK_LINE(148)
-				Float tmp19 = ::Math_obj::sin(tmp18);		HX_STACK_VAR(tmp19,"tmp19");
-				HX_STACK_LINE(148)
-				Float tmp20 = ((int)25 * tmp19);		HX_STACK_VAR(tmp20,"tmp20");
-				HX_STACK_LINE(148)
-				Float tmp21 = (tmp20 + (int)375);		HX_STACK_VAR(tmp21,"tmp21");
-				HX_STACK_LINE(148)
-				obstacleSpawnRate = tmp21;
+			HX_STACK_LINE(150)
+			bool tmp15 = expertMode;		HX_STACK_VAR(tmp15,"tmp15");
+			HX_STACK_LINE(150)
+			if ((tmp15)){
+				HX_STACK_LINE(151)
+				Float tmp16 = obstacleTimer;		HX_STACK_VAR(tmp16,"tmp16");
+				HX_STACK_LINE(151)
+				Float tmp17 = ::Math_obj::sin(tmp16);		HX_STACK_VAR(tmp17,"tmp17");
+				HX_STACK_LINE(151)
+				Float tmp18 = ((int)25 * tmp17);		HX_STACK_VAR(tmp18,"tmp18");
+				HX_STACK_LINE(151)
+				Float tmp19 = (tmp18 + (int)375);		HX_STACK_VAR(tmp19,"tmp19");
+				HX_STACK_LINE(151)
+				obstacleSpawnRate = tmp19;
 			}
 			else{
-				HX_STACK_LINE(150)
-				Float tmp18 = obstacleAmplitude;		HX_STACK_VAR(tmp18,"tmp18");
-				HX_STACK_LINE(150)
-				Float tmp19 = obstacleTimer;		HX_STACK_VAR(tmp19,"tmp19");
-				HX_STACK_LINE(150)
-				Float tmp20 = ::Math_obj::sin(tmp19);		HX_STACK_VAR(tmp20,"tmp20");
-				HX_STACK_LINE(150)
-				Float tmp21 = (tmp18 * tmp20);		HX_STACK_VAR(tmp21,"tmp21");
-				HX_STACK_LINE(150)
-				Float tmp22 = obstacleIntercept;		HX_STACK_VAR(tmp22,"tmp22");
-				HX_STACK_LINE(150)
-				Float tmp23 = (tmp21 + tmp22);		HX_STACK_VAR(tmp23,"tmp23");
-				HX_STACK_LINE(150)
-				obstacleSpawnRate = tmp23;
-				HX_STACK_LINE(151)
-				bool tmp24 = (obstacleSpawnRate > (int)400);		HX_STACK_VAR(tmp24,"tmp24");
-				HX_STACK_LINE(151)
-				if ((tmp24)){
-					HX_STACK_LINE(152)
+				HX_STACK_LINE(153)
+				Float tmp16 = obstacleAmplitude;		HX_STACK_VAR(tmp16,"tmp16");
+				HX_STACK_LINE(153)
+				Float tmp17 = obstacleTimer;		HX_STACK_VAR(tmp17,"tmp17");
+				HX_STACK_LINE(153)
+				Float tmp18 = ::Math_obj::sin(tmp17);		HX_STACK_VAR(tmp18,"tmp18");
+				HX_STACK_LINE(153)
+				Float tmp19 = (tmp16 * tmp18);		HX_STACK_VAR(tmp19,"tmp19");
+				HX_STACK_LINE(153)
+				Float tmp20 = obstacleIntercept;		HX_STACK_VAR(tmp20,"tmp20");
+				HX_STACK_LINE(153)
+				Float tmp21 = (tmp19 + tmp20);		HX_STACK_VAR(tmp21,"tmp21");
+				HX_STACK_LINE(153)
+				obstacleSpawnRate = tmp21;
+				HX_STACK_LINE(154)
+				bool tmp22 = (obstacleSpawnRate > (int)400);		HX_STACK_VAR(tmp22,"tmp22");
+				HX_STACK_LINE(154)
+				if ((tmp22)){
+					HX_STACK_LINE(155)
 					expertMode = true;
 				}
-				HX_STACK_LINE(155)
-				int tmp25 = score;		HX_STACK_VAR(tmp25,"tmp25");
-				HX_STACK_LINE(155)
-				int tmp26 = (obstacleScore + (int)1000);		HX_STACK_VAR(tmp26,"tmp26");
-				HX_STACK_LINE(155)
-				bool tmp27 = (tmp25 > tmp26);		HX_STACK_VAR(tmp27,"tmp27");
-				HX_STACK_LINE(155)
-				if ((tmp27)){
-					HX_STACK_LINE(156)
+				HX_STACK_LINE(158)
+				int tmp23 = score;		HX_STACK_VAR(tmp23,"tmp23");
+				HX_STACK_LINE(158)
+				int tmp24 = (obstacleScore + (int)1000);		HX_STACK_VAR(tmp24,"tmp24");
+				HX_STACK_LINE(158)
+				bool tmp25 = (tmp23 > tmp24);		HX_STACK_VAR(tmp25,"tmp25");
+				HX_STACK_LINE(158)
+				if ((tmp25)){
+					HX_STACK_LINE(159)
 					obstacleAmplitude = (int)50;
-					HX_STACK_LINE(157)
+					HX_STACK_LINE(160)
 					hx::AddEq(obstacleIntercept,(int)10);
-					HX_STACK_LINE(158)
+					HX_STACK_LINE(161)
 					obstacleScore = score;
 				}
-				HX_STACK_LINE(161)
+				HX_STACK_LINE(164)
 				hx::SubEq(obstacleAmplitude,((Float).1));
 			}
-			HX_STACK_LINE(165)
+			HX_STACK_LINE(168)
 			hx::AddEq(obstacleTimer,((Float).1));
-			HX_STACK_LINE(168)
-			Float tmp18 = ::Math_obj::random();		HX_STACK_VAR(tmp18,"tmp18");
-			HX_STACK_LINE(168)
-			Float tmp19 = hx::Mod(tmp18,(int)1000);		HX_STACK_VAR(tmp19,"tmp19");
-			HX_STACK_LINE(168)
-			Float tmp20 = (tmp19 + (int)1);		HX_STACK_VAR(tmp20,"tmp20");
-			HX_STACK_LINE(168)
-			int tmp21;		HX_STACK_VAR(tmp21,"tmp21");
-			HX_STACK_LINE(168)
-			tmp21 = hx::TCast< ::Int >::cast(tmp20);
-			HX_STACK_LINE(168)
-			int spawnObstacle = tmp21;		HX_STACK_VAR(spawnObstacle,"spawnObstacle");
-			HX_STACK_LINE(169)
-			bool tmp22 = (spawnObstacle < obstacleSpawnRate);		HX_STACK_VAR(tmp22,"tmp22");
-			HX_STACK_LINE(169)
-			if ((tmp22)){
-				HX_STACK_LINE(170)
-				Float tmp23 = ::Math_obj::random();		HX_STACK_VAR(tmp23,"tmp23");
-				HX_STACK_LINE(170)
-				Float tmp24 = hx::Mod(tmp23,(int)11);		HX_STACK_VAR(tmp24,"tmp24");
-				HX_STACK_LINE(170)
-				Float tmp25 = (tmp24 * (int)24);		HX_STACK_VAR(tmp25,"tmp25");
-				HX_STACK_LINE(170)
-				Float tmp26 = (tmp25 + (int)50);		HX_STACK_VAR(tmp26,"tmp26");
-				HX_STACK_LINE(170)
-				int tmp27;		HX_STACK_VAR(tmp27,"tmp27");
-				HX_STACK_LINE(170)
-				tmp27 = hx::TCast< ::Int >::cast(tmp26);
-				HX_STACK_LINE(170)
-				int randY = tmp27;		HX_STACK_VAR(randY,"randY");
-				HX_STACK_LINE(171)
-				::Missile tmp28 = ::Missile_obj::__new(HX_HCSTRING("missiles.bmp","\x64","\x4b","\x33","\xb6"),(int)127,(int)127,(int)127,randY);		HX_STACK_VAR(tmp28,"tmp28");
-				HX_STACK_LINE(171)
-				::Missile temp = tmp28;		HX_STACK_VAR(temp,"temp");
-				HX_STACK_LINE(172)
-				::Missile tmp29 = temp;		HX_STACK_VAR(tmp29,"tmp29");
-				HX_STACK_LINE(172)
-				obstacles->push(tmp29);
+			HX_STACK_LINE(171)
+			Float tmp16 = ::Math_obj::random();		HX_STACK_VAR(tmp16,"tmp16");
+			HX_STACK_LINE(171)
+			Float tmp17 = hx::Mod(tmp16,(int)1000);		HX_STACK_VAR(tmp17,"tmp17");
+			HX_STACK_LINE(171)
+			Float tmp18 = (tmp17 + (int)1);		HX_STACK_VAR(tmp18,"tmp18");
+			HX_STACK_LINE(171)
+			Float spawnObstacle = tmp18;		HX_STACK_VAR(spawnObstacle,"spawnObstacle");
+			HX_STACK_LINE(172)
+			bool tmp19 = (spawnObstacle < obstacleSpawnRate);		HX_STACK_VAR(tmp19,"tmp19");
+			HX_STACK_LINE(172)
+			if ((tmp19)){
+				HX_STACK_LINE(173)
+				Float tmp20 = ::Math_obj::random();		HX_STACK_VAR(tmp20,"tmp20");
+				HX_STACK_LINE(173)
+				Float tmp21 = hx::Mod(tmp20,(int)11);		HX_STACK_VAR(tmp21,"tmp21");
+				HX_STACK_LINE(173)
+				Float tmp22 = (tmp21 * (int)24);		HX_STACK_VAR(tmp22,"tmp22");
+				HX_STACK_LINE(173)
+				Float tmp23 = (tmp22 + (int)50);		HX_STACK_VAR(tmp23,"tmp23");
+				HX_STACK_LINE(173)
+				Float randY = tmp23;		HX_STACK_VAR(randY,"randY");
+				HX_STACK_LINE(174)
+				::Missile tmp24 = ::Missile_obj::__new(HX_HCSTRING("missiles.bmp","\x64","\x4b","\x33","\xb6"),(int)127,(int)127,(int)127,randY);		HX_STACK_VAR(tmp24,"tmp24");
+				HX_STACK_LINE(174)
+				::Missile temp = tmp24;		HX_STACK_VAR(temp,"temp");
+				HX_STACK_LINE(175)
+				::Missile tmp25 = temp;		HX_STACK_VAR(tmp25,"tmp25");
+				HX_STACK_LINE(175)
+				obstacles->push(tmp25);
 			}
-			HX_STACK_LINE(175)
-			Float tmp23 = ::Math_obj::random();		HX_STACK_VAR(tmp23,"tmp23");
-			HX_STACK_LINE(175)
-			Float tmp24 = hx::Mod(tmp23,(int)1000);		HX_STACK_VAR(tmp24,"tmp24");
-			HX_STACK_LINE(175)
-			Float tmp25 = (tmp24 + (int)1);		HX_STACK_VAR(tmp25,"tmp25");
-			HX_STACK_LINE(175)
-			Float spawnCoin = tmp25;		HX_STACK_VAR(spawnCoin,"spawnCoin");
-			HX_STACK_LINE(176)
-			bool tmp26 = (spawnCoin < (int)50);		HX_STACK_VAR(tmp26,"tmp26");
-			HX_STACK_LINE(176)
-			if ((tmp26)){
-				HX_STACK_LINE(177)
-				Float tmp27 = ::Math_obj::random();		HX_STACK_VAR(tmp27,"tmp27");
-				HX_STACK_LINE(177)
-				Float tmp28 = hx::Mod(tmp27,(int)400);		HX_STACK_VAR(tmp28,"tmp28");
-				HX_STACK_LINE(177)
-				Float tmp29 = (tmp28 + (int)100);		HX_STACK_VAR(tmp29,"tmp29");
-				HX_STACK_LINE(177)
-				Float randX = tmp29;		HX_STACK_VAR(randX,"randX");
-				HX_STACK_LINE(178)
-				int tmp30;		HX_STACK_VAR(tmp30,"tmp30");
-				HX_STACK_LINE(178)
-				tmp30 = hx::TCast< ::Int >::cast(randX);
-				HX_STACK_LINE(178)
-				::Coin tmp31 = ::Coin_obj::__new(HX_HCSTRING("coins.bmp","\x99","\xbf","\x91","\xbf"),(int)48,(int)120,(int)128,tmp30);		HX_STACK_VAR(tmp31,"tmp31");
-				HX_STACK_LINE(178)
-				::Coin money = tmp31;		HX_STACK_VAR(money,"money");
-				HX_STACK_LINE(179)
-				::Coin tmp32 = money;		HX_STACK_VAR(tmp32,"tmp32");
-				HX_STACK_LINE(179)
-				obstacles->push(tmp32);
+			HX_STACK_LINE(178)
+			Float tmp20 = ::Math_obj::random();		HX_STACK_VAR(tmp20,"tmp20");
+			HX_STACK_LINE(178)
+			Float tmp21 = hx::Mod(tmp20,(int)1000);		HX_STACK_VAR(tmp21,"tmp21");
+			HX_STACK_LINE(178)
+			Float tmp22 = (tmp21 + (int)1);		HX_STACK_VAR(tmp22,"tmp22");
+			HX_STACK_LINE(178)
+			Float spawnCoin = tmp22;		HX_STACK_VAR(spawnCoin,"spawnCoin");
+			HX_STACK_LINE(179)
+			bool tmp23 = (spawnCoin < (int)50);		HX_STACK_VAR(tmp23,"tmp23");
+			HX_STACK_LINE(179)
+			if ((tmp23)){
+				HX_STACK_LINE(180)
+				Float tmp24 = ::Math_obj::random();		HX_STACK_VAR(tmp24,"tmp24");
+				HX_STACK_LINE(180)
+				Float tmp25 = hx::Mod(tmp24,(int)400);		HX_STACK_VAR(tmp25,"tmp25");
+				HX_STACK_LINE(180)
+				Float tmp26 = (tmp25 + (int)100);		HX_STACK_VAR(tmp26,"tmp26");
+				HX_STACK_LINE(180)
+				Float randX = tmp26;		HX_STACK_VAR(randX,"randX");
+				HX_STACK_LINE(181)
+				Float tmp27 = randX;		HX_STACK_VAR(tmp27,"tmp27");
+				HX_STACK_LINE(181)
+				int tmp28 = ::Std_obj::_int(tmp27);		HX_STACK_VAR(tmp28,"tmp28");
+				HX_STACK_LINE(181)
+				::Coin tmp29 = ::Coin_obj::__new(HX_HCSTRING("coins.bmp","\x99","\xbf","\x91","\xbf"),(int)48,(int)120,(int)128,tmp28);		HX_STACK_VAR(tmp29,"tmp29");
+				HX_STACK_LINE(181)
+				::Coin money = tmp29;		HX_STACK_VAR(money,"money");
+				HX_STACK_LINE(182)
+				::Coin tmp30 = money;		HX_STACK_VAR(tmp30,"tmp30");
+				HX_STACK_LINE(182)
+				obstacles->push(tmp30);
 			}
-			HX_STACK_LINE(182)
-			Float tmp27 = ::Math_obj::random();		HX_STACK_VAR(tmp27,"tmp27");
-			HX_STACK_LINE(182)
-			Float tmp28 = hx::Mod(tmp27,(int)1000);		HX_STACK_VAR(tmp28,"tmp28");
-			HX_STACK_LINE(182)
-			Float tmp29 = (tmp28 + (int)1);		HX_STACK_VAR(tmp29,"tmp29");
-			HX_STACK_LINE(182)
-			Float spawnFish = tmp29;		HX_STACK_VAR(spawnFish,"spawnFish");
-			HX_STACK_LINE(183)
-			bool tmp30 = (spawnFish < (int)3);		HX_STACK_VAR(tmp30,"tmp30");
-			HX_STACK_LINE(183)
-			if ((tmp30)){
-				HX_STACK_LINE(184)
-				Float tmp31 = ::Math_obj::random();		HX_STACK_VAR(tmp31,"tmp31");
-				HX_STACK_LINE(184)
-				Float tmp32 = hx::Mod(tmp31,(int)10);		HX_STACK_VAR(tmp32,"tmp32");
-				HX_STACK_LINE(184)
-				Float tmp33 = (tmp32 * (int)25);		HX_STACK_VAR(tmp33,"tmp33");
-				HX_STACK_LINE(184)
-				Float tmp34 = (tmp33 + (int)50);		HX_STACK_VAR(tmp34,"tmp34");
-				HX_STACK_LINE(184)
-				Float fRandY = tmp34;		HX_STACK_VAR(fRandY,"fRandY");
-				HX_STACK_LINE(185)
-				int tmp35;		HX_STACK_VAR(tmp35,"tmp35");
-				HX_STACK_LINE(185)
-				tmp35 = hx::TCast< ::Int >::cast(fRandY);
-				HX_STACK_LINE(185)
-				::Fish tmp36 = ::Fish_obj::__new(HX_HCSTRING("LoveFish.bmp","\x21","\x04","\x59","\xee"),(int)85,(int)109,(int)143,tmp35);		HX_STACK_VAR(tmp36,"tmp36");
-				HX_STACK_LINE(185)
-				::Fish food = tmp36;		HX_STACK_VAR(food,"food");
-				HX_STACK_LINE(186)
-				::Fish tmp37 = food;		HX_STACK_VAR(tmp37,"tmp37");
-				HX_STACK_LINE(186)
-				obstacles->push(tmp37);
+			HX_STACK_LINE(185)
+			Float tmp24 = ::Math_obj::random();		HX_STACK_VAR(tmp24,"tmp24");
+			HX_STACK_LINE(185)
+			Float tmp25 = hx::Mod(tmp24,(int)1000);		HX_STACK_VAR(tmp25,"tmp25");
+			HX_STACK_LINE(185)
+			Float tmp26 = (tmp25 + (int)1);		HX_STACK_VAR(tmp26,"tmp26");
+			HX_STACK_LINE(185)
+			Float spawnFish = tmp26;		HX_STACK_VAR(spawnFish,"spawnFish");
+			HX_STACK_LINE(186)
+			bool tmp27 = (spawnFish < (int)3);		HX_STACK_VAR(tmp27,"tmp27");
+			HX_STACK_LINE(186)
+			if ((tmp27)){
+				HX_STACK_LINE(187)
+				Float tmp28 = ::Math_obj::random();		HX_STACK_VAR(tmp28,"tmp28");
+				HX_STACK_LINE(187)
+				Float tmp29 = hx::Mod(tmp28,(int)10);		HX_STACK_VAR(tmp29,"tmp29");
+				HX_STACK_LINE(187)
+				Float tmp30 = (tmp29 * (int)25);		HX_STACK_VAR(tmp30,"tmp30");
+				HX_STACK_LINE(187)
+				Float tmp31 = (tmp30 + (int)50);		HX_STACK_VAR(tmp31,"tmp31");
+				HX_STACK_LINE(187)
+				Float fRandY = tmp31;		HX_STACK_VAR(fRandY,"fRandY");
+				HX_STACK_LINE(188)
+				Float tmp32 = fRandY;		HX_STACK_VAR(tmp32,"tmp32");
+				HX_STACK_LINE(188)
+				int tmp33 = ::Std_obj::_int(tmp32);		HX_STACK_VAR(tmp33,"tmp33");
+				HX_STACK_LINE(188)
+				::Fish tmp34 = ::Fish_obj::__new(HX_HCSTRING("LoveFish.bmp","\x21","\x04","\x59","\xee"),(int)85,(int)109,(int)143,tmp33);		HX_STACK_VAR(tmp34,"tmp34");
+				HX_STACK_LINE(188)
+				::Fish food = tmp34;		HX_STACK_VAR(food,"food");
+				HX_STACK_LINE(189)
+				::Fish tmp35 = food;		HX_STACK_VAR(tmp35,"tmp35");
+				HX_STACK_LINE(189)
+				obstacles->push(tmp35);
 			}
-			HX_STACK_LINE(190)
-			bool collide;		HX_STACK_VAR(collide,"collide");
-			HX_STACK_LINE(191)
-			otter->move();
-			HX_STACK_LINE(192)
-			int obstacleSize = obstacles->length;		HX_STACK_VAR(obstacleSize,"obstacleSize");
 			HX_STACK_LINE(193)
+			bool collide;		HX_STACK_VAR(collide,"collide");
+			HX_STACK_LINE(194)
+			otter->move();
+			HX_STACK_LINE(195)
+			int obstacleSize = obstacles->length;		HX_STACK_VAR(obstacleSize,"obstacleSize");
+			HX_STACK_LINE(196)
 			{
-				HX_STACK_LINE(193)
+				HX_STACK_LINE(196)
 				int _g = (int)0;		HX_STACK_VAR(_g,"_g");
-				HX_STACK_LINE(193)
+				HX_STACK_LINE(196)
 				while((true)){
-					HX_STACK_LINE(193)
-					bool tmp31 = (_g < obstacleSize);		HX_STACK_VAR(tmp31,"tmp31");
-					HX_STACK_LINE(193)
-					bool tmp32 = !(tmp31);		HX_STACK_VAR(tmp32,"tmp32");
-					HX_STACK_LINE(193)
-					if ((tmp32)){
-						HX_STACK_LINE(193)
+					HX_STACK_LINE(196)
+					bool tmp28 = (_g < obstacleSize);		HX_STACK_VAR(tmp28,"tmp28");
+					HX_STACK_LINE(196)
+					bool tmp29 = !(tmp28);		HX_STACK_VAR(tmp29,"tmp29");
+					HX_STACK_LINE(196)
+					if ((tmp29)){
+						HX_STACK_LINE(196)
 						break;
 					}
-					HX_STACK_LINE(193)
-					int tmp33 = (_g)++;		HX_STACK_VAR(tmp33,"tmp33");
-					HX_STACK_LINE(193)
-					int i = tmp33;		HX_STACK_VAR(i,"i");
-					HX_STACK_LINE(194)
+					HX_STACK_LINE(196)
+					int tmp30 = (_g)++;		HX_STACK_VAR(tmp30,"tmp30");
+					HX_STACK_LINE(196)
+					int i = tmp30;		HX_STACK_VAR(i,"i");
+					HX_STACK_LINE(197)
 					collide = false;
-					HX_STACK_LINE(195)
-					::Sprite tmp34 = obstacles->__get(i).StaticCast< ::Sprite >();		HX_STACK_VAR(tmp34,"tmp34");
-					HX_STACK_LINE(195)
-					bool tmp35 = otter->check_collision(tmp34);		HX_STACK_VAR(tmp35,"tmp35");
-					HX_STACK_LINE(195)
-					collide = tmp35;
-					HX_STACK_LINE(197)
-					bool tmp36 = collide;		HX_STACK_VAR(tmp36,"tmp36");
-					HX_STACK_LINE(197)
-					if ((tmp36)){
-						HX_STACK_LINE(198)
+					HX_STACK_LINE(198)
+					::Sprite tmp31 = obstacles->__get(i).StaticCast< ::Sprite >();		HX_STACK_VAR(tmp31,"tmp31");
+					HX_STACK_LINE(198)
+					bool tmp32 = otter->check_collision(tmp31);		HX_STACK_VAR(tmp32,"tmp32");
+					HX_STACK_LINE(198)
+					collide = tmp32;
+					HX_STACK_LINE(200)
+					bool tmp33 = collide;		HX_STACK_VAR(tmp33,"tmp33");
+					HX_STACK_LINE(200)
+					if ((tmp33)){
+						HX_STACK_LINE(201)
 						action = (int)0;
-						HX_STACK_LINE(199)
-						::Sprite tmp37 = obstacles->__get(i).StaticCast< ::Sprite >();		HX_STACK_VAR(tmp37,"tmp37");
-						HX_STACK_LINE(199)
-						int tmp38 = tmp37->collision();		HX_STACK_VAR(tmp38,"tmp38");
-						HX_STACK_LINE(199)
-						action = tmp38;
-						HX_STACK_LINE(200)
-						bool tmp39 = (action == (int)2);		HX_STACK_VAR(tmp39,"tmp39");
-						HX_STACK_LINE(200)
-						if ((tmp39)){
-							HX_STACK_LINE(201)
+						HX_STACK_LINE(202)
+						::Sprite tmp34 = obstacles->__get(i).StaticCast< ::Sprite >();		HX_STACK_VAR(tmp34,"tmp34");
+						HX_STACK_LINE(202)
+						int tmp35 = tmp34->collision();		HX_STACK_VAR(tmp35,"tmp35");
+						HX_STACK_LINE(202)
+						action = tmp35;
+						HX_STACK_LINE(203)
+						bool tmp36 = (action == (int)2);		HX_STACK_VAR(tmp36,"tmp36");
+						HX_STACK_LINE(203)
+						if ((tmp36)){
+							HX_STACK_LINE(204)
 							hx::AddEq(score,(int)100);
 						}
-						HX_STACK_LINE(204)
-						bool tmp40 = (action == (int)1);		HX_STACK_VAR(tmp40,"tmp40");
-						HX_STACK_LINE(204)
-						if ((tmp40)){
-							HX_STACK_LINE(206)
-							int tmp41 = otter->getStatus();		HX_STACK_VAR(tmp41,"tmp41");
-							HX_STACK_LINE(206)
-							bool tmp42 = (tmp41 != (int)3);		HX_STACK_VAR(tmp42,"tmp42");
-							HX_STACK_LINE(206)
-							if ((tmp42)){
-								HX_STACK_LINE(207)
-								otter->setDead(true);
-								HX_STACK_LINE(208)
-								otter->setIsVisible(false);
-								HX_STACK_LINE(209)
-								collider = i;
+						HX_STACK_LINE(207)
+						bool tmp37 = (action == (int)1);		HX_STACK_VAR(tmp37,"tmp37");
+						HX_STACK_LINE(207)
+						if ((tmp37)){
+							HX_STACK_LINE(209)
+							int tmp38 = otter->getStatus();		HX_STACK_VAR(tmp38,"tmp38");
+							HX_STACK_LINE(209)
+							bool tmp39 = (tmp38 != (int)3);		HX_STACK_VAR(tmp39,"tmp39");
+							HX_STACK_LINE(209)
+							if ((tmp39)){
 								HX_STACK_LINE(210)
-								isExploding = true;
+								otter->setDead(true);
 								HX_STACK_LINE(211)
+								otter->setIsVisible(false);
+								HX_STACK_LINE(212)
+								collider = i;
+								HX_STACK_LINE(213)
+								isExploding = true;
+								HX_STACK_LINE(214)
 								break;
 							}
 							else{
-								HX_STACK_LINE(213)
+								HX_STACK_LINE(216)
 								hx::AddEq(score,(int)200);
 							}
 						}
-						HX_STACK_LINE(216)
-						bool tmp41 = (action == (int)3);		HX_STACK_VAR(tmp41,"tmp41");
-						HX_STACK_LINE(216)
-						if ((tmp41)){
-							HX_STACK_LINE(218)
+						HX_STACK_LINE(219)
+						bool tmp38 = (action == (int)3);		HX_STACK_VAR(tmp38,"tmp38");
+						HX_STACK_LINE(219)
+						if ((tmp38)){
+							HX_STACK_LINE(221)
 							otter->setInvincible(true);
-							HX_STACK_LINE(219)
+							HX_STACK_LINE(222)
 							invincibleCheck = (int)0;
 						}
 					}
-					HX_STACK_LINE(222)
-					::Sprite tmp37 = obstacles->__get(i).StaticCast< ::Sprite >();		HX_STACK_VAR(tmp37,"tmp37");
-					HX_STACK_LINE(222)
-					tmp37->move();
+					HX_STACK_LINE(225)
+					::Sprite tmp34 = obstacles->__get(i).StaticCast< ::Sprite >();		HX_STACK_VAR(tmp34,"tmp34");
+					HX_STACK_LINE(225)
+					tmp34->move();
 				}
 			}
-			HX_STACK_LINE(225)
-			int tmp31 = otter->getStatus();		HX_STACK_VAR(tmp31,"tmp31");
-			HX_STACK_LINE(225)
-			bool tmp32 = (tmp31 == (int)3);		HX_STACK_VAR(tmp32,"tmp32");
-			HX_STACK_LINE(225)
-			if ((tmp32)){
-				HX_STACK_LINE(228)
-				bool tmp33 = (invincibleCheck == (int)0);		HX_STACK_VAR(tmp33,"tmp33");
-				HX_STACK_LINE(228)
-				if ((tmp33)){
-					HX_STACK_LINE(228)
-					int tmp34 = (score + (int)2000);		HX_STACK_VAR(tmp34,"tmp34");
-					HX_STACK_LINE(228)
-					invincibleCheck = tmp34;
+			HX_STACK_LINE(228)
+			int tmp28 = otter->getStatus();		HX_STACK_VAR(tmp28,"tmp28");
+			HX_STACK_LINE(228)
+			bool tmp29 = (tmp28 == (int)3);		HX_STACK_VAR(tmp29,"tmp29");
+			HX_STACK_LINE(228)
+			if ((tmp29)){
+				HX_STACK_LINE(231)
+				bool tmp30 = (invincibleCheck == (int)0);		HX_STACK_VAR(tmp30,"tmp30");
+				HX_STACK_LINE(231)
+				if ((tmp30)){
+					HX_STACK_LINE(231)
+					int tmp31 = (score + (int)2000);		HX_STACK_VAR(tmp31,"tmp31");
+					HX_STACK_LINE(231)
+					invincibleCheck = tmp31;
 				}
 				else{
-					HX_STACK_LINE(231)
-					bool tmp34 = (score >= invincibleCheck);		HX_STACK_VAR(tmp34,"tmp34");
-					HX_STACK_LINE(231)
-					if ((tmp34)){
-						HX_STACK_LINE(233)
+					HX_STACK_LINE(234)
+					bool tmp31 = (score >= invincibleCheck);		HX_STACK_VAR(tmp31,"tmp31");
+					HX_STACK_LINE(234)
+					if ((tmp31)){
+						HX_STACK_LINE(236)
 						otter->setInvincible(false);
 					}
 				}
 			}
-			HX_STACK_LINE(239)
+			HX_STACK_LINE(242)
 			hx::AddEq(score,(int)7);
-			HX_STACK_LINE(240)
-			int tmp33 = score;		HX_STACK_VAR(tmp33,"tmp33");
-			HX_STACK_LINE(240)
-			scoreCount->setScore(tmp33);
 			HX_STACK_LINE(243)
-			::cpp::Pointer< SDL_Surface > tmp34 = ::GameManager_obj::screen;		HX_STACK_VAR(tmp34,"tmp34");
+			int tmp30 = score;		HX_STACK_VAR(tmp30,"tmp30");
 			HX_STACK_LINE(243)
-			background->scroll((int)10,tmp34);
-			HX_STACK_LINE(244)
-			::cpp::Pointer< SDL_Surface > tmp35 = ::GameManager_obj::screen;		HX_STACK_VAR(tmp35,"tmp35");
-			HX_STACK_LINE(244)
-			otter->show(tmp35);
-			HX_STACK_LINE(245)
-			::cpp::Pointer< SDL_Surface > tmp36 = ::GameManager_obj::screen;		HX_STACK_VAR(tmp36,"tmp36");
-			HX_STACK_LINE(245)
-			scoreCount->show(tmp36);
+			scoreCount->setScore(tmp30);
+			HX_STACK_LINE(246)
+			::cpp::Pointer< SDL_Surface > tmp31 = ::GameManager_obj::screen;		HX_STACK_VAR(tmp31,"tmp31");
+			HX_STACK_LINE(246)
+			background->scroll((int)10,tmp31);
+			HX_STACK_LINE(247)
+			::cpp::Pointer< SDL_Surface > tmp32 = ::GameManager_obj::screen;		HX_STACK_VAR(tmp32,"tmp32");
+			HX_STACK_LINE(247)
+			otter->show(tmp32);
 			HX_STACK_LINE(248)
-			{
-				HX_STACK_LINE(248)
-				int _g1 = (int)0;		HX_STACK_VAR(_g1,"_g1");
-				HX_STACK_LINE(248)
-				int _g = obstacles->length;		HX_STACK_VAR(_g,"_g");
-				HX_STACK_LINE(248)
-				while((true)){
-					HX_STACK_LINE(248)
-					bool tmp37 = (_g1 < _g);		HX_STACK_VAR(tmp37,"tmp37");
-					HX_STACK_LINE(248)
-					bool tmp38 = !(tmp37);		HX_STACK_VAR(tmp38,"tmp38");
-					HX_STACK_LINE(248)
-					if ((tmp38)){
-						HX_STACK_LINE(248)
-						break;
-					}
-					HX_STACK_LINE(248)
-					int tmp39 = (_g1)++;		HX_STACK_VAR(tmp39,"tmp39");
-					HX_STACK_LINE(248)
-					int i = tmp39;		HX_STACK_VAR(i,"i");
-					HX_STACK_LINE(248)
-					::Sprite tmp40 = obstacles->__get(i).StaticCast< ::Sprite >();		HX_STACK_VAR(tmp40,"tmp40");
-					HX_STACK_LINE(248)
-					::cpp::Pointer< SDL_Surface > tmp41 = ::GameManager_obj::screen;		HX_STACK_VAR(tmp41,"tmp41");
-					HX_STACK_LINE(248)
-					tmp40->show(tmp41);
-				}
-			}
-			HX_STACK_LINE(251)
-			Dynamic tmp37 = ::Main_obj::state;		HX_STACK_VAR(tmp37,"tmp37");
-			HX_STACK_LINE(251)
-			::cpp::Pointer< SDL_Window > tmp38 = tmp37->__Field(HX_HCSTRING("window","\xf0","\x93","\x8c","\x52"), hx::paccDynamic );		HX_STACK_VAR(tmp38,"tmp38");
-			HX_STACK_LINE(251)
-			SDL_UpdateWindowSurface(tmp38);
-			HX_STACK_LINE(252)
-			Dynamic tmp39 = ::Main_obj::state;		HX_STACK_VAR(tmp39,"tmp39");
-			HX_STACK_LINE(252)
-			::cpp::Pointer< SDL_Renderer > tmp40 = tmp39->__Field(HX_HCSTRING("renderer","\x43","\xc5","\xdb","\xb2"), hx::paccDynamic );		HX_STACK_VAR(tmp40,"tmp40");
-			HX_STACK_LINE(252)
-			::cpp::Pointer< SDL_Surface > tmp41 = otter->sprite;		HX_STACK_VAR(tmp41,"tmp41");
-			HX_STACK_LINE(252)
-			::cpp::Pointer< SDL_Texture > tmp42 = ::cpp::Pointer< SDL_Texture >(SDL_CreateTextureFromSurface(tmp40,tmp41));		HX_STACK_VAR(tmp42,"tmp42");
-			HX_STACK_LINE(252)
-			::cpp::Pointer< SDL_Texture > texture = tmp42;		HX_STACK_VAR(texture,"texture");
-			HX_STACK_LINE(253)
-			::cpp::Pointer< SDL_Texture > tmp43 = texture;		HX_STACK_VAR(tmp43,"tmp43");
-			struct _Function_2_1{
-				inline static Dynamic Block( ){
-					HX_STACK_FRAME("*","closure",0x5bdab937,"*.closure","Main.hx",253,0x087e5c05)
-					{
-						hx::Anon __result = hx::Anon_obj::Create();
-						__result->Add(HX_HCSTRING("format","\x37","\x8f","\x8e","\xfd") , (int)0,false);
-						__result->Add(HX_HCSTRING("access","\xa4","\x95","\x06","\x0b") , (int)0,false);
-						__result->Add(HX_HCSTRING("w","\x77","\x00","\x00","\x00") , (int)0,false);
-						__result->Add(HX_HCSTRING("h","\x68","\x00","\x00","\x00") , (int)0,false);
-						return __result;
-					}
-					return null();
-				}
-			};
-			HX_STACK_LINE(253)
-			Dynamic tmp44 = _Function_2_1::Block();		HX_STACK_VAR(tmp44,"tmp44");
-			HX_STACK_LINE(253)
-			Dynamic tmp45 = linc::sdl::queryTexture(tmp43,tmp44);		HX_STACK_VAR(tmp45,"tmp45");
-			HX_STACK_LINE(253)
-			Dynamic query = tmp45;		HX_STACK_VAR(query,"query");
+			::cpp::Pointer< SDL_Surface > tmp33 = ::GameManager_obj::screen;		HX_STACK_VAR(tmp33,"tmp33");
+			HX_STACK_LINE(248)
+			scoreCount->show(tmp33);
 			HX_STACK_LINE(254)
-			::cpp::Pointer< SDL_Texture > tmp46 = texture;		HX_STACK_VAR(tmp46,"tmp46");
+			Dynamic tmp34 = ::Main_obj::state;		HX_STACK_VAR(tmp34,"tmp34");
 			HX_STACK_LINE(254)
-			linc::sdl::setTextureBlendMode(tmp46,(int)4);
+			::cpp::Pointer< SDL_Window > tmp35 = tmp34->__Field(HX_HCSTRING("window","\xf0","\x93","\x8c","\x52"), hx::paccDynamic );		HX_STACK_VAR(tmp35,"tmp35");
+			HX_STACK_LINE(254)
+			SDL_UpdateWindowSurface(tmp35);
 			HX_STACK_LINE(255)
-			::cpp::Pointer< SDL_Surface > tmp47 = otter->sprite;		HX_STACK_VAR(tmp47,"tmp47");
+			Dynamic tmp36 = ::Main_obj::state;		HX_STACK_VAR(tmp36,"tmp36");
 			HX_STACK_LINE(255)
-			SDL_FreeSurface(tmp47);
-			HX_STACK_LINE(256)
-			otter->sprite = null();
-			HX_STACK_LINE(258)
-			Dynamic tmp48 = ::Main_obj::state;		HX_STACK_VAR(tmp48,"tmp48");
-			HX_STACK_LINE(258)
-			::cpp::Pointer< SDL_Renderer > tmp49 = tmp48->__Field(HX_HCSTRING("renderer","\x43","\xc5","\xdb","\xb2"), hx::paccDynamic );		HX_STACK_VAR(tmp49,"tmp49");
-			HX_STACK_LINE(258)
-			::cpp::Pointer< SDL_Texture > tmp50 = texture;		HX_STACK_VAR(tmp50,"tmp50");
-			HX_STACK_LINE(258)
-			int tmp51 = otter->getOffSetX();		HX_STACK_VAR(tmp51,"tmp51");
-			HX_STACK_LINE(258)
-			int tmp52 = otter->getOffSetY();		HX_STACK_VAR(tmp52,"tmp52");
-			HX_STACK_LINE(258)
-			int tmp53 = otter->width;		HX_STACK_VAR(tmp53,"tmp53");
-			HX_STACK_LINE(258)
-			int tmp54 = otter->height;		HX_STACK_VAR(tmp54,"tmp54");
-			struct _Function_2_2{
-				inline static Dynamic Block( int &tmp54,int &tmp52,int &tmp51,int &tmp53){
-					HX_STACK_FRAME("*","closure",0x5bdab937,"*.closure","Main.hx",258,0x087e5c05)
-					{
-						hx::Anon __result = hx::Anon_obj::Create();
-						__result->Add(HX_HCSTRING("x","\x78","\x00","\x00","\x00") , tmp51,false);
-						__result->Add(HX_HCSTRING("y","\x79","\x00","\x00","\x00") , tmp52,false);
-						__result->Add(HX_HCSTRING("w","\x77","\x00","\x00","\x00") , tmp53,false);
-						__result->Add(HX_HCSTRING("h","\x68","\x00","\x00","\x00") , tmp54,false);
-						return __result;
-					}
-					return null();
-				}
-			};
-			HX_STACK_LINE(258)
-			Dynamic tmp55 = _Function_2_2::Block(tmp54,tmp52,tmp51,tmp53);		HX_STACK_VAR(tmp55,"tmp55");
-			HX_STACK_LINE(258)
-			linc::sdl::renderCopyEx(tmp49,tmp50,null(),tmp55,(int)90,null(),(int)2);
+			::cpp::Pointer< SDL_Renderer > tmp37 = tmp36->__Field(HX_HCSTRING("renderer","\x43","\xc5","\xdb","\xb2"), hx::paccDynamic );		HX_STACK_VAR(tmp37,"tmp37");
+			HX_STACK_LINE(255)
+			::cpp::Pointer< SDL_Surface > tmp38 = otter->sprite;		HX_STACK_VAR(tmp38,"tmp38");
+			HX_STACK_LINE(255)
+			::cpp::Pointer< SDL_Texture > tmp39 = ::cpp::Pointer< SDL_Texture >(SDL_CreateTextureFromSurface(tmp37,tmp38));		HX_STACK_VAR(tmp39,"tmp39");
+			HX_STACK_LINE(255)
+			::cpp::Pointer< SDL_Texture > texture = tmp39;		HX_STACK_VAR(texture,"texture");
 			HX_STACK_LINE(260)
-			{
-				HX_STACK_LINE(260)
-				int _g1 = (int)0;		HX_STACK_VAR(_g1,"_g1");
-				HX_STACK_LINE(260)
-				int _g = obstacles->length;		HX_STACK_VAR(_g,"_g");
-				HX_STACK_LINE(260)
-				while((true)){
-					HX_STACK_LINE(260)
-					bool tmp56 = (_g1 < _g);		HX_STACK_VAR(tmp56,"tmp56");
-					HX_STACK_LINE(260)
-					bool tmp57 = !(tmp56);		HX_STACK_VAR(tmp57,"tmp57");
-					HX_STACK_LINE(260)
-					if ((tmp57)){
-						HX_STACK_LINE(260)
-						break;
-					}
-					HX_STACK_LINE(260)
-					int tmp58 = (_g1)++;		HX_STACK_VAR(tmp58,"tmp58");
-					HX_STACK_LINE(260)
-					int i = tmp58;		HX_STACK_VAR(i,"i");
-					HX_STACK_LINE(262)
-					Dynamic tmp59 = ::Main_obj::state;		HX_STACK_VAR(tmp59,"tmp59");
-					HX_STACK_LINE(262)
-					::cpp::Pointer< SDL_Renderer > tmp60 = tmp59->__Field(HX_HCSTRING("renderer","\x43","\xc5","\xdb","\xb2"), hx::paccDynamic );		HX_STACK_VAR(tmp60,"tmp60");
-					HX_STACK_LINE(262)
-					::Sprite tmp61 = obstacles->__get(i).StaticCast< ::Sprite >();		HX_STACK_VAR(tmp61,"tmp61");
-					HX_STACK_LINE(262)
-					::cpp::Pointer< SDL_Surface > tmp62 = tmp61->sprite;		HX_STACK_VAR(tmp62,"tmp62");
-					HX_STACK_LINE(262)
-					::cpp::Pointer< SDL_Texture > tmp63 = ::cpp::Pointer< SDL_Texture >(SDL_CreateTextureFromSurface(tmp60,tmp62));		HX_STACK_VAR(tmp63,"tmp63");
-					HX_STACK_LINE(262)
-					::cpp::Pointer< SDL_Texture > texture1 = tmp63;		HX_STACK_VAR(texture1,"texture1");
-					HX_STACK_LINE(263)
-					::cpp::Pointer< SDL_Texture > tmp64 = texture1;		HX_STACK_VAR(tmp64,"tmp64");
-					struct _Function_4_1{
-						inline static Dynamic Block( ){
-							HX_STACK_FRAME("*","closure",0x5bdab937,"*.closure","Main.hx",263,0x087e5c05)
-							{
-								hx::Anon __result = hx::Anon_obj::Create();
-								__result->Add(HX_HCSTRING("format","\x37","\x8f","\x8e","\xfd") , (int)0,false);
-								__result->Add(HX_HCSTRING("access","\xa4","\x95","\x06","\x0b") , (int)0,false);
-								__result->Add(HX_HCSTRING("w","\x77","\x00","\x00","\x00") , (int)0,false);
-								__result->Add(HX_HCSTRING("h","\x68","\x00","\x00","\x00") , (int)0,false);
-								return __result;
-							}
-							return null();
-						}
-					};
-					HX_STACK_LINE(263)
-					Dynamic tmp65 = _Function_4_1::Block();		HX_STACK_VAR(tmp65,"tmp65");
-					HX_STACK_LINE(263)
-					Dynamic tmp66 = linc::sdl::queryTexture(tmp64,tmp65);		HX_STACK_VAR(tmp66,"tmp66");
-					HX_STACK_LINE(263)
-					Dynamic query1 = tmp66;		HX_STACK_VAR(query1,"query1");
-					HX_STACK_LINE(264)
-					::cpp::Pointer< SDL_Texture > tmp67 = texture1;		HX_STACK_VAR(tmp67,"tmp67");
-					HX_STACK_LINE(264)
-					linc::sdl::setTextureBlendMode(tmp67,(int)4);
-					HX_STACK_LINE(265)
-					::Sprite tmp68 = obstacles->__get(i).StaticCast< ::Sprite >();		HX_STACK_VAR(tmp68,"tmp68");
-					HX_STACK_LINE(265)
-					::cpp::Pointer< SDL_Surface > tmp69 = tmp68->sprite;		HX_STACK_VAR(tmp69,"tmp69");
-					HX_STACK_LINE(265)
-					SDL_FreeSurface(tmp69);
-					HX_STACK_LINE(268)
-					Dynamic tmp70 = ::Main_obj::state;		HX_STACK_VAR(tmp70,"tmp70");
-					HX_STACK_LINE(268)
-					::cpp::Pointer< SDL_Renderer > tmp71 = tmp70->__Field(HX_HCSTRING("renderer","\x43","\xc5","\xdb","\xb2"), hx::paccDynamic );		HX_STACK_VAR(tmp71,"tmp71");
-					HX_STACK_LINE(268)
-					::cpp::Pointer< SDL_Texture > tmp72 = texture1;		HX_STACK_VAR(tmp72,"tmp72");
-					HX_STACK_LINE(268)
-					::Sprite tmp73 = obstacles->__get(i).StaticCast< ::Sprite >();		HX_STACK_VAR(tmp73,"tmp73");
-					HX_STACK_LINE(268)
-					int tmp74 = tmp73->getOffSetX();		HX_STACK_VAR(tmp74,"tmp74");
-					HX_STACK_LINE(268)
-					::Sprite tmp75 = obstacles->__get(i).StaticCast< ::Sprite >();		HX_STACK_VAR(tmp75,"tmp75");
-					HX_STACK_LINE(268)
-					int tmp76 = tmp75->getOffSetY();		HX_STACK_VAR(tmp76,"tmp76");
-					HX_STACK_LINE(268)
-					::Sprite tmp77 = obstacles->__get(i).StaticCast< ::Sprite >();		HX_STACK_VAR(tmp77,"tmp77");
-					HX_STACK_LINE(268)
-					int tmp78 = tmp77->width;		HX_STACK_VAR(tmp78,"tmp78");
-					HX_STACK_LINE(268)
-					::Sprite tmp79 = obstacles->__get(i).StaticCast< ::Sprite >();		HX_STACK_VAR(tmp79,"tmp79");
-					HX_STACK_LINE(268)
-					int tmp80 = tmp79->height;		HX_STACK_VAR(tmp80,"tmp80");
-					struct _Function_4_2{
-						inline static Dynamic Block( int &tmp80,int &tmp76,int &tmp78,int &tmp74){
-							HX_STACK_FRAME("*","closure",0x5bdab937,"*.closure","Main.hx",268,0x087e5c05)
-							{
-								hx::Anon __result = hx::Anon_obj::Create();
-								__result->Add(HX_HCSTRING("x","\x78","\x00","\x00","\x00") , tmp74,false);
-								__result->Add(HX_HCSTRING("y","\x79","\x00","\x00","\x00") , tmp76,false);
-								__result->Add(HX_HCSTRING("w","\x77","\x00","\x00","\x00") , tmp78,false);
-								__result->Add(HX_HCSTRING("h","\x68","\x00","\x00","\x00") , tmp80,false);
-								return __result;
-							}
-							return null();
-						}
-					};
-					HX_STACK_LINE(268)
-					Dynamic tmp81 = _Function_4_2::Block(tmp80,tmp76,tmp78,tmp74);		HX_STACK_VAR(tmp81,"tmp81");
-					HX_STACK_LINE(268)
-					linc::sdl::renderCopyEx(tmp71,tmp72,null(),tmp81,(int)90,null(),(int)2);
-				}
-			}
-			HX_STACK_LINE(271)
-			Dynamic tmp56 = ::Main_obj::state;		HX_STACK_VAR(tmp56,"tmp56");
-			HX_STACK_LINE(271)
-			::cpp::Pointer< SDL_Renderer > tmp57 = tmp56->__Field(HX_HCSTRING("renderer","\x43","\xc5","\xdb","\xb2"), hx::paccDynamic );		HX_STACK_VAR(tmp57,"tmp57");
-			HX_STACK_LINE(271)
-			::cpp::Pointer< SDL_Surface > tmp58 = scoreCount->sprite;		HX_STACK_VAR(tmp58,"tmp58");
-			HX_STACK_LINE(271)
-			::cpp::Pointer< SDL_Texture > tmp59 = ::cpp::Pointer< SDL_Texture >(SDL_CreateTextureFromSurface(tmp57,tmp58));		HX_STACK_VAR(tmp59,"tmp59");
-			HX_STACK_LINE(271)
-			::cpp::Pointer< SDL_Texture > texture1 = tmp59;		HX_STACK_VAR(texture1,"texture1");
-			HX_STACK_LINE(272)
-			::cpp::Pointer< SDL_Texture > tmp60 = texture1;		HX_STACK_VAR(tmp60,"tmp60");
-			struct _Function_2_3{
-				inline static Dynamic Block( ){
-					HX_STACK_FRAME("*","closure",0x5bdab937,"*.closure","Main.hx",272,0x087e5c05)
+			Dynamic tmp40 = ::Main_obj::state;		HX_STACK_VAR(tmp40,"tmp40");
+			HX_STACK_LINE(260)
+			::cpp::Pointer< SDL_Renderer > tmp41 = tmp40->__Field(HX_HCSTRING("renderer","\x43","\xc5","\xdb","\xb2"), hx::paccDynamic );		HX_STACK_VAR(tmp41,"tmp41");
+			HX_STACK_LINE(260)
+			::cpp::Pointer< SDL_Texture > tmp42 = texture;		HX_STACK_VAR(tmp42,"tmp42");
+			HX_STACK_LINE(260)
+			int tmp43 = otter->getOffSetX();		HX_STACK_VAR(tmp43,"tmp43");
+			HX_STACK_LINE(260)
+			int tmp44 = otter->getOffSetY();		HX_STACK_VAR(tmp44,"tmp44");
+			HX_STACK_LINE(260)
+			int tmp45 = otter->width;		HX_STACK_VAR(tmp45,"tmp45");
+			HX_STACK_LINE(260)
+			int tmp46 = otter->height;		HX_STACK_VAR(tmp46,"tmp46");
+			struct _Function_2_1{
+				inline static Dynamic Block( int &tmp46,int &tmp44,int &tmp45,int &tmp43){
+					HX_STACK_FRAME("*","closure",0x5bdab937,"*.closure","Main.hx",260,0x087e5c05)
 					{
 						hx::Anon __result = hx::Anon_obj::Create();
-						__result->Add(HX_HCSTRING("format","\x37","\x8f","\x8e","\xfd") , (int)0,false);
-						__result->Add(HX_HCSTRING("access","\xa4","\x95","\x06","\x0b") , (int)0,false);
-						__result->Add(HX_HCSTRING("w","\x77","\x00","\x00","\x00") , (int)0,false);
-						__result->Add(HX_HCSTRING("h","\x68","\x00","\x00","\x00") , (int)0,false);
+						__result->Add(HX_HCSTRING("x","\x78","\x00","\x00","\x00") , tmp43,false);
+						__result->Add(HX_HCSTRING("y","\x79","\x00","\x00","\x00") , tmp44,false);
+						__result->Add(HX_HCSTRING("w","\x77","\x00","\x00","\x00") , tmp45,false);
+						__result->Add(HX_HCSTRING("h","\x68","\x00","\x00","\x00") , tmp46,false);
 						return __result;
 					}
 					return null();
 				}
 			};
-			HX_STACK_LINE(272)
-			Dynamic tmp61 = _Function_2_3::Block();		HX_STACK_VAR(tmp61,"tmp61");
-			HX_STACK_LINE(272)
-			Dynamic tmp62 = linc::sdl::queryTexture(tmp60,tmp61);		HX_STACK_VAR(tmp62,"tmp62");
-			HX_STACK_LINE(272)
-			Dynamic query1 = tmp62;		HX_STACK_VAR(query1,"query1");
+			HX_STACK_LINE(260)
+			Dynamic tmp47 = _Function_2_1::Block(tmp46,tmp44,tmp45,tmp43);		HX_STACK_VAR(tmp47,"tmp47");
+			HX_STACK_LINE(260)
+			linc::sdl::renderCopyEx(tmp41,tmp42,null(),tmp47,(int)90,null(),(int)2);
 			HX_STACK_LINE(273)
-			::cpp::Pointer< SDL_Texture > tmp63 = texture1;		HX_STACK_VAR(tmp63,"tmp63");
+			Dynamic tmp48 = ::Main_obj::state;		HX_STACK_VAR(tmp48,"tmp48");
 			HX_STACK_LINE(273)
-			linc::sdl::setTextureBlendMode(tmp63,(int)4);
-			HX_STACK_LINE(274)
-			::cpp::Pointer< SDL_Surface > tmp64 = scoreCount->sprite;		HX_STACK_VAR(tmp64,"tmp64");
-			HX_STACK_LINE(274)
-			SDL_FreeSurface(tmp64);
-			HX_STACK_LINE(275)
-			scoreCount->sprite = null();
-			HX_STACK_LINE(277)
-			Dynamic tmp65 = ::Main_obj::state;		HX_STACK_VAR(tmp65,"tmp65");
-			HX_STACK_LINE(277)
-			::cpp::Pointer< SDL_Renderer > tmp66 = tmp65->__Field(HX_HCSTRING("renderer","\x43","\xc5","\xdb","\xb2"), hx::paccDynamic );		HX_STACK_VAR(tmp66,"tmp66");
-			HX_STACK_LINE(277)
-			::cpp::Pointer< SDL_Texture > tmp67 = texture1;		HX_STACK_VAR(tmp67,"tmp67");
-			HX_STACK_LINE(277)
-			int tmp68 = scoreCount->getOffSetX();		HX_STACK_VAR(tmp68,"tmp68");
-			HX_STACK_LINE(277)
-			int tmp69 = scoreCount->getOffSetY();		HX_STACK_VAR(tmp69,"tmp69");
-			HX_STACK_LINE(277)
-			int tmp70 = scoreCount->width;		HX_STACK_VAR(tmp70,"tmp70");
-			HX_STACK_LINE(277)
-			int tmp71 = scoreCount->height;		HX_STACK_VAR(tmp71,"tmp71");
-			struct _Function_2_4{
-				inline static Dynamic Block( int &tmp68,int &tmp71,int &tmp70,int &tmp69){
-					HX_STACK_FRAME("*","closure",0x5bdab937,"*.closure","Main.hx",277,0x087e5c05)
+			::cpp::Pointer< SDL_Renderer > tmp49 = tmp48->__Field(HX_HCSTRING("renderer","\x43","\xc5","\xdb","\xb2"), hx::paccDynamic );		HX_STACK_VAR(tmp49,"tmp49");
+			HX_STACK_LINE(273)
+			::cpp::Pointer< SDL_Surface > tmp50 = scoreCount->sprite;		HX_STACK_VAR(tmp50,"tmp50");
+			HX_STACK_LINE(273)
+			::cpp::Pointer< SDL_Texture > tmp51 = ::cpp::Pointer< SDL_Texture >(SDL_CreateTextureFromSurface(tmp49,tmp50));		HX_STACK_VAR(tmp51,"tmp51");
+			HX_STACK_LINE(273)
+			::cpp::Pointer< SDL_Texture > texture1 = tmp51;		HX_STACK_VAR(texture1,"texture1");
+			HX_STACK_LINE(279)
+			Dynamic tmp52 = ::Main_obj::state;		HX_STACK_VAR(tmp52,"tmp52");
+			HX_STACK_LINE(279)
+			::cpp::Pointer< SDL_Renderer > tmp53 = tmp52->__Field(HX_HCSTRING("renderer","\x43","\xc5","\xdb","\xb2"), hx::paccDynamic );		HX_STACK_VAR(tmp53,"tmp53");
+			HX_STACK_LINE(279)
+			::cpp::Pointer< SDL_Texture > tmp54 = texture1;		HX_STACK_VAR(tmp54,"tmp54");
+			HX_STACK_LINE(279)
+			int tmp55 = scoreCount->getOffSetX();		HX_STACK_VAR(tmp55,"tmp55");
+			HX_STACK_LINE(279)
+			int tmp56 = scoreCount->getOffSetY();		HX_STACK_VAR(tmp56,"tmp56");
+			HX_STACK_LINE(279)
+			int tmp57 = scoreCount->width;		HX_STACK_VAR(tmp57,"tmp57");
+			HX_STACK_LINE(279)
+			int tmp58 = scoreCount->height;		HX_STACK_VAR(tmp58,"tmp58");
+			struct _Function_2_2{
+				inline static Dynamic Block( int &tmp55,int &tmp56,int &tmp58,int &tmp57){
+					HX_STACK_FRAME("*","closure",0x5bdab937,"*.closure","Main.hx",279,0x087e5c05)
 					{
 						hx::Anon __result = hx::Anon_obj::Create();
-						__result->Add(HX_HCSTRING("x","\x78","\x00","\x00","\x00") , tmp68,false);
-						__result->Add(HX_HCSTRING("y","\x79","\x00","\x00","\x00") , tmp69,false);
-						__result->Add(HX_HCSTRING("w","\x77","\x00","\x00","\x00") , tmp70,false);
-						__result->Add(HX_HCSTRING("h","\x68","\x00","\x00","\x00") , tmp71,false);
+						__result->Add(HX_HCSTRING("x","\x78","\x00","\x00","\x00") , tmp55,false);
+						__result->Add(HX_HCSTRING("y","\x79","\x00","\x00","\x00") , tmp56,false);
+						__result->Add(HX_HCSTRING("w","\x77","\x00","\x00","\x00") , tmp57,false);
+						__result->Add(HX_HCSTRING("h","\x68","\x00","\x00","\x00") , tmp58,false);
 						return __result;
 					}
 					return null();
 				}
 			};
-			HX_STACK_LINE(277)
-			Dynamic tmp72 = _Function_2_4::Block(tmp68,tmp71,tmp70,tmp69);		HX_STACK_VAR(tmp72,"tmp72");
-			HX_STACK_LINE(277)
-			linc::sdl::renderCopyEx(tmp66,tmp67,null(),tmp72,(int)90,null(),(int)2);
-			HX_STACK_LINE(281)
-			Float tmp73 = fps->get_ticks();		HX_STACK_VAR(tmp73,"tmp73");
-			HX_STACK_LINE(281)
-			int tmp74 = ::GameManager_obj::FRAMES_PER_SECOND;		HX_STACK_VAR(tmp74,"tmp74");
-			HX_STACK_LINE(281)
-			Float tmp75 = (Float((int)1000) / Float(tmp74));		HX_STACK_VAR(tmp75,"tmp75");
-			HX_STACK_LINE(281)
-			bool tmp76 = (tmp73 < tmp75);		HX_STACK_VAR(tmp76,"tmp76");
-			HX_STACK_LINE(281)
-			if ((tmp76)){
-				HX_STACK_LINE(282)
-				int tmp77 = ::GameManager_obj::FRAMES_PER_SECOND;		HX_STACK_VAR(tmp77,"tmp77");
-				HX_STACK_LINE(282)
-				Float tmp78 = (Float((int)1000) / Float(tmp77));		HX_STACK_VAR(tmp78,"tmp78");
-				HX_STACK_LINE(282)
-				Float tmp79 = fps->get_ticks();		HX_STACK_VAR(tmp79,"tmp79");
-				HX_STACK_LINE(282)
-				Float tmp80 = (tmp78 - tmp79);		HX_STACK_VAR(tmp80,"tmp80");
-				HX_STACK_LINE(282)
-				int tmp81;		HX_STACK_VAR(tmp81,"tmp81");
-				HX_STACK_LINE(282)
-				tmp81 = hx::TCast< ::Int >::cast(tmp80);
-				HX_STACK_LINE(282)
-				SDL_Delay(tmp81);
+			HX_STACK_LINE(279)
+			Dynamic tmp59 = _Function_2_2::Block(tmp55,tmp56,tmp58,tmp57);		HX_STACK_VAR(tmp59,"tmp59");
+			HX_STACK_LINE(279)
+			linc::sdl::renderCopyEx(tmp53,tmp54,null(),tmp59,(int)90,null(),(int)2);
+			HX_STACK_LINE(283)
+			Float tmp60 = fps->get_ticks();		HX_STACK_VAR(tmp60,"tmp60");
+			HX_STACK_LINE(283)
+			int tmp61 = ::GameManager_obj::FRAMES_PER_SECOND;		HX_STACK_VAR(tmp61,"tmp61");
+			HX_STACK_LINE(283)
+			Float tmp62 = (Float((int)1000) / Float(tmp61));		HX_STACK_VAR(tmp62,"tmp62");
+			HX_STACK_LINE(283)
+			bool tmp63 = (tmp60 < tmp62);		HX_STACK_VAR(tmp63,"tmp63");
+			HX_STACK_LINE(283)
+			if ((tmp63)){
+				HX_STACK_LINE(284)
+				int tmp64 = ::GameManager_obj::FRAMES_PER_SECOND;		HX_STACK_VAR(tmp64,"tmp64");
+				HX_STACK_LINE(284)
+				Float tmp65 = (Float((int)1000) / Float(tmp64));		HX_STACK_VAR(tmp65,"tmp65");
+				HX_STACK_LINE(284)
+				Float tmp66 = fps->get_ticks();		HX_STACK_VAR(tmp66,"tmp66");
+				HX_STACK_LINE(284)
+				Float tmp67 = (tmp65 - tmp66);		HX_STACK_VAR(tmp67,"tmp67");
+				HX_STACK_LINE(284)
+				int tmp68;		HX_STACK_VAR(tmp68,"tmp68");
+				HX_STACK_LINE(284)
+				tmp68 = hx::TCast< ::Int >::cast(tmp67);
+				HX_STACK_LINE(284)
+				SDL_Delay(tmp68);
 			}
-			HX_STACK_LINE(286)
-			int i = (int)0;		HX_STACK_VAR(i,"i");
-			HX_STACK_LINE(287)
-			while((true)){
-				HX_STACK_LINE(287)
-				bool tmp77 = (i < obstacles->length);		HX_STACK_VAR(tmp77,"tmp77");
-				HX_STACK_LINE(287)
-				bool tmp78 = !(tmp77);		HX_STACK_VAR(tmp78,"tmp78");
-				HX_STACK_LINE(287)
-				if ((tmp78)){
-					HX_STACK_LINE(287)
-					break;
-				}
-				HX_STACK_LINE(288)
-				::Sprite tmp79 = obstacles->__get(i).StaticCast< ::Sprite >();		HX_STACK_VAR(tmp79,"tmp79");
-				HX_STACK_LINE(288)
-				int tmp80 = tmp79->getOffSetX();		HX_STACK_VAR(tmp80,"tmp80");
-				HX_STACK_LINE(288)
-				bool tmp81 = (tmp80 < (int)-50);		HX_STACK_VAR(tmp81,"tmp81");
-				HX_STACK_LINE(288)
-				if ((tmp81)){
-					HX_STACK_LINE(289)
-					::Sprite tmp82 = obstacles->__get(i).StaticCast< ::Sprite >();		HX_STACK_VAR(tmp82,"tmp82");
-					HX_STACK_LINE(289)
-					obstacles->remove(tmp82);
-					HX_STACK_LINE(290)
-					::Sprite tmp83 = obstacles->__get((int)0).StaticCast< ::Sprite >();		HX_STACK_VAR(tmp83,"tmp83");
-					HX_STACK_LINE(290)
-					int tmp84 = obstacles->indexOf(tmp83,null());		HX_STACK_VAR(tmp84,"tmp84");
-					HX_STACK_LINE(290)
-					int tmp85 = i;		HX_STACK_VAR(tmp85,"tmp85");
-					HX_STACK_LINE(290)
-					int tmp86 = (tmp84 + tmp85);		HX_STACK_VAR(tmp86,"tmp86");
-					HX_STACK_LINE(290)
-					int tmp87 = i;		HX_STACK_VAR(tmp87,"tmp87");
-					HX_STACK_LINE(290)
-					obstacles->splice(tmp86,tmp87);
-					HX_STACK_LINE(291)
-					(i)--;
-				}
-			}
-			HX_STACK_LINE(295)
-			bool tmp77 = isExploding;		HX_STACK_VAR(tmp77,"tmp77");
-			HX_STACK_LINE(295)
-			if ((tmp77)){
-				HX_STACK_LINE(295)
+			HX_STACK_LINE(297)
+			bool tmp64 = isExploding;		HX_STACK_VAR(tmp64,"tmp64");
+			HX_STACK_LINE(297)
+			if ((tmp64)){
+				HX_STACK_LINE(297)
 				(explodeCount)++;
 			}
-			HX_STACK_LINE(298)
-			bool tmp78 = (explodeCount == (int)13);		HX_STACK_VAR(tmp78,"tmp78");
-			HX_STACK_LINE(298)
-			if ((tmp78)){
-				HX_STACK_LINE(299)
-				start = false;
-				HX_STACK_LINE(300)
-				int j = (int)0;		HX_STACK_VAR(j,"j");
+			HX_STACK_LINE(300)
+			bool tmp65 = (explodeCount == (int)13);		HX_STACK_VAR(tmp65,"tmp65");
+			HX_STACK_LINE(300)
+			if ((tmp65)){
 				HX_STACK_LINE(301)
+				start = false;
+				HX_STACK_LINE(302)
+				int j = (int)0;		HX_STACK_VAR(j,"j");
+				HX_STACK_LINE(303)
 				while((true)){
-					HX_STACK_LINE(301)
-					bool tmp79 = (j < obstacles->length);		HX_STACK_VAR(tmp79,"tmp79");
-					HX_STACK_LINE(301)
-					bool tmp80 = !(tmp79);		HX_STACK_VAR(tmp80,"tmp80");
-					HX_STACK_LINE(301)
-					if ((tmp80)){
-						HX_STACK_LINE(301)
+					HX_STACK_LINE(303)
+					bool tmp66 = (j < obstacles->length);		HX_STACK_VAR(tmp66,"tmp66");
+					HX_STACK_LINE(303)
+					bool tmp67 = !(tmp66);		HX_STACK_VAR(tmp67,"tmp67");
+					HX_STACK_LINE(303)
+					if ((tmp67)){
+						HX_STACK_LINE(303)
 						break;
 					}
-					HX_STACK_LINE(304)
-					::Sprite tmp81 = obstacles->__get(j).StaticCast< ::Sprite >();		HX_STACK_VAR(tmp81,"tmp81");
-					HX_STACK_LINE(304)
-					obstacles->remove(tmp81);
-					HX_STACK_LINE(305)
+					HX_STACK_LINE(306)
+					::Sprite tmp68 = obstacles->__get(j).StaticCast< ::Sprite >();		HX_STACK_VAR(tmp68,"tmp68");
+					HX_STACK_LINE(306)
+					obstacles->remove(tmp68);
+					HX_STACK_LINE(307)
 					(j)--;
 				}
-				HX_STACK_LINE(307)
-				obstacleScore = (int)0;
-				HX_STACK_LINE(308)
-				obstacleTimer = (int)0;
 				HX_STACK_LINE(309)
-				obstacleSpawnRate = (int)0;
+				obstacleScore = (int)0;
 				HX_STACK_LINE(310)
-				obstacleAmplitude = ((Float)50.0);
+				obstacleTimer = (int)0;
 				HX_STACK_LINE(311)
-				obstacleIntercept = ((Float)50.0);
+				obstacleSpawnRate = (int)0;
 				HX_STACK_LINE(312)
-				invincibleCheck = ((Float)0.0);
+				obstacleAmplitude = ((Float)50.0);
 				HX_STACK_LINE(313)
-				expertMode = false;
+				obstacleIntercept = ((Float)50.0);
 				HX_STACK_LINE(314)
+				invincibleCheck = ((Float)0.0);
+				HX_STACK_LINE(315)
+				expertMode = false;
+				HX_STACK_LINE(316)
 				otter->setDead(false);
 			}
-			HX_STACK_LINE(316)
-			Dynamic tmp79 = ::Main_obj::state;		HX_STACK_VAR(tmp79,"tmp79");
-			HX_STACK_LINE(316)
-			::cpp::Pointer< SDL_Renderer > tmp80 = tmp79->__Field(HX_HCSTRING("renderer","\x43","\xc5","\xdb","\xb2"), hx::paccDynamic );		HX_STACK_VAR(tmp80,"tmp80");
-			HX_STACK_LINE(316)
-			SDL_RenderPresent(tmp80);
-			HX_STACK_LINE(318)
-			SDL_Delay((int)4);
-			HX_STACK_LINE(320)
+			HX_STACK_LINE(323)
+			::cpp::Pointer< SDL_Surface > tmp66 = menu->sprite;		HX_STACK_VAR(tmp66,"tmp66");
+			HX_STACK_LINE(323)
+			SDL_FreeSurface(tmp66);
+			HX_STACK_LINE(324)
+			::cpp::Pointer< SDL_Surface > tmp67 = scoreCount->sprite;		HX_STACK_VAR(tmp67,"tmp67");
+			HX_STACK_LINE(324)
+			SDL_FreeSurface(tmp67);
+			HX_STACK_LINE(325)
+			::cpp::Pointer< SDL_Surface > tmp68 = otter->sprite;		HX_STACK_VAR(tmp68,"tmp68");
+			HX_STACK_LINE(325)
+			SDL_FreeSurface(tmp68);
+			HX_STACK_LINE(326)
+			Dynamic tmp69 = ::Main_obj::state;		HX_STACK_VAR(tmp69,"tmp69");
+			HX_STACK_LINE(326)
+			::cpp::Pointer< SDL_Renderer > tmp70 = tmp69->__Field(HX_HCSTRING("renderer","\x43","\xc5","\xdb","\xb2"), hx::paccDynamic );		HX_STACK_VAR(tmp70,"tmp70");
+			HX_STACK_LINE(326)
+			SDL_RenderPresent(tmp70);
+			HX_STACK_LINE(327)
 			{
-				HX_STACK_LINE(320)
+				HX_STACK_LINE(327)
 				::sdl::_SDL::SDL_helper_obj::quit();
-				HX_STACK_LINE(320)
+				HX_STACK_LINE(327)
 				SDL_Quit();
 			}
 		}

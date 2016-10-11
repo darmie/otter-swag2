@@ -5,7 +5,6 @@
 #include <hxcpp.h>
 #endif
 
-#include <linc_sdl.h>
 HX_DECLARE_CLASS0(ISprite)
 
 
@@ -31,9 +30,6 @@ class HXCPP_CLASS_ATTRIBUTES  ISprite_obj : public hx::Object{
 
 		virtual Void move( );
 		Dynamic move_dyn();
-
-		virtual Void show( ::cpp::Pointer< SDL_Surface > screen);
-		Dynamic show_dyn();
 
 		virtual int collision( );
 		Dynamic collision_dyn();

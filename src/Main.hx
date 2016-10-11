@@ -48,6 +48,7 @@ class Main
 		var menu:MenuScreen;
 		
 		var start:Bool = false; 
+		var _started:Bool = false;
 		var isExploding:Bool = false;
 		var explodeCount:Int = 0;
 		
@@ -73,15 +74,18 @@ class Main
 			
 			var mps:Timer = new Timer();
 			mps.start();
+			
 			while(SDL.hasAnEvent()) {
 				//Handle events for the stick figure
-				var event = SDL.pollEvent();
-					start = menu.handle_event(event); 
+					var event = SDL.pollEvent();
+					 
+					if(menu.handle_event(event) == true){
+						start = menu.handle_event(event);
+						//break;
+					}
+					//trace("Start:: " + start);
+					
 			}
-			
-			if(SDL.hasAnEvent() == false){
-					SDL.delay(4);
-				}
 			
 			//sets variables and settings to initial holding values
 			background.scroll(10, GameManager.screen);
@@ -90,22 +94,14 @@ class Main
 			
 			SDL.updateWindowSurface(state.window);
 			var texture:sdl.Texture = SDL.createTextureFromSurface(state.renderer, menu.sprite);
-		    var query = SDL.queryTexture(texture, {format:0, access:0, w:0, h:0});
-		    SDL.setTextureBlendMode(texture, SDL_BLENDMODE_MOD);
-		    SDL.freeSurface(menu.sprite);
+
 			SDL.renderCopyEx(state.renderer, texture, null, { x:menu.getOffSetX(), y:menu.getOffSetY(), w:menu.width, h:scoreCount.height }, 90, null, SDL_FLIP_VERTICAL);
 			
 			SDL.updateWindowSurface(state.window);
 			var texture:sdl.Texture = SDL.createTextureFromSurface(state.renderer, scoreCount.sprite);
-		    var query = SDL.queryTexture(texture, {format:0, access:0, w:0, h:0});
-		    SDL.setTextureBlendMode(texture, SDL_BLENDMODE_MOD);
-		    SDL.freeSurface(scoreCount.sprite);	
+
 			SDL.renderCopyEx(state.renderer, texture, null, { x:scoreCount.getOffSetX(), y:scoreCount.getOffSetY(), w:scoreCount.width, h:scoreCount.height }, 90, null, SDL_FLIP_VERTICAL);
-			/*
-			SDL_Flip(screen);
-			SDL_Flip(menu.sprite);
-			SDL_Flip(scoreCount.sprite);
-			 * */
+
 			if(mps.get_ticks() < 1000 / GameManager.FRAMES_PER_SECOND){
 				SDL.delay( cast(( 1000 / GameManager.FRAMES_PER_SECOND ) -  mps.get_ticks(), UInt));
 			}
@@ -117,9 +113,12 @@ class Main
 			}
 			otter.setStarting(true);
 			otter.setOffSetY(-35);
-			 
+			//continue;
 		}
+		
+		
 		//GAME STARTED
+		
 		scoreCount.setTitle(true);
 		menu.setHasPlayed(true);
 		fps.start();
@@ -127,22 +126,19 @@ class Main
 			
 			while(SDL.hasAnEvent()) {
 				//Handle events for the stick figure
-				var event = SDL.pollEvent();
 				
+					var event = SDL.pollEvent();
 					otter.handle_events(event);
 				
 				//If the user has Xed out the window
 				if(event.type == SDL_QUIT){
 					//Quit the program
-					quit = true;
-					SDL.quit();
+					//quit = true;
+					//SDL.quit();
 				}
 				
 			}
 			
-			if(SDL.hasAnEvent() == false){
-				SDL.delay(4);
-			}
 		
 		//set obstacle spawn rates based on sinusoidal difficulty tracker
 		if (expertMode){
@@ -166,9 +162,9 @@ class Main
 		obstacleTimer += .1;
 		//spawn obstacles
 		//missiles
-		var spawnObstacle:Int = cast(Math.random()%1000 + 1, Int);   //randomly create missles
+		var spawnObstacle:Float = Math.random()%1000 + 1;   //randomly create missles
 		if (spawnObstacle < obstacleSpawnRate){
-		  var randY:Int = cast((Math.random()%11)*24 + 50, Int); //random height
+		  var randY:Float = (Math.random()%11)*24 + 50; //random height
 		  var temp:Missile = new Missile("missiles.bmp",127,127,127,randY); //create missile
 		  obstacles.push(temp); //add missile to obstacle pointer vector
 		}
@@ -176,14 +172,14 @@ class Main
 		var spawnCoin:Float = Math.random()%1000 + 1;
 		if (spawnCoin < 50){
 		  var randX:Float = Math.random()%400 + 100;     //random x
-		  var money:Coin = new Coin("coins.bmp",48,120,128,cast(randX, Int));
+		  var money:Coin = new Coin("coins.bmp",48,120,128,Std.int(randX));
 		  obstacles.push(money);
 		}
 		//fish
 		var spawnFish:Float = Math.random()%1000 + 1;
 		if(spawnFish < 3){
 		  var fRandY:Float = (Math.random()%10)*25 + 50; //random height
-		  var food:Fish = new Fish("LoveFish.bmp",85,109,143, cast(fRandY, Int));
+		  var food:Fish = new Fish("LoveFish.bmp",85,109,143, Std.int(fRandY));
 		  obstacles.push(food);
 		}
 		
@@ -246,35 +242,23 @@ class Main
 		scoreCount.show(GameManager.screen);
 		
 		
-	   for(i in 0...obstacles.length){obstacles[i].show(GameManager.screen);}
-		//Update the screen
-       // SDL_Flip(screen);
+	   for (i in 0...obstacles.length){obstacles[i].show(GameManager.screen); }
+	   
 	   SDL.updateWindowSurface(state.window);
 	   var texture:sdl.Texture = SDL.createTextureFromSurface(state.renderer, otter.sprite);
-	   var query = SDL.queryTexture(texture, {format:0, access:0, w:0, h:0});
-	   SDL.setTextureBlendMode(texture, SDL_BLENDMODE_MOD);
-	   SDL.freeSurface(otter.sprite);
-	   otter.sprite = null;
-	   //SDL_Flip(otter.sprite);
+
 	   SDL.renderCopyEx(state.renderer, texture, null, { x:otter.getOffSetX(), y:otter.getOffSetY(), w:otter.width, h:otter.height }, 90, null, SDL_FLIP_VERTICAL);
 		
 	  for (i in 0...obstacles.length){
-		  //SDL_Flip(obstacles[i].sprite); 
+	   SDL.updateWindowSurface(state.window);
 	   var texture:sdl.Texture = SDL.createTextureFromSurface(state.renderer, obstacles[i].sprite);
-	   var query = SDL.queryTexture(texture, {format:0, access:0, w:0, h:0});
-	   SDL.setTextureBlendMode(texture, SDL_BLENDMODE_MOD);
-	   SDL.freeSurface(obstacles[i].sprite);
-	   //obstacles[i].sprite = null;
-	   //SDL_Flip(otter.sprite);
+
 	   SDL.renderCopyEx(state.renderer, texture, null, { x:obstacles[i].getOffSetX(), y:obstacles[i].getOffSetY(), w:obstacles[i].width, h:obstacles[i].height }, 90, null, SDL_FLIP_VERTICAL);
 	  }	  
-	  
+	  SDL.updateWindowSurface(state.window);
 	   var texture:sdl.Texture = SDL.createTextureFromSurface(state.renderer, scoreCount.sprite);
-	   var query = SDL.queryTexture(texture, {format:0, access:0, w:0, h:0});
-	   SDL.setTextureBlendMode(texture, SDL_BLENDMODE_MOD);
 	   SDL.freeSurface(scoreCount.sprite);
 	   scoreCount.sprite = null;
-	   //SDL_Flip(otter.sprite);
 	   SDL.renderCopyEx(state.renderer, texture, null, { x:scoreCount.getOffSetX(), y:scoreCount.getOffSetY(), w:scoreCount.width, h:scoreCount.height }, 90, null, SDL_FLIP_VERTICAL);
 		
 	   
@@ -314,11 +298,24 @@ class Main
 				expertMode = false;
 			otter.setDead(false);
 		}
+		
+		
+		
+		//SDL.delay(4);
+		
+		SDL.freeSurface(menu.sprite);
+		menu.sprite = null;
+		SDL.freeSurface(scoreCount.sprite);
+		scoreCount.sprite = null;
+		SDL.freeSurface(otter.sprite);
+		otter.sprite = null;
+		for(i in 0...obstacles.length){
+			SDL.freeSurface(obstacles[i].sprite);
+			obstacles[i].sprite = null;
+		}
 		SDL.renderPresent(state.renderer);
-		
-		SDL.delay(4);
-		
 		SDL.quit();
+		
 	}
 		
 		

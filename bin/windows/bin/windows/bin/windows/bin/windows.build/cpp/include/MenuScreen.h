@@ -57,6 +57,7 @@ class HXCPP_CLASS_ATTRIBUTES  MenuScreen_obj : public ::Sprite_obj{
 		virtual Void move( );
 
 		virtual Void show( ::cpp::Pointer< SDL_Surface > screen);
+		Dynamic show_dyn();
 
 };
 

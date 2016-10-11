@@ -58,6 +58,7 @@ class HXCPP_CLASS_ATTRIBUTES  ScoreCounter_obj : public ::Sprite_obj{
 		Dynamic setTitle_dyn();
 
 		virtual Void show( ::cpp::Pointer< SDL_Surface > screen);
+		Dynamic show_dyn();
 
 };
 

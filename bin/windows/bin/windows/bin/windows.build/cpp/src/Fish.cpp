@@ -523,95 +523,6 @@ return null();
 }
 
 
-Void Fish_obj::show( ::cpp::Pointer< SDL_Surface > screen){
-{
-		HX_STACK_FRAME("Fish","show",0x2fb6e873,"Fish.show","Fish.hx",89,0xd64d8506)
-		HX_STACK_THIS(this)
-		HX_STACK_ARG(screen,"screen")
-		HX_STACK_LINE(91)
-		int tmp = this->status;		HX_STACK_VAR(tmp,"tmp");
-		HX_STACK_LINE(91)
-		int tmp1 = this->SWIM;		HX_STACK_VAR(tmp1,"tmp1");
-		HX_STACK_LINE(91)
-		bool tmp2 = (tmp == tmp1);		HX_STACK_VAR(tmp2,"tmp2");
-		HX_STACK_LINE(91)
-		if ((tmp2)){
-			HX_STACK_LINE(92)
-			int tmp3 = this->frame;		HX_STACK_VAR(tmp3,"tmp3");
-			HX_STACK_LINE(92)
-			bool tmp4 = (tmp3 < (int)4);		HX_STACK_VAR(tmp4,"tmp4");
-			HX_STACK_LINE(92)
-			if ((tmp4)){
-				HX_STACK_LINE(93)
-				(this->frame)++;
-			}
-			else{
-				HX_STACK_LINE(95)
-				this->frame = (int)0;
-			}
-			HX_STACK_LINE(97)
-			::cpp::Pointer< SDL_Surface > tmp5 = this->sprite;		HX_STACK_VAR(tmp5,"tmp5");
-			HX_STACK_LINE(97)
-			::cpp::Pointer< SDL_Surface > tmp6 = screen;		HX_STACK_VAR(tmp6,"tmp6");
-			HX_STACK_LINE(97)
-			Dynamic tmp7;		HX_STACK_VAR(tmp7,"tmp7");
-			HX_STACK_LINE(97)
-			{
-				HX_STACK_LINE(97)
-				Array< ::Dynamic > tmp8 = this->states;		HX_STACK_VAR(tmp8,"tmp8");
-				HX_STACK_LINE(97)
-				cpp::ArrayBase tmp9 = tmp8->__unsafe_get((int)0).StaticCast< cpp::ArrayBase >();		HX_STACK_VAR(tmp9,"tmp9");
-				HX_STACK_LINE(97)
-				cpp::ArrayBase this1 = ((cpp::ArrayBase)(((cpp::ArrayBase)(tmp9))));		HX_STACK_VAR(this1,"this1");
-				HX_STACK_LINE(97)
-				int tmp10 = this->frame;		HX_STACK_VAR(tmp10,"tmp10");
-				HX_STACK_LINE(97)
-				Dynamic tmp11 = ((cpp::ArrayBase)(this1))->__Field(HX_HCSTRING("__unsafe_get","\xdd","\xcf","\x9b","\x60"), hx::paccDynamic )(tmp10);		HX_STACK_VAR(tmp11,"tmp11");
-				HX_STACK_LINE(97)
-				tmp7 = tmp11;
-			}
-			HX_STACK_LINE(97)
-			this->apply_surface(null(),null(),tmp5,tmp6,tmp7);
-		}
-		HX_STACK_LINE(99)
-		int tmp3 = this->status;		HX_STACK_VAR(tmp3,"tmp3");
-		HX_STACK_LINE(99)
-		int tmp4 = this->EATEN;		HX_STACK_VAR(tmp4,"tmp4");
-		HX_STACK_LINE(99)
-		bool tmp5 = (tmp3 == tmp4);		HX_STACK_VAR(tmp5,"tmp5");
-		HX_STACK_LINE(99)
-		if ((tmp5)){
-			HX_STACK_LINE(100)
-			this->frame = (int)0;
-			HX_STACK_LINE(102)
-			::cpp::Pointer< SDL_Surface > tmp6 = this->sprite;		HX_STACK_VAR(tmp6,"tmp6");
-			HX_STACK_LINE(102)
-			::cpp::Pointer< SDL_Surface > tmp7 = screen;		HX_STACK_VAR(tmp7,"tmp7");
-			HX_STACK_LINE(102)
-			Dynamic tmp8;		HX_STACK_VAR(tmp8,"tmp8");
-			HX_STACK_LINE(102)
-			{
-				HX_STACK_LINE(102)
-				Array< ::Dynamic > tmp9 = this->states;		HX_STACK_VAR(tmp9,"tmp9");
-				HX_STACK_LINE(102)
-				cpp::ArrayBase tmp10 = tmp9->__unsafe_get((int)1).StaticCast< cpp::ArrayBase >();		HX_STACK_VAR(tmp10,"tmp10");
-				HX_STACK_LINE(102)
-				cpp::ArrayBase this1 = ((cpp::ArrayBase)(((cpp::ArrayBase)(tmp10))));		HX_STACK_VAR(this1,"this1");
-				HX_STACK_LINE(102)
-				int tmp11 = this->frame;		HX_STACK_VAR(tmp11,"tmp11");
-				HX_STACK_LINE(102)
-				Dynamic tmp12 = ((cpp::ArrayBase)(this1))->__Field(HX_HCSTRING("__unsafe_get","\xdd","\xcf","\x9b","\x60"), hx::paccDynamic )(tmp11);		HX_STACK_VAR(tmp12,"tmp12");
-				HX_STACK_LINE(102)
-				tmp8 = tmp12;
-			}
-			HX_STACK_LINE(102)
-			this->apply_surface(null(),null(),tmp6,tmp7,tmp8);
-		}
-	}
-return null();
-}
-
-
 
 Fish_obj::Fish_obj()
 {
@@ -623,7 +534,6 @@ Dynamic Fish_obj::__Field(const ::String &inName,hx::PropertyAccess inCallProp)
 	case 4:
 		if (HX_FIELD_EQ(inName,"SWIM") ) { return SWIM; }
 		if (HX_FIELD_EQ(inName,"move") ) { return move_dyn(); }
-		if (HX_FIELD_EQ(inName,"show") ) { return show_dyn(); }
 		break;
 	case 5:
 		if (HX_FIELD_EQ(inName,"EATEN") ) { return EATEN; }
@@ -669,7 +579,6 @@ static ::String sMemberFields[] = {
 	HX_HCSTRING("set_clips","\x06","\xd0","\x58","\x6f"),
 	HX_HCSTRING("collision","\x72","\xa8","\x3a","\xdb"),
 	HX_HCSTRING("move","\x11","\xe3","\x60","\x48"),
-	HX_HCSTRING("show","\xfd","\xd4","\x52","\x4c"),
 	::String(null()) };
 
 static void sMarkStatics(HX_MARK_PARAMS) {

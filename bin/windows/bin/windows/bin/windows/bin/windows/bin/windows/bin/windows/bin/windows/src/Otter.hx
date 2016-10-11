@@ -232,18 +232,20 @@ class Otter extends Sprite
 	}
 	
 	
-	public function handle_events(event:Event):Void{ //checks for input events such as spacebar press
+	public function handle_events(event:Event){ //checks for input events such as spacebar press
 		    // if a key is currently pressed
 			if(event.type == SDL_KEYDOWN){
-				switch(SDL.getKeyName(event.key.keysym.sym)){ //check if key pressed was spacebar
-					case "Keypad Space": velocityY = cast(-1*(width / 2), Int); //set otter to move up is spacebar pressed
+				switch (SDL.getKeyName(event.key.keysym.sym)){ //check if key pressed was spacebar
+					case "Space": velocityY = Std.int( -1 * (width / 2)); //set otter to move up is spacebar pressed
+					
 				}
 			}
 			// if the spacebar is currently unpressed
 			if(event.type == SDL_KEYUP){
 				//Set the velocity
 				switch(SDL.getKeyName(event.key.keysym.sym)){
-					case "Keypad Space": velocityY = cast((width / 2), Int);
+					case "Space": velocityY = Std.int((width / 2));
+					
 				}
 			}
 	}
