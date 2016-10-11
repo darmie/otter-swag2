@@ -1,0 +1,23 @@
+{
+  project : {
+    name : 'Otter',
+    version : '1.0.0',
+    author : 'Darmie Akinlaja',
+
+    app : {
+      name : 'OtterSwag',
+      package : 'ng.riot.otter'
+    },
+
+    build : {
+	  flags:['-dce full'],
+      dependencies : {
+		  linc_sdl: 'git'
+      }
+    },
+
+    files : {
+		assets : "./"
+    }
+  }
+}
